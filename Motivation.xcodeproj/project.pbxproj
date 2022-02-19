@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52800DEB27C1916F00149CA5 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 52800DEA27C1916F00149CA5 /* Rswift */; };
 		52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DFEE6627C1896800CA1FD8 /* AppDelegate.swift */; };
 		52DFEE6B27C1896800CA1FD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DFEE6A27C1896800CA1FD8 /* ViewController.swift */; };
 		52DFEE6E27C1896800CA1FD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE6C27C1896800CA1FD8 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52800DEB27C1916F00149CA5 /* Rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +111,9 @@
 			dependencies = (
 			);
 			name = Motivation;
+			packageProductDependencies = (
+				52800DEA27C1916F00149CA5 /* Rswift */,
+			);
 			productName = Motivation;
 			productReference = 52DFEE6327C1896800CA1FD8 /* Motivation.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +142,9 @@
 				Base,
 			);
 			mainGroup = 52DFEE5A27C1896800CA1FD8;
+			packageReferences = (
+				52800DE927C1916F00149CA5 /* XCRemoteSwiftPackageReference "R.swift" */,
+			);
 			productRefGroup = 52DFEE6427C1896800CA1FD8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -428,6 +436,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52800DE927C1916F00149CA5 /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.Library";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52800DEA27C1916F00149CA5 /* Rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52800DE927C1916F00149CA5 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = Rswift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 52DFEE5B27C1896800CA1FD8 /* Project object */;
 }
