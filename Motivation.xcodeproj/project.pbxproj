@@ -12,6 +12,7 @@
 		52DFEE6E27C1896800CA1FD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE6C27C1896800CA1FD8 /* Main.storyboard */; };
 		52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */; };
 		52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE7127C1896800CA1FD8 /* LaunchScreen.storyboard */; };
+		52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DFEE7F27C18EED00CA1FD8 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52DFEE7227C1896800CA1FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52DFEE7427C1896800CA1FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52DFEE7F27C18EED00CA1FD8 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../../../motivation/Motivation/Resources/R.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				52DFEE6C27C1896800CA1FD8 /* Main.storyboard */,
-				52DFEE7127C1896800CA1FD8 /* LaunchScreen.storyboard */,
 				52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */,
 				52DFEE7427C1896800CA1FD8 /* Info.plist */,
+				52DFEE7F27C18EED00CA1FD8 /* R.generated.swift */,
+				52DFEE7127C1896800CA1FD8 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -95,6 +98,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52DFEE7727C1896800CA1FD8 /* Build configuration list for PBXNativeTarget "Motivation" */;
 			buildPhases = (
+				52DFEE7E27C18EA500CA1FD8 /* R.Swift */,
 				52DFEE5F27C1896800CA1FD8 /* Sources */,
 				52DFEE6027C1896800CA1FD8 /* Frameworks */,
 				52DFEE6127C1896800CA1FD8 /* Resources */,
@@ -174,6 +178,25 @@
 			shellPath = /bin/sh;
 			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		52DFEE7E27C18EA500CA1FD8 /* R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = R.Swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/Motivation/Resources/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/scripts/rswift\" generate \"$SRCROOT/Motivation/Resources/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -183,6 +206,7 @@
 			files = (
 				52DFEE6B27C1896800CA1FD8 /* ViewController.swift in Sources */,
 				52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */,
+				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
