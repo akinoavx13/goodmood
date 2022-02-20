@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		527EB0CB27C2AAAB00474245 /* CompositionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EB0CA27C2AAAB00474245 /* CompositionSection.swift */; };
+		527EB0CE27C2AB7B00474245 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 527EB0CD27C2AB7B00474245 /* RxCocoa */; };
+		527EB0D027C2AB7B00474245 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 527EB0CF27C2AB7B00474245 /* RxSwift */; };
+		527EB0D527C2AC1300474245 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EB0D427C2AC1300474245 /* QuoteCell.swift */; };
+		527EB0D727C2AC1D00474245 /* QuoteCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EB0D627C2AC1D00474245 /* QuoteCellViewModel.swift */; };
+		527EB0D927C2AC2700474245 /* QuoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527EB0D827C2AC2700474245 /* QuoteCell.xib */; };
+		527EB0DC27C2AC5A00474245 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 527EB0DB27C2AC5A00474245 /* Reusable */; };
 		52800DEB27C1916F00149CA5 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 52800DEA27C1916F00149CA5 /* Rswift */; };
 		528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF2D27C291A100C19A25 /* QuoteDIContainer.swift */; };
 		528FFF3027C291CD00C19A25 /* QuoteFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF2F27C291CD00C19A25 /* QuoteFlowCoordinator.swift */; };
@@ -31,6 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		527EB0CA27C2AAAB00474245 /* CompositionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionSection.swift; sourceTree = "<group>"; };
+		527EB0D427C2AC1300474245 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
+		527EB0D627C2AC1D00474245 /* QuoteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCellViewModel.swift; sourceTree = "<group>"; };
+		527EB0D827C2AC2700474245 /* QuoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCell.xib; sourceTree = "<group>"; };
 		528FFF2D27C291A100C19A25 /* QuoteDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDIContainer.swift; sourceTree = "<group>"; };
 		528FFF2F27C291CD00C19A25 /* QuoteFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteFlowCoordinator.swift; sourceTree = "<group>"; };
 		528FFF3127C2924D00C19A25 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
@@ -60,13 +71,42 @@
 			files = (
 				528FFF3F27C2A39600C19A25 /* RealmSwift in Frameworks */,
 				528FFF3D27C2A39600C19A25 /* Realm in Frameworks */,
+				527EB0D027C2AB7B00474245 /* RxSwift in Frameworks */,
+				527EB0CE27C2AB7B00474245 /* RxCocoa in Frameworks */,
 				52800DEB27C1916F00149CA5 /* Rswift in Frameworks */,
+				527EB0DC27C2AC5A00474245 /* Reusable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		527EB0D127C2ABE500474245 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				527EB0D227C2ABEC00474245 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		527EB0D227C2ABEC00474245 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				527EB0D327C2AC0500474245 /* Quote */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		527EB0D327C2AC0500474245 /* Quote */ = {
+			isa = PBXGroup;
+			children = (
+				527EB0D427C2AC1300474245 /* QuoteCell.swift */,
+				527EB0D627C2AC1D00474245 /* QuoteCellViewModel.swift */,
+				527EB0D827C2AC2700474245 /* QuoteCell.xib */,
+			);
+			path = Quote;
+			sourceTree = "<group>";
+		};
 		528FFF2C27C2918500C19A25 /* Quote */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +141,7 @@
 				528FFF4527C2A3ED00C19A25 /* App.swift */,
 				528FFF4A27C2A44100C19A25 /* Constants.swift */,
 				528FFF4E27C2A64500C19A25 /* DD.swift */,
+				527EB0CA27C2AAAB00474245 /* CompositionSection.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -146,6 +187,7 @@
 				528FFF4727C2A40300C19A25 /* Models */,
 				528FFF4027C2A3AE00C19A25 /* Services */,
 				52DFEE7C27C18B4000CA1FD8 /* Controllers */,
+				527EB0D127C2ABE500474245 /* Views */,
 				52DFEE7A27C18B2200CA1FD8 /* Resources */,
 			);
 			path = Motivation;
@@ -203,6 +245,9 @@
 				52800DEA27C1916F00149CA5 /* Rswift */,
 				528FFF3C27C2A39600C19A25 /* Realm */,
 				528FFF3E27C2A39600C19A25 /* RealmSwift */,
+				527EB0CD27C2AB7B00474245 /* RxCocoa */,
+				527EB0CF27C2AB7B00474245 /* RxSwift */,
+				527EB0DB27C2AC5A00474245 /* Reusable */,
 			);
 			productName = Motivation;
 			productReference = 52DFEE6327C1896800CA1FD8 /* Motivation.app */;
@@ -235,6 +280,8 @@
 			packageReferences = (
 				52800DE927C1916F00149CA5 /* XCRemoteSwiftPackageReference "R.swift" */,
 				528FFF3B27C2A39600C19A25 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				527EB0CC27C2AB7A00474245 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				527EB0DA27C2AC5A00474245 /* XCRemoteSwiftPackageReference "Reusable" */,
 			);
 			productRefGroup = 52DFEE6427C1896800CA1FD8 /* Products */;
 			projectDirPath = "";
@@ -252,6 +299,7 @@
 			files = (
 				528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */,
 				52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */,
+				527EB0D927C2AC2700474245 /* QuoteCell.xib in Resources */,
 				52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */,
 				528FFF3627C292F300C19A25 /* QuoteViewController.storyboard in Resources */,
 			);
@@ -313,8 +361,11 @@
 				52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */,
 				528FFF3227C2924D00C19A25 /* QuoteViewModel.swift in Sources */,
 				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
+				527EB0D527C2AC1300474245 /* QuoteCell.swift in Sources */,
 				528FFF3427C292A300C19A25 /* QuoteViewController.swift in Sources */,
 				528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */,
+				527EB0CB27C2AAAB00474245 /* CompositionSection.swift in Sources */,
+				527EB0D727C2AC1D00474245 /* QuoteCellViewModel.swift in Sources */,
 				528FFF4927C2A40D00C19A25 /* RMQuote.swift in Sources */,
 				528FFF4B27C2A44100C19A25 /* Constants.swift in Sources */,
 				528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */,
@@ -534,6 +585,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		527EB0CC27C2AB7A00474245 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+		527EB0DA27C2AC5A00474245 /* XCRemoteSwiftPackageReference "Reusable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/Reusable.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		52800DE927C1916F00149CA5 /* XCRemoteSwiftPackageReference "R.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mac-cain13/R.swift.Library";
@@ -553,6 +620,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		527EB0CD27C2AB7B00474245 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 527EB0CC27C2AB7A00474245 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		527EB0CF27C2AB7B00474245 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 527EB0CC27C2AB7A00474245 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		527EB0DB27C2AC5A00474245 /* Reusable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 527EB0DA27C2AC5A00474245 /* XCRemoteSwiftPackageReference "Reusable" */;
+			productName = Reusable;
+		};
 		52800DEA27C1916F00149CA5 /* Rswift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 52800DE927C1916F00149CA5 /* XCRemoteSwiftPackageReference "R.swift" */;

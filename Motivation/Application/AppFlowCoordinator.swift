@@ -25,6 +25,8 @@ final class AppFlowCoordinator {
     // MARK: - Methods
     
     func start() {
+        navigationController.setNavigationBarHidden(true, animated: false)
+        
         let quoteDIContainer = appDIContainer.makeQuoteDIContainer()
         let flow = quoteDIContainer.makeQuoteFlowCoordinator(navigationController: navigationController)
         flow.start()
