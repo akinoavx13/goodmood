@@ -46,8 +46,7 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     func refreshQuotes() {
         guard let quotes = try? databaseService.getQuotes(language: .french,
-                                                          category: .general,
-                                                          limit: 25)
+                                                          category: .general)
         else { return }
         
         configureComposition(quotes: quotes)

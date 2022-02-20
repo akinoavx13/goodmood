@@ -10,11 +10,22 @@ final class QuoteCellViewModel {
     // MARK: - Properties
     
     let content: String
+    let author: String?
     
     // MARK: - Lifecycle
     
     init(content: String) {
-        self.content = content
+        let splited = content.components(separatedBy: "@ -")
+        
+        if splited.count == 2,
+           let author = splited.last,
+           let contentWithoutAuthor = splited.first {
+            self.author = author
+            self.content = contentWithoutAuthor.replacingOccurrences(of: "\n", with: "")
+        } else {
+            self.author = nil
+            self.content = content
+        }
     }
     
 }

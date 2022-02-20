@@ -26,13 +26,19 @@ final class QuoteCell: UICollectionViewCell, NibReusable {
     override func prepareForReuse() {
         super.prepareForReuse()
     
-        contentLabel.text = nil
+        contentLabel.attributedText = nil
     }
     
     // MARK: - Methods
     
     func bind(to viewModel: QuoteCellViewModel) {
-        contentLabel.text = viewModel.content
+        let attributedText = NSMutableAttributedString(string: viewModel.content, attributes: [.font: UIFont.systemFont(ofSize: 30, weight: .regular)])
+        
+        if let author = viewModel.author {
+            attributedText.append(NSAttributedString(string: "\n\n-\(author)", attributes: [.font: UIFont.italicSystemFont(ofSize: 24)]))
+        }
+        
+        contentLabel.attributedText = attributedText
     }
         
 }

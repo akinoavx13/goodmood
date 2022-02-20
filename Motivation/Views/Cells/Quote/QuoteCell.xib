@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PED-DV-asM">
-                        <rect key="frame" x="24" y="24" width="327" height="764"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                        <rect key="frame" x="24" y="122" width="327" height="568"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="PED-DV-asM" secondAttribute="trailing" constant="24" id="IBB-zv-VgF"/>
-                    <constraint firstAttribute="bottom" secondItem="PED-DV-asM" secondAttribute="bottom" constant="24" id="IgX-K4-Qyq"/>
-                    <constraint firstItem="PED-DV-asM" firstAttribute="top" secondItem="AK6-ZQ-DOT" secondAttribute="top" constant="24" id="Rmo-LJ-P5c"/>
+                    <constraint firstItem="PED-DV-asM" firstAttribute="height" secondItem="AK6-ZQ-DOT" secondAttribute="height" multiplier="0.7" id="dcs-jW-qay"/>
+                    <constraint firstItem="PED-DV-asM" firstAttribute="centerY" secondItem="AK6-ZQ-DOT" secondAttribute="centerY" id="kp0-SY-Beu"/>
                     <constraint firstItem="PED-DV-asM" firstAttribute="leading" secondItem="AK6-ZQ-DOT" secondAttribute="leading" constant="24" id="wpp-cT-uwn"/>
                 </constraints>
             </collectionViewCellContentView>
