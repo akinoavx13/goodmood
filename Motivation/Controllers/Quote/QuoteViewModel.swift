@@ -15,10 +15,13 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     private let actions: QuoteViewModelActions
     
+    private let databaseService: DatabaseServiceProtocol
+
     // MARK: - Lifecycle
     
-    init(actions: QuoteViewModelActions) {
+    init(actions: QuoteViewModelActions,
+         databaseService: DatabaseServiceProtocol) {
         self.actions = actions
+        self.databaseService = databaseService
     }
-    
 }

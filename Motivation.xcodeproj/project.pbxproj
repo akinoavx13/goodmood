@@ -15,6 +15,15 @@
 		528FFF3627C292F300C19A25 /* QuoteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528FFF3527C292F300C19A25 /* QuoteViewController.storyboard */; };
 		528FFF3827C2939B00C19A25 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF3727C2939B00C19A25 /* AppDIContainer.swift */; };
 		528FFF3A27C293D600C19A25 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF3927C293D600C19A25 /* AppFlowCoordinator.swift */; };
+		528FFF3D27C2A39600C19A25 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 528FFF3C27C2A39600C19A25 /* Realm */; };
+		528FFF3F27C2A39600C19A25 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 528FFF3E27C2A39600C19A25 /* RealmSwift */; };
+		528FFF4327C2A3BF00C19A25 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF4227C2A3BF00C19A25 /* DatabaseService.swift */; };
+		528FFF4627C2A3ED00C19A25 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF4527C2A3ED00C19A25 /* App.swift */; };
+		528FFF4927C2A40D00C19A25 /* RMQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF4827C2A40D00C19A25 /* RMQuote.swift */; };
+		528FFF4B27C2A44100C19A25 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF4A27C2A44100C19A25 /* Constants.swift */; };
+		528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */ = {isa = PBXBuildFile; fileRef = 528FFF4C27C2A57D00C19A25 /* quotes.realm */; };
+		528FFF4F27C2A64500C19A25 /* DD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF4E27C2A64500C19A25 /* DD.swift */; };
+		528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF5227C2A76D00C19A25 /* Quote.swift */; };
 		52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DFEE6627C1896800CA1FD8 /* AppDelegate.swift */; };
 		52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */; };
 		52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE7127C1896800CA1FD8 /* LaunchScreen.storyboard */; };
@@ -29,6 +38,13 @@
 		528FFF3527C292F300C19A25 /* QuoteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuoteViewController.storyboard; sourceTree = "<group>"; };
 		528FFF3727C2939B00C19A25 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		528FFF3927C293D600C19A25 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		528FFF4227C2A3BF00C19A25 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		528FFF4527C2A3ED00C19A25 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		528FFF4827C2A40D00C19A25 /* RMQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMQuote.swift; sourceTree = "<group>"; };
+		528FFF4A27C2A44100C19A25 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		528FFF4C27C2A57D00C19A25 /* quotes.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = quotes.realm; sourceTree = "<group>"; };
+		528FFF4E27C2A64500C19A25 /* DD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DD.swift; sourceTree = "<group>"; };
+		528FFF5227C2A76D00C19A25 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		52DFEE6327C1896800CA1FD8 /* Motivation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DFEE6627C1896800CA1FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528FFF3F27C2A39600C19A25 /* RealmSwift in Frameworks */,
+				528FFF3D27C2A39600C19A25 /* Realm in Frameworks */,
 				52800DEB27C1916F00149CA5 /* Rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +77,49 @@
 				528FFF3527C292F300C19A25 /* QuoteViewController.storyboard */,
 			);
 			path = Quote;
+			sourceTree = "<group>";
+		};
+		528FFF4027C2A3AE00C19A25 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				528FFF4127C2A3B500C19A25 /* Database */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		528FFF4127C2A3B500C19A25 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				528FFF4227C2A3BF00C19A25 /* DatabaseService.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		528FFF4427C2A3E500C19A25 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				528FFF4527C2A3ED00C19A25 /* App.swift */,
+				528FFF4A27C2A44100C19A25 /* Constants.swift */,
+				528FFF4E27C2A64500C19A25 /* DD.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		528FFF4727C2A40300C19A25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				528FFF5127C2A76400C19A25 /* Database */,
+				528FFF5227C2A76D00C19A25 /* Quote.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		528FFF5127C2A76400C19A25 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				528FFF4827C2A40D00C19A25 /* RMQuote.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		52DFEE5A27C1896800CA1FD8 = {
@@ -81,6 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				52DFEE7B27C18B3500CA1FD8 /* Application */,
+				528FFF4427C2A3E500C19A25 /* Utils */,
+				528FFF4727C2A40300C19A25 /* Models */,
+				528FFF4027C2A3AE00C19A25 /* Services */,
 				52DFEE7C27C18B4000CA1FD8 /* Controllers */,
 				52DFEE7A27C18B2200CA1FD8 /* Resources */,
 			);
@@ -90,6 +154,7 @@
 		52DFEE7A27C18B2200CA1FD8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				528FFF4C27C2A57D00C19A25 /* quotes.realm */,
 				52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */,
 				52DFEE7427C1896800CA1FD8 /* Info.plist */,
 				52DFEE7F27C18EED00CA1FD8 /* R.generated.swift */,
@@ -136,6 +201,8 @@
 			name = Motivation;
 			packageProductDependencies = (
 				52800DEA27C1916F00149CA5 /* Rswift */,
+				528FFF3C27C2A39600C19A25 /* Realm */,
+				528FFF3E27C2A39600C19A25 /* RealmSwift */,
 			);
 			productName = Motivation;
 			productReference = 52DFEE6327C1896800CA1FD8 /* Motivation.app */;
@@ -167,6 +234,7 @@
 			mainGroup = 52DFEE5A27C1896800CA1FD8;
 			packageReferences = (
 				52800DE927C1916F00149CA5 /* XCRemoteSwiftPackageReference "R.swift" */,
+				528FFF3B27C2A39600C19A25 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 52DFEE6427C1896800CA1FD8 /* Products */;
 			projectDirPath = "";
@@ -182,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */,
 				52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */,
 				52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */,
 				528FFF3627C292F300C19A25 /* QuoteViewController.storyboard in Resources */,
@@ -236,14 +305,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528FFF4327C2A3BF00C19A25 /* DatabaseService.swift in Sources */,
 				528FFF3827C2939B00C19A25 /* AppDIContainer.swift in Sources */,
 				528FFF3A27C293D600C19A25 /* AppFlowCoordinator.swift in Sources */,
+				528FFF4627C2A3ED00C19A25 /* App.swift in Sources */,
 				528FFF3027C291CD00C19A25 /* QuoteFlowCoordinator.swift in Sources */,
 				52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */,
 				528FFF3227C2924D00C19A25 /* QuoteViewModel.swift in Sources */,
 				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
 				528FFF3427C292A300C19A25 /* QuoteViewController.swift in Sources */,
 				528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */,
+				528FFF4927C2A40D00C19A25 /* RMQuote.swift in Sources */,
+				528FFF4B27C2A44100C19A25 /* Constants.swift in Sources */,
+				528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */,
+				528FFF4F27C2A64500C19A25 /* DD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +542,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		528FFF3B27C2A39600C19A25 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.19.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -474,6 +557,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 52800DE927C1916F00149CA5 /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = Rswift;
+		};
+		528FFF3C27C2A39600C19A25 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 528FFF3B27C2A39600C19A25 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		528FFF3E27C2A39600C19A25 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 528FFF3B27C2A39600C19A25 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

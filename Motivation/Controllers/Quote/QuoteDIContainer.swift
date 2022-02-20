@@ -9,7 +9,9 @@ import UIKit
 
 final class QuoteDIContainer {
     
-    struct Dependencies { }
+    struct Dependencies {
+        let databaseService: DatabaseServiceProtocol
+    }
     
     // MARK: - Properties
     
@@ -31,7 +33,8 @@ final class QuoteDIContainer {
     // MARK: - Private methods
     
     private func makeQuoteViewModel(actions: QuoteViewModelActions) -> QuoteViewModelProtocol {
-        QuoteViewModel(actions: actions)
+        QuoteViewModel(actions: actions,
+                       databaseService: dependencies.databaseService)
     }
 }
 
