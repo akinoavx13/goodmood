@@ -15,6 +15,7 @@ final class QuoteViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(cellType: QuoteCell.self)
+            collectionView.decelerationRate = .fast
         }
     }
     
@@ -24,16 +25,16 @@ final class QuoteViewController: UIViewController {
     
     private var composition = QuoteViewModel.QuoteComposition()
     private let disposeBag = DisposeBag()
-
+    
     // MARK: - Lifecycle
     
     static func create(with viewModel: QuoteViewModelProtocol) -> QuoteViewController {
         guard let viewController = R.storyboard.quoteViewController().instantiateInitialViewController()
                 as? QuoteViewController
         else { fatalError("Could not instantiate QuoteViewController.") }
-
+        
         viewController.viewModel = viewModel
-
+        
         return viewController
     }
     
@@ -44,14 +45,14 @@ final class QuoteViewController: UIViewController {
         
         viewModel.refreshQuotes()
     }
-
+    
     // MARK: - Private methods
     
     private func bind(to viewModel: QuoteViewModelProtocol) {
         viewModel.composition
             .drive(onNext: { [weak self] in
                 guard let self = self else { return }
-
+                
                 self.composition = $0
                 self.collectionView.reloadData()
             })

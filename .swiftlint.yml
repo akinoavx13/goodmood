@@ -35,5 +35,6 @@ opt_in_rules:
 # Customize:
 identifier_name:
   excluded: # excluded via string array
-
+    - vY
+    
   allowed_symbols: "_"
