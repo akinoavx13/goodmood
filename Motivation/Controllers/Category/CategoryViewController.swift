@@ -12,7 +12,9 @@ final class CategoryViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView! {
+        didSet { collectionView.register(cellType: CategoryCell.self) }
+    }
     @IBOutlet private weak var accountButton: AnimateButton! {
         didSet { accountButton.layer.smoothCorner(8) }
     }
@@ -39,15 +41,27 @@ final class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = R.string.localizable.categories()
+        configure()
         
         bind(to: viewModel)
+        
+        viewModel.refreshCategories()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         viewModel.viewDidAppear()
+    }
+    
+    // MARK: - Setup methods
+    
+    private func configure() {
+        title = R.string.localizable.categories()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close,
+                                                            target: self,
+                                                            action: #selector(rightBarButtonItemDidTap))
     }
     
     // MARK: - Private methods
@@ -62,6 +76,10 @@ final class CategoryViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    @objc private func rightBarButtonItemDidTap() {
+        dismiss(animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDataSource -
@@ -74,16 +92,15 @@ extension CategoryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let type = composition.sections[indexPath.section].cellForIndex(indexPath.row) else { return UICollectionViewCell() }
-        
-        return UICollectionViewCell()
-//        switch type {
-//        case let .Category(viewModel):
-//            let cell: CategoryCell = collectionView.dequeueReusableCell(for: indexPath)
-//            cell.bind(to: viewModel)
-//
-//            return cell
-//        }
+        guard let type = composition.sections[indexPath.section].cellForIndex(indexPath.row) else { return UICollectionViewCell() }
+
+        switch type {
+        case let .category(viewModel):
+            let cell: CategoryCell = collectionView.dequeueReusableCell(for: indexPath)
+            cell.bind(to: viewModel)
+            
+            return cell
+        }
     }
 }
 
@@ -93,11 +110,10 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        guard let type = composition.sections[indexPath.section].cellForIndex(indexPath.row) else { return .zero }
+        guard let type = composition.sections[indexPath.section].cellForIndex(indexPath.row) else { return .zero }
         
-        return .zero
-//        switch type {
-//        case .Category: return CategoryCell.size
-//        }
+        switch type {
+        case .category: return CategoryCell.size
+        }
     }
 }

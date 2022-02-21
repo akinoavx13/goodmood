@@ -19,6 +19,7 @@ protocol CategoryViewModelProtocol: AnyObject {
     // MARK: - Methods
     
     func viewDidAppear()
+    func refreshCategories()
 }
 
 final class CategoryViewModel: CategoryViewModelProtocol {
@@ -38,14 +39,16 @@ final class CategoryViewModel: CategoryViewModelProtocol {
          trackingService: TrackingServiceProtocol) {
         self.actions = actions
         self.trackingService = trackingService
-        
-        configureComposition()
     }
     
     // MARK: - Methods
     
     func viewDidAppear() {
         trackingService.track(event: .showCategories, eventProperties: nil)
+    }
+    
+    func refreshCategories() {
+        configureComposition()
     }
 }
 
@@ -58,15 +61,31 @@ extension CategoryViewModel {
         var sections = [Section]()
     }
     
-    enum SectionType { }
+    enum SectionType {
+        case categories
+    }
     
-    enum Cell { }
+    enum Cell {
+        case category(_ for: CategoryCellViewModel)
+    }
     
     // MARK: - Private methods
     
     private func configureComposition() {
-        let sections = [Section]()
+        var sections = [Section]()
+        
+        sections.append(configureCategoriesSection())
         
         compositionSubject.onNext(Composition(sections: sections))
+    }
+    
+    private func configureCategoriesSection() -> Section {
+        let cells: [Cell] = RMQuote.RMCategory.allCases.map { .category(CategoryCellViewModel(name: "\($0.translatedName) \($0.icon)")) }
+        
+        dd(cells)
+        
+        return .section(.categories,
+                        title: nil,
+                        cells: cells)
     }
 }

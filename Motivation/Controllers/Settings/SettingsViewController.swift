@@ -44,9 +44,7 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = R.string.localizable.settings()
-        
+            
         configure()
         
         bind(to: viewModel)
@@ -72,6 +70,12 @@ final class SettingsViewController: UIViewController {
         } else {
             appVersionLabel.text = R.string.localizable.version_x_x(appVersion, appBuildNumber)
         }
+        
+        title = R.string.localizable.settings()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close,
+                                                            target: self,
+                                                            action: #selector(rightBarButtonItemDidTap))
     }
     
     // MARK: - Private methods
@@ -104,6 +108,10 @@ final class SettingsViewController: UIViewController {
         switch rowId {
         default: fatalError("Can't handle \(id)")
         }
+    }
+    
+    @objc private func rightBarButtonItemDidTap() {
+        dismiss(animated: true)
     }
 }
 

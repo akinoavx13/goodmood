@@ -9,11 +9,29 @@ import RealmSwift
 
 final class RMQuote: Object {
 
-    enum RMCategory: String, PersistableEnum {
+    enum RMCategory: String, CaseIterable, PersistableEnum {
         case general,
              positivity,
              encouragement,
              breakup
+        
+        var translatedName: String {
+            switch self {
+            case .general: return R.string.localizable.general()
+            case .positivity: return R.string.localizable.positivity()
+            case .encouragement: return R.string.localizable.encouragement()
+            case .breakup: return R.string.localizable.breakup()
+            }
+        }
+        
+        var icon: String {
+            switch self {
+            case .general: return "💬"
+            case .positivity: return "👍"
+            case .encouragement: return "👏"
+            case .breakup: return "💔"
+            }
+        }
     }
 
     enum RMLanguage: String, PersistableEnum {

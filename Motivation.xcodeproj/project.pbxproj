@@ -42,6 +42,9 @@
 		52B8091127C417040038FF9D /* CategoryFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090C27C417030038FF9D /* CategoryFlowCoordinator.swift */; };
 		52B8091227C417040038FF9D /* CategoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B8090D27C417030038FF9D /* CategoryViewController.storyboard */; };
 		52B8091327C417040038FF9D /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090E27C417030038FF9D /* CategoryViewController.swift */; };
+		52B8091827C41C4E0038FF9D /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B8091527C41C4E0038FF9D /* CategoryCell.xib */; };
+		52B8091927C41C4E0038FF9D /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8091627C41C4E0038FF9D /* CategoryCell.swift */; };
+		52B8091A27C41C4E0038FF9D /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8091727C41C4E0038FF9D /* CategoryCellViewModel.swift */; };
 		52D3D23327C3B40300B8B884 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 52D3D23227C3B40300B8B884 /* Amplitude */; };
 		52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23527C3B42B00B8B884 /* TrackingService.swift */; };
 		52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23827C3B60C00B8B884 /* PreferenceService.swift */; };
@@ -103,6 +106,9 @@
 		52B8090C27C417030038FF9D /* CategoryFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFlowCoordinator.swift; sourceTree = "<group>"; };
 		52B8090D27C417030038FF9D /* CategoryViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CategoryViewController.storyboard; sourceTree = "<group>"; };
 		52B8090E27C417030038FF9D /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		52B8091527C41C4E0038FF9D /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		52B8091627C41C4E0038FF9D /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		52B8091727C41C4E0038FF9D /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		52D3D23527C3B42B00B8B884 /* TrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingService.swift; sourceTree = "<group>"; };
 		52D3D23827C3B60C00B8B884 /* PreferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceService.swift; sourceTree = "<group>"; };
 		52D3D23B27C3BE7200B8B884 /* CALayer+SmoothCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+SmoothCorner.swift"; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				527EB0D327C2AC0500474245 /* Quote */,
+				52B8091427C41C130038FF9D /* Category */,
 				52FA138E27C3FA7000DCECFD /* Settings */,
 			);
 			path = Cells;
@@ -255,6 +262,16 @@
 				52B8090A27C417030038FF9D /* CategoryViewModel.swift */,
 				52B8090E27C417030038FF9D /* CategoryViewController.swift */,
 				52B8090D27C417030038FF9D /* CategoryViewController.storyboard */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		52B8091427C41C130038FF9D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				52B8091627C41C4E0038FF9D /* CategoryCell.swift */,
+				52B8091727C41C4E0038FF9D /* CategoryCellViewModel.swift */,
+				52B8091527C41C4E0038FF9D /* CategoryCell.xib */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -528,6 +545,7 @@
 				52FA13A827C3FA7100DCECFD /* SettingsValueCell.xib in Resources */,
 				52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */,
 				52FA13AE27C3FA7100DCECFD /* SettingsButtonCell.xib in Resources */,
+				52B8091827C41C4E0038FF9D /* CategoryCell.xib in Resources */,
 				52FA138A27C3FA4600DCECFD /* SettingsViewController.storyboard in Resources */,
 				52FA13AB27C3FA7100DCECFD /* SettingsToggleCell.xib in Resources */,
 				52FA13B127C3FA7100DCECFD /* SettingsLinkCell.xib in Resources */,
@@ -610,6 +628,7 @@
 				528FFF3427C292A300C19A25 /* QuoteViewController.swift in Sources */,
 				52B8090F27C417040038FF9D /* CategoryViewModel.swift in Sources */,
 				528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */,
+				52B8091927C41C4E0038FF9D /* CategoryCell.swift in Sources */,
 				527EB0CB27C2AAAB00474245 /* CompositionSection.swift in Sources */,
 				52FA13A327C3FA7100DCECFD /* SettingsTimePickerCellViewModel.swift in Sources */,
 				5212A85527C3B248002A5CB3 /* UserIdentifierManager.swift in Sources */,
@@ -618,6 +637,7 @@
 				528FFF4927C2A40D00C19A25 /* RMQuote.swift in Sources */,
 				528FFF4B27C2A44100C19A25 /* Constants.swift in Sources */,
 				52FA13B027C3FA7100DCECFD /* SettingsLinkCell.swift in Sources */,
+				52B8091A27C41C4E0038FF9D /* CategoryCellViewModel.swift in Sources */,
 				52B8090127C400580038FF9D /* Colors.swift in Sources */,
 				52FA13AD27C3FA7100DCECFD /* SettingsButtonCellViewModel.swift in Sources */,
 				528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */,
