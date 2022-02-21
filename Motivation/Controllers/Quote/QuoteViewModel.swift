@@ -41,7 +41,8 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     private let databaseService: DatabaseServiceProtocol
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
-
+    private var selectedCategory: RMQuote.RMCategory?
+    
     // MARK: - Lifecycle
     
     init(actions: QuoteViewModelActions,
@@ -63,7 +64,9 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     }
     
     func refreshQuotes() {
-        guard let selectedCategory = preferenceService.getSelectedCategory(),
+        selectedCategory = preferenceService.getSelectedCategory()
+        
+        guard let selectedCategory = self.selectedCategory,
               let quotes = try? databaseService.getQuotes(language: RMQuote.RMLanguage.user,
                                                           category: selectedCategory)
         else { return }

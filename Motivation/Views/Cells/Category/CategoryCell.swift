@@ -12,10 +12,9 @@ final class CategoryCell: UICollectionViewCell, NibReusable {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var containerView: UIView! {
-        didSet { containerView.layer.smoothCorner(8) }
+    @IBOutlet private weak var categoryButton: AnimateButton! {
+        didSet { categoryButton.layer.smoothCorner(8) }
     }
-    @IBOutlet private weak var nameLabel: UILabel!
     
     // MARK: - Properties
     
@@ -32,12 +31,12 @@ final class CategoryCell: UICollectionViewCell, NibReusable {
     override func prepareForReuse() {
         super.prepareForReuse()
     
-        nameLabel.text = nil
+        categoryButton.setTitle(nil, for: .normal)
     }
     
     // MARK: - Methods
     
     func bind(to viewModel: CategoryCellViewModel) {
-        nameLabel.text = viewModel.name
+        categoryButton.setTitle(viewModel.name, for: .normal)
     }
 }
