@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5212A85027C3B1AB002A5CB3 /* Bugsnag in Frameworks */ = {isa = PBXBuildFile; productRef = 5212A84F27C3B1AB002A5CB3 /* Bugsnag */; };
+		5212A85327C3B21B002A5CB3 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5212A85227C3B21B002A5CB3 /* KeychainSwift */; };
+		5212A85527C3B248002A5CB3 /* UserIdentifierManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212A85427C3B248002A5CB3 /* UserIdentifierManager.swift */; };
 		527EB0CB27C2AAAB00474245 /* CompositionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EB0CA27C2AAAB00474245 /* CompositionSection.swift */; };
 		527EB0CE27C2AB7B00474245 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 527EB0CD27C2AB7B00474245 /* RxCocoa */; };
 		527EB0D027C2AB7B00474245 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 527EB0CF27C2AB7B00474245 /* RxSwift */; };
@@ -39,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5212A85427C3B248002A5CB3 /* UserIdentifierManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentifierManager.swift; sourceTree = "<group>"; };
 		527EB0CA27C2AAAB00474245 /* CompositionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionSection.swift; sourceTree = "<group>"; };
 		527EB0D427C2AC1300474245 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
 		527EB0D627C2AC1D00474245 /* QuoteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCellViewModel.swift; sourceTree = "<group>"; };
@@ -73,9 +77,11 @@
 			files = (
 				528FFF3F27C2A39600C19A25 /* RealmSwift in Frameworks */,
 				528FFF3D27C2A39600C19A25 /* Realm in Frameworks */,
+				5212A85027C3B1AB002A5CB3 /* Bugsnag in Frameworks */,
 				527EB0D027C2AB7B00474245 /* RxSwift in Frameworks */,
 				527EB0CE27C2AB7B00474245 /* RxCocoa in Frameworks */,
 				52800DEB27C1916F00149CA5 /* Rswift in Frameworks */,
+				5212A85327C3B21B002A5CB3 /* KeychainSwift in Frameworks */,
 				527EB0DC27C2AC5A00474245 /* Reusable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +151,7 @@
 				528FFF4E27C2A64500C19A25 /* DD.swift */,
 				527EB0CA27C2AAAB00474245 /* CompositionSection.swift */,
 				527EB0DD27C2B73500474245 /* SnapCenterLayout.swift */,
+				5212A85427C3B248002A5CB3 /* UserIdentifierManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -251,6 +258,8 @@
 				527EB0CD27C2AB7B00474245 /* RxCocoa */,
 				527EB0CF27C2AB7B00474245 /* RxSwift */,
 				527EB0DB27C2AC5A00474245 /* Reusable */,
+				5212A84F27C3B1AB002A5CB3 /* Bugsnag */,
+				5212A85227C3B21B002A5CB3 /* KeychainSwift */,
 			);
 			productName = Motivation;
 			productReference = 52DFEE6327C1896800CA1FD8 /* Motivation.app */;
@@ -285,6 +294,8 @@
 				528FFF3B27C2A39600C19A25 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				527EB0CC27C2AB7A00474245 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				527EB0DA27C2AC5A00474245 /* XCRemoteSwiftPackageReference "Reusable" */,
+				5212A84E27C3B1AB002A5CB3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
+				5212A85127C3B21B002A5CB3 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 52DFEE6427C1896800CA1FD8 /* Products */;
 			projectDirPath = "";
@@ -368,6 +379,7 @@
 				528FFF3427C292A300C19A25 /* QuoteViewController.swift in Sources */,
 				528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */,
 				527EB0CB27C2AAAB00474245 /* CompositionSection.swift in Sources */,
+				5212A85527C3B248002A5CB3 /* UserIdentifierManager.swift in Sources */,
 				527EB0DE27C2B73500474245 /* SnapCenterLayout.swift in Sources */,
 				527EB0D727C2AC1D00474245 /* QuoteCellViewModel.swift in Sources */,
 				528FFF4927C2A40D00C19A25 /* RMQuote.swift in Sources */,
@@ -589,6 +601,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5212A84E27C3B1AB002A5CB3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bugsnag/bugsnag-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		5212A85127C3B21B002A5CB3 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
 		527EB0CC27C2AB7A00474245 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -624,6 +652,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5212A84F27C3B1AB002A5CB3 /* Bugsnag */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5212A84E27C3B1AB002A5CB3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */;
+			productName = Bugsnag;
+		};
+		5212A85227C3B21B002A5CB3 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5212A85127C3B21B002A5CB3 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
 		527EB0CD27C2AB7B00474245 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 527EB0CC27C2AB7A00474245 /* XCRemoteSwiftPackageReference "RxSwift" */;

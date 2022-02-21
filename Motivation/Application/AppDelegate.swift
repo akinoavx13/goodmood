@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Bugsnag
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if App.env == .appStore {
+            Bugsnag.start()
+            Bugsnag.setUser(UserIdentifierManager.shared.userId,
+                            withEmail: nil,
+                            andName: nil)
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
