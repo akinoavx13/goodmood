@@ -24,6 +24,7 @@ protocol QuoteViewModelProtocol: AnyObject {
     
     func viewDidAppear()
     func refreshQuotesIfNeeded()
+    func refreshSelectedCategory()
     func showNextQuote()
     func presentSettings()
     func presentCategory()
@@ -41,7 +42,8 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     private let databaseService: DatabaseServiceProtocol
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
-    private var selectedCategory: RMQuote.RMCategory?
+    private var selectedCategory: RMQuote.RMCategory
+    private var newSelectedCategory: RMQuote.RMCategory?
     
     // MARK: - Lifecycle
     
@@ -53,6 +55,7 @@ final class QuoteViewModel: QuoteViewModelProtocol {
         self.databaseService = databaseService
         self.trackingService = trackingService
         self.preferenceService = preferenceService
+        self.selectedCategory = preferenceService.getSelectedCategory() ?? .general
         
         configureComposition()
     }
@@ -63,23 +66,26 @@ final class QuoteViewModel: QuoteViewModelProtocol {
         trackingService.track(event: .showQuoteScreen, eventProperties: nil)
     }
     
-    func refreshQuotesIfNeeded() {
-        let newSelectedCategory = preferenceService.getSelectedCategory()
-                
-        guard selectedCategory != newSelectedCategory else { return }
+    func refreshQuotesIfNeeded() {        
+        guard shouldRefreshQuotes() else { return }
         
-        selectedCategory = preferenceService.getSelectedCategory()
+        selectedCategory = preferenceService.getSelectedCategory() ?? .general
         
-        guard let selectedCategory = self.selectedCategory,
-              let quotes = try? databaseService.getQuotes(language: RMQuote.RMLanguage.user,
+        guard let quotes = try? databaseService.getQuotes(language: RMQuote.RMLanguage.user,
                                                           category: selectedCategory)
         else { return }
         
         configureComposition(quotes: quotes)
     }
     
+    func refreshSelectedCategory() {
+        newSelectedCategory = preferenceService.getSelectedCategory()
+        
+        refreshQuotesIfNeeded()
+    }
+    
     func showNextQuote() {
-        trackingService.track(event: .showNextQuote, eventProperties: nil)
+        trackingService.track(event: .showNextQuote, eventProperties: [.category: selectedCategory.rawValue])
     }
     
     func presentSettings() {
@@ -88,6 +94,12 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     func presentCategory() {
         actions.presentCategory()
+    }
+    
+    // MARK: - Methods
+    
+    private func shouldRefreshQuotes() -> Bool {
+        selectedCategory != newSelectedCategory
     }
 }
 

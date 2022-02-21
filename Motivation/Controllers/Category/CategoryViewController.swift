@@ -92,8 +92,14 @@ final class CategoryViewController: UIViewController {
     @objc private func rightBarButtonItemDidTap() {
         dismiss(animated: true)
     }
+    
+    private func selectCategory(row: Int) {
+        viewModel.selectCategory(row: row)
+        
+        // TODO: Dismiss only if selected category is different
+        dismiss(animated: true)
+    }
 }
-
 // MARK: - UICollectionViewDataSource -
 
 extension CategoryViewController: UICollectionViewDataSource {
@@ -133,7 +139,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         guard let type = composition.sections[indexPath.section].cellForIndex(indexPath.row) else { return }
         
         switch type {
-        case .category: viewModel.selectCategory(row: indexPath.row)
+        case .category: selectCategory(row: indexPath.row)
         }
     }
 }

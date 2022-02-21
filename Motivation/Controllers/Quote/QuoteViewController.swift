@@ -137,6 +137,6 @@ extension QuoteViewController: UICollectionViewDelegate {
 
 extension QuoteViewController: CategoryViewControllerDelegate {
     func categoryViewControllerDidDismiss(_ sender: CategoryViewController) {
-        viewModel.refreshQuotesIfNeeded()
+        viewModel.refreshSelectedCategory()
     }
 }

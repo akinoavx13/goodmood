@@ -36,7 +36,8 @@ final class TrackingService: TrackingServiceProtocol {
     
     enum EventProperty: String, RawRepresentable {
         case name,
-             hasSucceed
+             hasSucceed,
+             category
     }
 
     enum PaywallOrigin: String, RawRepresentable {
