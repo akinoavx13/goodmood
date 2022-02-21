@@ -40,5 +40,4 @@ final class QuoteCell: UICollectionViewCell, NibReusable {
         
         contentLabel.attributedText = attributedText
     }
-        
 }

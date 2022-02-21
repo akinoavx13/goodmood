@@ -27,5 +27,4 @@ final class QuoteCellViewModel {
             self.content = content
         }
     }
-    
 }

@@ -14,7 +14,7 @@ protocol QuoteViewModelProtocol: AnyObject {
     
     // MARK: - Properties
     
-    var composition: Driver<QuoteViewModel.QuoteComposition> { get }
+    var composition: Driver<QuoteViewModel.Composition> { get }
     
     // MARK: - Methods
     
@@ -27,9 +27,9 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     // MARK: - Properties
     
-    lazy private(set) var composition: Driver<QuoteComposition> = compositionSubject.asDriver(onErrorDriveWith: .never())
+    lazy private(set) var composition: Driver<Composition> = compositionSubject.asDriver(onErrorDriveWith: .never())
 
-    private let compositionSubject = ReplaySubject<QuoteComposition>.create(bufferSize: 1)
+    private let compositionSubject = ReplaySubject<Composition>.create(bufferSize: 1)
     
     private let actions: QuoteViewModelActions
     private let databaseService: DatabaseServiceProtocol
@@ -71,7 +71,7 @@ final class QuoteViewModel: QuoteViewModelProtocol {
 extension QuoteViewModel {
     typealias Section = CompositionSection<SectionType, Cell>
     
-    struct QuoteComposition {
+    struct Composition {
         var sections = [Section]()
     }
     
@@ -92,7 +92,7 @@ extension QuoteViewModel {
             sections.append(quotesSection)
         }
         
-        compositionSubject.onNext(QuoteComposition(sections: sections))
+        compositionSubject.onNext(Composition(sections: sections))
     }
     
     private func configureQuotesSection(quotes: [Quote]) -> Section? {

@@ -61,7 +61,7 @@ final class AnimateButton: UIButton {
         super.init(frame: .zero)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }

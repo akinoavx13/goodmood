@@ -26,7 +26,7 @@ final class QuoteViewController: UIViewController {
     
     var viewModel: QuoteViewModelProtocol!
     
-    private var composition = QuoteViewModel.QuoteComposition()
+    private var composition = QuoteViewModel.Composition()
     private let disposeBag = DisposeBag()
     private var lastHiddingRow: Int?
     
