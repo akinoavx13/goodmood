@@ -17,7 +17,7 @@ final class CategoryDIContainer {
     // MARK: - Properties
     
     private let dependencies: Dependencies
-
+    
     // MARK: - Lifecycle
 
     init(dependencies: Dependencies) {
@@ -26,8 +26,10 @@ final class CategoryDIContainer {
     
     // MARK: - Methods
     
-    func makeCategoryFlowCoordinator(navigationController: UINavigationController) -> CategoryFlowCoordinator {
+    func makeCategoryFlowCoordinator(navigationController: UINavigationController,
+                                     delegate: CategoryViewControllerDelegate?) -> CategoryFlowCoordinator {
         CategoryFlowCoordinator(navigationController: navigationController,
+                                delegate: delegate,
                                 dependencies: self)
     }
     

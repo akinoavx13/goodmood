@@ -50,7 +50,7 @@ final class QuoteViewController: UIViewController {
         
         bind(to: viewModel)
         
-        viewModel.refreshQuotes()
+        viewModel.refreshQuotesIfNeeded()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -130,5 +130,13 @@ extension QuoteViewController: UICollectionViewDelegate {
         }
         
         lastHiddingRow = indexPath.row
+    }
+}
+
+// MARK: - CategoryViewControllerDelegate -
+
+extension QuoteViewController: CategoryViewControllerDelegate {
+    func categoryViewControllerDidDismiss(_ sender: CategoryViewController) {
+        viewModel.refreshQuotesIfNeeded()
     }
 }

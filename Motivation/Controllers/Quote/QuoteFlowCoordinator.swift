@@ -24,6 +24,8 @@ final class QuoteFlowCoordinator {
     // MARK: - Properties
     
     private weak var navigationController: UINavigationController?
+    private weak var delegate: CategoryViewControllerDelegate?
+
     private let dependencies: QuoteFlowCoordinatorDependencies
     
     // MARK: - Lifecycle
@@ -41,7 +43,11 @@ final class QuoteFlowCoordinator {
                                             presentCategory: presentCategory)
         
         DispatchQueue.main.async {
-            self.navigationController?.setViewControllers([self.dependencies.makeQuoteViewController(actions: actions)],
+            let viewController = self.dependencies.makeQuoteViewController(actions: actions)
+            
+            self.delegate = viewController
+            
+            self.navigationController?.setViewControllers([viewController],
                                                           animated: false)
         }
     }
@@ -64,7 +70,8 @@ extension QuoteFlowCoordinator {
         
         dependencies
             .cateogryDIContainer
-            .makeCategoryFlowCoordinator(navigationController: navigationController)
+            .makeCategoryFlowCoordinator(navigationController: navigationController,
+                                         delegate: delegate)
             .start()
     }
 }

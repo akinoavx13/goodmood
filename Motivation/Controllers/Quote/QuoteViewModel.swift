@@ -23,7 +23,7 @@ protocol QuoteViewModelProtocol: AnyObject {
     // MARK: - Methods
     
     func viewDidAppear()
-    func refreshQuotes()
+    func refreshQuotesIfNeeded()
     func showNextQuote()
     func presentSettings()
     func presentCategory()
@@ -63,7 +63,15 @@ final class QuoteViewModel: QuoteViewModelProtocol {
         trackingService.track(event: .showQuoteScreen, eventProperties: nil)
     }
     
-    func refreshQuotes() {
+    func refreshQuotesIfNeeded() {
+        let newSelectedCategory = preferenceService.getSelectedCategory()
+        
+//        dd("should refresh", selectedCategory != newSelectedCategory, selectedCategory?.rawValue, newSelectedCategory?.rawValue)
+        
+        guard selectedCategory != newSelectedCategory else { return }
+        
+//        dd("refresh")
+        
         selectedCategory = preferenceService.getSelectedCategory()
         
         guard let selectedCategory = self.selectedCategory,

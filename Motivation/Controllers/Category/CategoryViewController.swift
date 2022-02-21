@@ -8,6 +8,10 @@
 import UIKit
 import RxSwift
 
+protocol CategoryViewControllerDelegate: AnyObject {
+    func categoryViewControllerDidDismiss(_ sender: CategoryViewController)
+}
+
 final class CategoryViewController: UIViewController {
     
     // MARK: - Outlets
@@ -20,6 +24,8 @@ final class CategoryViewController: UIViewController {
     }
     
     // MARK: - Properties
+    
+    weak var delegate: CategoryViewControllerDelegate?
     
     var viewModel: CategoryViewModelProtocol!
     
@@ -52,6 +58,12 @@ final class CategoryViewController: UIViewController {
         super.viewDidAppear(animated)
         
         viewModel.viewDidAppear()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        delegate?.categoryViewControllerDidDismiss(self)
     }
     
     // MARK: - Setup methods
