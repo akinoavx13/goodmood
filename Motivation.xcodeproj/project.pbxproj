@@ -35,6 +35,9 @@
 		528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */ = {isa = PBXBuildFile; fileRef = 528FFF4C27C2A57D00C19A25 /* quotes.realm */; };
 		528FFF4F27C2A64500C19A25 /* DD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF4E27C2A64500C19A25 /* DD.swift */; };
 		528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF5227C2A76D00C19A25 /* Quote.swift */; };
+		52D3D23327C3B40300B8B884 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 52D3D23227C3B40300B8B884 /* Amplitude */; };
+		52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23527C3B42B00B8B884 /* TrackingService.swift */; };
+		52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23827C3B60C00B8B884 /* PreferenceService.swift */; };
 		52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DFEE6627C1896800CA1FD8 /* AppDelegate.swift */; };
 		52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */; };
 		52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE7127C1896800CA1FD8 /* LaunchScreen.storyboard */; };
@@ -62,6 +65,8 @@
 		528FFF4C27C2A57D00C19A25 /* quotes.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = quotes.realm; sourceTree = "<group>"; };
 		528FFF4E27C2A64500C19A25 /* DD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DD.swift; sourceTree = "<group>"; };
 		528FFF5227C2A76D00C19A25 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		52D3D23527C3B42B00B8B884 /* TrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingService.swift; sourceTree = "<group>"; };
+		52D3D23827C3B60C00B8B884 /* PreferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceService.swift; sourceTree = "<group>"; };
 		52DFEE6327C1896800CA1FD8 /* Motivation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DFEE6627C1896800CA1FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D3D23327C3B40300B8B884 /* Amplitude in Frameworks */,
 				528FFF3F27C2A39600C19A25 /* RealmSwift in Frameworks */,
 				528FFF3D27C2A39600C19A25 /* Realm in Frameworks */,
 				5212A85027C3B1AB002A5CB3 /* Bugsnag in Frameworks */,
@@ -131,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				528FFF4127C2A3B500C19A25 /* Database */,
+				52D3D23427C3B41400B8B884 /* Tracking */,
+				52D3D23727C3B5F100B8B884 /* Preference */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -171,6 +179,22 @@
 				528FFF4827C2A40D00C19A25 /* RMQuote.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		52D3D23427C3B41400B8B884 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				52D3D23527C3B42B00B8B884 /* TrackingService.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		52D3D23727C3B5F100B8B884 /* Preference */ = {
+			isa = PBXGroup;
+			children = (
+				52D3D23827C3B60C00B8B884 /* PreferenceService.swift */,
+			);
+			path = Preference;
 			sourceTree = "<group>";
 		};
 		52DFEE5A27C1896800CA1FD8 = {
@@ -260,6 +284,7 @@
 				527EB0DB27C2AC5A00474245 /* Reusable */,
 				5212A84F27C3B1AB002A5CB3 /* Bugsnag */,
 				5212A85227C3B21B002A5CB3 /* KeychainSwift */,
+				52D3D23227C3B40300B8B884 /* Amplitude */,
 			);
 			productName = Motivation;
 			productReference = 52DFEE6327C1896800CA1FD8 /* Motivation.app */;
@@ -296,6 +321,7 @@
 				527EB0DA27C2AC5A00474245 /* XCRemoteSwiftPackageReference "Reusable" */,
 				5212A84E27C3B1AB002A5CB3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 				5212A85127C3B21B002A5CB3 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				52D3D23127C3B40300B8B884 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */,
 			);
 			productRefGroup = 52DFEE6427C1896800CA1FD8 /* Products */;
 			projectDirPath = "";
@@ -374,7 +400,9 @@
 				528FFF3027C291CD00C19A25 /* QuoteFlowCoordinator.swift in Sources */,
 				52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */,
 				528FFF3227C2924D00C19A25 /* QuoteViewModel.swift in Sources */,
+				52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */,
 				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
+				52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */,
 				527EB0D527C2AC1300474245 /* QuoteCell.swift in Sources */,
 				528FFF3427C292A300C19A25 /* QuoteViewController.swift in Sources */,
 				528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */,
@@ -649,6 +677,14 @@
 				minimumVersion = 10.19.0;
 			};
 		};
+		52D3D23127C3B40300B8B884 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amplitude/Amplitude-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -691,6 +727,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 528FFF3B27C2A39600C19A25 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		52D3D23227C3B40300B8B884 /* Amplitude */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52D3D23127C3B40300B8B884 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */;
+			productName = Amplitude;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

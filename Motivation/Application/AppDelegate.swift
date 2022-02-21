@@ -43,4 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
         return true
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        appFlowCoordinator?.applicationDidBecomeActive()
+    }
 }

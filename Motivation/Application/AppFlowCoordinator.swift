@@ -27,8 +27,16 @@ final class AppFlowCoordinator {
     func start() {
         navigationController.setNavigationBarHidden(true, animated: false)
         
+        appDIContainer.trackingService.track(event: .appLaunch, eventProperties: nil)
+        appDIContainer.preferenceService.incrementNbAppLaunch()
+        
         let quoteDIContainer = appDIContainer.makeQuoteDIContainer()
         let flow = quoteDIContainer.makeQuoteFlowCoordinator(navigationController: navigationController)
         flow.start()
+    }
+    
+    func applicationDidBecomeActive() {
+        appDIContainer.trackingService.track(event: .openApp, eventProperties: nil)
+        appDIContainer.preferenceService.incrementNbAppOpen()
     }
 }

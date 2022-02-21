@@ -14,6 +14,12 @@ final class AppDIContainer {
     private lazy var databaseService: DatabaseServiceProtocol = {
         DatabaseService()
     }()
+    lazy var trackingService: TrackingServiceProtocol = {
+        TrackingService()
+    }()
+    lazy var preferenceService: PreferenceServiceProtocol = {
+        PreferenceService()
+    }()
     
     // MARK: - Methods
     
