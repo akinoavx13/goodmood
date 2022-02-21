@@ -18,7 +18,9 @@ protocol QuoteViewModelProtocol: AnyObject {
     
     // MARK: - Methods
     
+    func viewDidAppear()
     func refreshQuotes()
+    func showNextQuote()
 }
 
 final class QuoteViewModel: QuoteViewModelProtocol {
@@ -31,18 +33,25 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     private let actions: QuoteViewModelActions
     private let databaseService: DatabaseServiceProtocol
+    private let trackingService: TrackingServiceProtocol
 
     // MARK: - Lifecycle
     
     init(actions: QuoteViewModelActions,
-         databaseService: DatabaseServiceProtocol) {
+         databaseService: DatabaseServiceProtocol,
+         trackingService: TrackingServiceProtocol) {
         self.actions = actions
         self.databaseService = databaseService
+        self.trackingService = trackingService
         
         configureComposition()
     }
     
     // MARK: - Methods
+    
+    func viewDidAppear() {
+        trackingService.track(event: .showQuoteScreen, eventProperties: nil)
+    }
     
     func refreshQuotes() {
         guard let quotes = try? databaseService.getQuotes(language: .french,
@@ -50,6 +59,10 @@ final class QuoteViewModel: QuoteViewModelProtocol {
         else { return }
         
         configureComposition(quotes: quotes)
+    }
+    
+    func showNextQuote() {
+        trackingService.track(event: .showNextQuote, eventProperties: nil)
     }
 }
 

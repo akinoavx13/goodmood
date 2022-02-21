@@ -11,6 +11,7 @@ final class QuoteDIContainer {
     
     struct Dependencies {
         let databaseService: DatabaseServiceProtocol
+        let trackingService: TrackingServiceProtocol
     }
     
     // MARK: - Properties
@@ -34,7 +35,8 @@ final class QuoteDIContainer {
     
     private func makeQuoteViewModel(actions: QuoteViewModelActions) -> QuoteViewModelProtocol {
         QuoteViewModel(actions: actions,
-                       databaseService: dependencies.databaseService)
+                       databaseService: dependencies.databaseService,
+                       trackingService: dependencies.trackingService)
     }
 }
 

@@ -20,6 +20,9 @@ final class TrackingService: TrackingServiceProtocol {
     enum Event: String, RawRepresentable {
         case openApp,
              appLaunch
+        
+        case showQuoteScreen,
+             showNextQuote
     }
     
     enum EventProperty: String, RawRepresentable {

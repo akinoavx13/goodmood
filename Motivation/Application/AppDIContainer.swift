@@ -24,7 +24,8 @@ final class AppDIContainer {
     // MARK: - Methods
     
     func makeQuoteDIContainer() -> QuoteDIContainer {
-        let dependencies = QuoteDIContainer.Dependencies(databaseService: databaseService)
+        let dependencies = QuoteDIContainer.Dependencies(databaseService: databaseService,
+                                                         trackingService: trackingService)
         
         return QuoteDIContainer(dependencies: dependencies)
     }

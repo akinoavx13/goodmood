@@ -25,6 +25,7 @@ final class QuoteViewController: UIViewController {
     
     private var composition = QuoteViewModel.QuoteComposition()
     private let disposeBag = DisposeBag()
+    private var lastHiddingRow: Int?
     
     // MARK: - Lifecycle
     
@@ -44,6 +45,12 @@ final class QuoteViewController: UIViewController {
         bind(to: viewModel)
         
         viewModel.refreshQuotes()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel.viewDidAppear()
     }
     
     // MARK: - Private methods
@@ -93,5 +100,19 @@ extension QuoteViewController: UICollectionViewDelegateFlowLayout {
         switch type {
         case .quote: return QuoteCell.size
         }
+    }
+}
+
+// MARK: - UICollectionViewDelegate -
+
+extension QuoteViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        didEndDisplaying cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        if lastHiddingRow != indexPath.row {
+            viewModel.showNextQuote()
+        }
+        
+        lastHiddingRow = indexPath.row
     }
 }
