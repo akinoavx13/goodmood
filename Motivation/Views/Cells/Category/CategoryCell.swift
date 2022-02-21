@@ -27,6 +27,10 @@ final class CategoryCell: UICollectionViewCell, NibReusable {
                       height: 80)
     }
     
+    override var isHighlighted: Bool {
+        didSet { nameLabel.alpha = isHighlighted ? 0.5 : 1 }
+    }
+    
     // MARK: - Lifecycle
     
     override func prepareForReuse() {

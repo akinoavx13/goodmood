@@ -41,7 +41,8 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     private let databaseService: DatabaseServiceProtocol
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
-
+    private var selectedCategory: RMQuote.RMCategory?
+    
     // MARK: - Lifecycle
     
     init(actions: QuoteViewModelActions,
@@ -64,12 +65,8 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     func refreshQuotesIfNeeded() {
         let newSelectedCategory = preferenceService.getSelectedCategory()
-        
-//        dd("should refresh", selectedCategory != newSelectedCategory, selectedCategory?.rawValue, newSelectedCategory?.rawValue)
-        
+                
         guard selectedCategory != newSelectedCategory else { return }
-        
-//        dd("refresh")
         
         selectedCategory = preferenceService.getSelectedCategory()
         
@@ -132,5 +129,4 @@ extension QuoteViewModel {
                         title: nil,
                         cells: cells)
     }
-    
 }
