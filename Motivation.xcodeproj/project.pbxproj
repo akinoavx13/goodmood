@@ -38,6 +38,8 @@
 		52D3D23327C3B40300B8B884 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 52D3D23227C3B40300B8B884 /* Amplitude */; };
 		52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23527C3B42B00B8B884 /* TrackingService.swift */; };
 		52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23827C3B60C00B8B884 /* PreferenceService.swift */; };
+		52D3D23C27C3BE7200B8B884 /* CALayer+SmoothCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23B27C3BE7200B8B884 /* CALayer+SmoothCorner.swift */; };
+		52D3D24227C3BF6E00B8B884 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D24127C3BF6E00B8B884 /* AnimationButton.swift */; };
 		52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DFEE6627C1896800CA1FD8 /* AppDelegate.swift */; };
 		52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */; };
 		52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE7127C1896800CA1FD8 /* LaunchScreen.storyboard */; };
@@ -67,6 +69,8 @@
 		528FFF5227C2A76D00C19A25 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		52D3D23527C3B42B00B8B884 /* TrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingService.swift; sourceTree = "<group>"; };
 		52D3D23827C3B60C00B8B884 /* PreferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceService.swift; sourceTree = "<group>"; };
+		52D3D23B27C3BE7200B8B884 /* CALayer+SmoothCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+SmoothCorner.swift"; sourceTree = "<group>"; };
+		52D3D24127C3BF6E00B8B884 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		52DFEE6327C1896800CA1FD8 /* Motivation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DFEE6627C1896800CA1FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				527EB0D227C2ABEC00474245 /* Cells */,
+				52D3D23F27C3BF5600B8B884 /* Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 		528FFF4427C2A3E500C19A25 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				52D3D23A27C3BE6100B8B884 /* Extensions */,
 				528FFF4527C2A3ED00C19A25 /* App.swift */,
 				528FFF4A27C2A44100C19A25 /* Constants.swift */,
 				528FFF4E27C2A64500C19A25 /* DD.swift */,
@@ -195,6 +201,30 @@
 				52D3D23827C3B60C00B8B884 /* PreferenceService.swift */,
 			);
 			path = Preference;
+			sourceTree = "<group>";
+		};
+		52D3D23A27C3BE6100B8B884 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				52D3D23B27C3BE7200B8B884 /* CALayer+SmoothCorner.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		52D3D23F27C3BF5600B8B884 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				52D3D24027C3BF6400B8B884 /* Buttons */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		52D3D24027C3BF6400B8B884 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				52D3D24127C3BF6E00B8B884 /* AnimationButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		52DFEE5A27C1896800CA1FD8 = {
@@ -403,6 +433,8 @@
 				52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */,
 				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
 				52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */,
+				52D3D23C27C3BE7200B8B884 /* CALayer+SmoothCorner.swift in Sources */,
+				52D3D24227C3BF6E00B8B884 /* AnimationButton.swift in Sources */,
 				527EB0D527C2AC1300474245 /* QuoteCell.swift in Sources */,
 				528FFF3427C292A300C19A25 /* QuoteViewController.swift in Sources */,
 				528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */,

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,6 +28,17 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="MoV-t2-nIV"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1r-KK-ibU" customClass="AnimateButton" customModule="Motivation" customModuleProvider="target">
+                                <rect key="frame" x="354" y="802" width="44" height="44"/>
+                                <color key="backgroundColor" name="background"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="fV9-k9-5Oy"/>
+                                    <constraint firstAttribute="width" constant="44" id="mzi-im-OtN"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="person" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -34,10 +46,13 @@
                             <constraint firstItem="aUc-Ye-Qbz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MZD-lL-ipV"/>
                             <constraint firstAttribute="bottom" secondItem="aUc-Ye-Qbz" secondAttribute="bottom" id="X19-Au-wRw"/>
                             <constraint firstItem="aUc-Ye-Qbz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="XYE-e7-yps"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="G1r-KK-ibU" secondAttribute="bottom" constant="16" id="fvd-en-qpu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="G1r-KK-ibU" secondAttribute="trailing" constant="16" id="lxE-FS-uiF"/>
                             <constraint firstItem="aUc-Ye-Qbz" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="zXQ-NB-Vv3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accountButton" destination="G1r-KK-ibU" id="QcO-LW-L3V"/>
                         <outlet property="collectionView" destination="aUc-Ye-Qbz" id="aw1-df-ocx"/>
                     </connections>
                 </viewController>
@@ -47,6 +62,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <namedColor name="background">
+            <color red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

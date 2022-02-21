@@ -18,6 +18,9 @@ final class QuoteViewController: UIViewController {
             collectionView.decelerationRate = .fast
         }
     }
+    @IBOutlet private weak var accountButton: AnimateButton! {
+        didSet { accountButton.layer.smoothCorner(8) }
+    }
     
     // MARK: - Properties
     
