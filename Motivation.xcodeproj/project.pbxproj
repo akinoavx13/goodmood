@@ -35,6 +35,7 @@
 		528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */ = {isa = PBXBuildFile; fileRef = 528FFF4C27C2A57D00C19A25 /* quotes.realm */; };
 		528FFF4F27C2A64500C19A25 /* DD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF4E27C2A64500C19A25 /* DD.swift */; };
 		528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF5227C2A76D00C19A25 /* Quote.swift */; };
+		52B6627627C42B5D0071598F /* Locale+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6627527C42B5D0071598F /* Locale+Language.swift */; };
 		52B8090127C400580038FF9D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090027C400580038FF9D /* Colors.swift */; };
 		52B8090427C4012C0038FF9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52B8090627C4012C0038FF9D /* InfoPlist.strings */; };
 		52B8090F27C417040038FF9D /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090A27C417030038FF9D /* CategoryViewModel.swift */; };
@@ -98,6 +99,7 @@
 		528FFF4C27C2A57D00C19A25 /* quotes.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = quotes.realm; sourceTree = "<group>"; };
 		528FFF4E27C2A64500C19A25 /* DD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DD.swift; sourceTree = "<group>"; };
 		528FFF5227C2A76D00C19A25 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		52B6627527C42B5D0071598F /* Locale+Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Language.swift"; sourceTree = "<group>"; };
 		52B8090027C400580038FF9D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		52B8090527C4012C0038FF9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52B8090727C4012F0038FF9D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				527EB0DD27C2B73500474245 /* SnapCenterLayout.swift */,
 				5212A85427C3B248002A5CB3 /* UserIdentifierManager.swift */,
 				52B8090027C400580038FF9D /* Colors.swift */,
+				52B6627527C42B5D0071598F /* Locale+Language.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				528FFF4327C2A3BF00C19A25 /* DatabaseService.swift in Sources */,
 				52FA13A727C3FA7100DCECFD /* SettingsValueCell.swift in Sources */,
 				528FFF3827C2939B00C19A25 /* AppDIContainer.swift in Sources */,
+				52B6627627C42B5D0071598F /* Locale+Language.swift in Sources */,
 				528FFF3A27C293D600C19A25 /* AppFlowCoordinator.swift in Sources */,
 				528FFF4627C2A3ED00C19A25 /* App.swift in Sources */,
 				528FFF3027C291CD00C19A25 /* QuoteFlowCoordinator.swift in Sources */,

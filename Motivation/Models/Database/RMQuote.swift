@@ -5,6 +5,7 @@
 //  Created by Maxime Maheo on 20/02/2022.
 //
 
+import Foundation
 import RealmSwift
 
 final class RMQuote: Object {
@@ -37,6 +38,13 @@ final class RMQuote: Object {
     enum RMLanguage: String, PersistableEnum {
         case french,
              english
+        
+        static var user: Self {
+            switch Locale.language() {
+            case "fr": return .french
+            default: return .english
+            }
+        }
     }
     
     // MARK: - Properties

@@ -20,6 +20,7 @@ protocol CategoryViewModelProtocol: AnyObject {
     
     func viewDidAppear()
     func refreshCategories()
+    func selectCategory(row: Int)
 }
 
 final class CategoryViewModel: CategoryViewModelProtocol {
@@ -32,13 +33,16 @@ final class CategoryViewModel: CategoryViewModelProtocol {
     
     private let actions: CategoryViewModelActions
     private let trackingService: TrackingServiceProtocol
-
+    private let preferenceService: PreferenceServiceProtocol
+    
     // MARK: - Lifecycle
     
     init(actions: CategoryViewModelActions,
-         trackingService: TrackingServiceProtocol) {
+         trackingService: TrackingServiceProtocol,
+         preferenceService: PreferenceServiceProtocol) {
         self.actions = actions
         self.trackingService = trackingService
+        self.preferenceService = preferenceService
     }
     
     // MARK: - Methods
@@ -49,6 +53,15 @@ final class CategoryViewModel: CategoryViewModelProtocol {
     
     func refreshCategories() {
         configureComposition()
+    }
+    
+    func selectCategory(row: Int) {
+        guard RMQuote.RMCategory.allCases.count > row else { return }
+        
+        let category = RMQuote.RMCategory.allCases[row]
+        
+        trackingService.track(event: .selectCategory, eventProperties: [.name: category.rawValue])
+        preferenceService.save(selectedCategory: category)
     }
 }
 
@@ -81,8 +94,6 @@ extension CategoryViewModel {
     
     private func configureCategoriesSection() -> Section {
         let cells: [Cell] = RMQuote.RMCategory.allCases.map { .category(CategoryCellViewModel(name: "\($0.translatedName) \($0.icon)")) }
-        
-        dd(cells)
         
         return .section(.categories,
                         title: nil,

@@ -26,6 +26,7 @@ final class AppDIContainer {
     lazy var quoteDIContainer: QuoteDIContainer = {
         let dependencies = QuoteDIContainer.Dependencies(databaseService: databaseService,
                                                          trackingService: trackingService,
+                                                         preferenceService: preferenceService,
                                                          settingsDIContainer: settingsDIContainer,
                                                          categoryDIContainer: categoryDIContainer)
         
@@ -37,7 +38,8 @@ final class AppDIContainer {
         return SettingsDIContainer(dependencies: dependencies)
     }()
     private lazy var categoryDIContainer: CategoryDIContainer = {
-        let dependencies = CategoryDIContainer.Dependencies(trackingService: trackingService)
+        let dependencies = CategoryDIContainer.Dependencies(trackingService: trackingService,
+                                                            preferenceService: preferenceService)
         
         return CategoryDIContainer(dependencies: dependencies)
     }()

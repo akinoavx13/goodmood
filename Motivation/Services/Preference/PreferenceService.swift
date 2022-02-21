@@ -15,6 +15,8 @@ protocol PreferenceServiceProtocol: AnyObject {
     func getNbAppOpen() -> Int
     func incrementNbAppLaunch()
     func getNbAppLaunch() -> Int
+    func save(selectedCategory: RMQuote.RMCategory)
+    func getSelectedCategory() -> RMQuote.RMCategory?
 }
 
 final class PreferenceService: PreferenceServiceProtocol {
@@ -25,6 +27,7 @@ final class PreferenceService: PreferenceServiceProtocol {
     
     private let nbAppOpenKey = "nbAppOpenKey"
     private let nbAppLaunchKey = "nbAppLaunchKey"
+    private let selectedCategoryKey = "selectedCategoryKey"
     
     // MARK: - Lifecycle
     
@@ -51,4 +54,16 @@ final class PreferenceService: PreferenceServiceProtocol {
     }
 
     func getNbAppLaunch() -> Int { userDefaults.integer(forKey: nbAppLaunchKey) }
+    
+    func save(selectedCategory: RMQuote.RMCategory) {
+        userDefaults.set(selectedCategory.rawValue, forKey: selectedCategoryKey)
+        
+        if App.env == .debug { print("💾 Save selected category, now: \(selectedCategory.rawValue)") }
+    }
+    
+    func getSelectedCategory() -> RMQuote.RMCategory? {
+        guard let selectedCategory = userDefaults.string(forKey: selectedCategoryKey) else { return nil }
+        
+        return RMQuote.RMCategory(rawValue: selectedCategory)
+    }
 }

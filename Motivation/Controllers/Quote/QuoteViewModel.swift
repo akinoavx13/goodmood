@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import Foundation
 
 struct QuoteViewModelActions {
     let presentSettings: () -> Void
@@ -39,15 +40,18 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     private let actions: QuoteViewModelActions
     private let databaseService: DatabaseServiceProtocol
     private let trackingService: TrackingServiceProtocol
+    private let preferenceService: PreferenceServiceProtocol
 
     // MARK: - Lifecycle
     
     init(actions: QuoteViewModelActions,
          databaseService: DatabaseServiceProtocol,
-         trackingService: TrackingServiceProtocol) {
+         trackingService: TrackingServiceProtocol,
+         preferenceService: PreferenceServiceProtocol) {
         self.actions = actions
         self.databaseService = databaseService
         self.trackingService = trackingService
+        self.preferenceService = preferenceService
         
         configureComposition()
     }
@@ -59,8 +63,9 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     }
     
     func refreshQuotes() {
-        guard let quotes = try? databaseService.getQuotes(language: .french,
-                                                          category: .general)
+        guard let selectedCategory = preferenceService.getSelectedCategory(),
+              let quotes = try? databaseService.getQuotes(language: RMQuote.RMLanguage.user,
+                                                          category: selectedCategory)
         else { return }
         
         configureComposition(quotes: quotes)

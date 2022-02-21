@@ -116,4 +116,12 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         case .category: return CategoryCell.size
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let type = composition.sections[indexPath.section].cellForIndex(indexPath.row) else { return }
+        
+        switch type {
+        case .category: viewModel.selectCategory(row: indexPath.row)
+        }
+    }
 }

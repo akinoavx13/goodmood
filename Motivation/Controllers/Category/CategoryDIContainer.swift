@@ -11,6 +11,7 @@ final class CategoryDIContainer {
     
     struct Dependencies {
         let trackingService: TrackingServiceProtocol
+        let preferenceService: PreferenceServiceProtocol
     }
     
     // MARK: - Properties
@@ -34,7 +35,8 @@ final class CategoryDIContainer {
     
     private func makeCategoryViewModel(actions: CategoryViewModelActions) -> CategoryViewModelProtocol {
         CategoryViewModel(actions: actions,
-                          trackingService: dependencies.trackingService)
+                          trackingService: dependencies.trackingService,
+                          preferenceService: dependencies.preferenceService)
     }
 }
 
