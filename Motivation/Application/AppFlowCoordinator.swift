@@ -30,9 +30,10 @@ final class AppFlowCoordinator {
         appDIContainer.trackingService.track(event: .appLaunch, eventProperties: nil)
         appDIContainer.preferenceService.incrementNbAppLaunch()
         
-        let quoteDIContainer = appDIContainer.makeQuoteDIContainer()
-        let flow = quoteDIContainer.makeQuoteFlowCoordinator(navigationController: navigationController)
-        flow.start()
+        appDIContainer
+            .quoteDIContainer
+            .makeQuoteFlowCoordinator(navigationController: navigationController)
+            .start()
     }
     
     func applicationDidBecomeActive() {

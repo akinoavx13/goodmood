@@ -38,6 +38,9 @@
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="person" catalog="system"/>
+                                <connections>
+                                    <action selector="accountButtonDidTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Q0h-V5-1Cx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

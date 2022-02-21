@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Motivation
+
+  Created by Maxime Maheo on 21/02/2022.
+  
+*/
+"support" = "Support";
+"settings" = "Settings";
+"version_x_x" = "Version %@(%@)";
+"share_app_content" = "Hey! I use a great app for inspirational and motivational quotes and sayings!\nTry it now: %@";
+"help_translate_the_app" = "Help translate the app";
+"send_feedback" = "Send feedback";
+"write_a_review" = "Write a review";
+"share_x" = "Share %@";

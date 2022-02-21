@@ -8,7 +8,9 @@
 import RxSwift
 import RxCocoa
 
-struct QuoteViewModelActions { }
+struct QuoteViewModelActions {
+    let presentSettings: () -> Void
+}
 
 protocol QuoteViewModelProtocol: AnyObject {
     
@@ -21,6 +23,7 @@ protocol QuoteViewModelProtocol: AnyObject {
     func viewDidAppear()
     func refreshQuotes()
     func showNextQuote()
+    func presentSettings()
 }
 
 final class QuoteViewModel: QuoteViewModelProtocol {
@@ -63,6 +66,10 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     func showNextQuote() {
         trackingService.track(event: .showNextQuote, eventProperties: nil)
+    }
+    
+    func presentSettings() {
+        actions.presentSettings()
     }
 }
 

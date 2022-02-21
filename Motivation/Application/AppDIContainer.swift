@@ -23,10 +23,17 @@ final class AppDIContainer {
     
     // MARK: - Methods
     
-    func makeQuoteDIContainer() -> QuoteDIContainer {
+    lazy var quoteDIContainer: QuoteDIContainer = {
         let dependencies = QuoteDIContainer.Dependencies(databaseService: databaseService,
-                                                         trackingService: trackingService)
+                                                         trackingService: trackingService,
+                                                         settingsDIContainer: settingsDIContainer)
         
         return QuoteDIContainer(dependencies: dependencies)
-    }
+    }()
+    
+    private lazy var settingsDIContainer: SettingsDIContainer = {
+        let dependencies = SettingsDIContainer.Dependencies(trackingService: trackingService)
+        
+        return SettingsDIContainer(dependencies: dependencies)
+    }()
 }

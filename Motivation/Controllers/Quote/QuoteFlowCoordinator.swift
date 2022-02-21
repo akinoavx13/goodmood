@@ -8,6 +8,13 @@
 import UIKit
 
 protocol QuoteFlowCoordinatorDependencies: AnyObject {
+    
+    // MARK: - Properties
+    
+    var settingsDIContainer: SettingsDIContainer { get }
+    
+    // MARK: - Methods
+    
     func makeQuoteViewController(actions: QuoteViewModelActions) -> QuoteViewController
 }
 
@@ -16,7 +23,6 @@ final class QuoteFlowCoordinator {
     // MARK: - Properties
     
     private weak var navigationController: UINavigationController?
-
     private let dependencies: QuoteFlowCoordinatorDependencies
     
     // MARK: - Lifecycle
@@ -30,11 +36,24 @@ final class QuoteFlowCoordinator {
     // MARK: - Methods
     
     func start() {
-        let actions = QuoteViewModelActions()
+        let actions = QuoteViewModelActions(presentSettings: presentSettings)
         
         DispatchQueue.main.async {
             self.navigationController?.setViewControllers([self.dependencies.makeQuoteViewController(actions: actions)],
                                                           animated: false)
         }
+    }
+}
+
+// MARK: - QuoteViewModelActions -
+
+extension QuoteFlowCoordinator {
+    private func presentSettings() {
+        guard let navigationController = navigationController else { return }
+        
+        dependencies
+            .settingsDIContainer
+            .makeSettingsFlowCoordinator(navigationController: navigationController)
+            .start()
     }
 }

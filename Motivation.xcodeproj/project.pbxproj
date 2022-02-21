@@ -35,6 +35,8 @@
 		528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */ = {isa = PBXBuildFile; fileRef = 528FFF4C27C2A57D00C19A25 /* quotes.realm */; };
 		528FFF4F27C2A64500C19A25 /* DD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF4E27C2A64500C19A25 /* DD.swift */; };
 		528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF5227C2A76D00C19A25 /* Quote.swift */; };
+		52B8090127C400580038FF9D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090027C400580038FF9D /* Colors.swift */; };
+		52B8090427C4012C0038FF9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52B8090627C4012C0038FF9D /* InfoPlist.strings */; };
 		52D3D23327C3B40300B8B884 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 52D3D23227C3B40300B8B884 /* Amplitude */; };
 		52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23527C3B42B00B8B884 /* TrackingService.swift */; };
 		52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23827C3B60C00B8B884 /* PreferenceService.swift */; };
@@ -44,6 +46,27 @@
 		52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */; };
 		52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DFEE7127C1896800CA1FD8 /* LaunchScreen.storyboard */; };
 		52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DFEE7F27C18EED00CA1FD8 /* R.generated.swift */; };
+		52F14C0427C3FE2F00896847 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F14C0627C3FE2F00896847 /* Localizable.strings */; };
+		52FA138927C3FA4600DCECFD /* SettingsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA138427C3FA4600DCECFD /* SettingsFlowCoordinator.swift */; };
+		52FA138A27C3FA4600DCECFD /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FA138527C3FA4600DCECFD /* SettingsViewController.storyboard */; };
+		52FA138B27C3FA4600DCECFD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA138627C3FA4600DCECFD /* SettingsViewModel.swift */; };
+		52FA138C27C3FA4600DCECFD /* SettingsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA138727C3FA4600DCECFD /* SettingsDIContainer.swift */; };
+		52FA138D27C3FA4600DCECFD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA138827C3FA4600DCECFD /* SettingsViewController.swift */; };
+		52FA13A327C3FA7100DCECFD /* SettingsTimePickerCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA139027C3FA7000DCECFD /* SettingsTimePickerCellViewModel.swift */; };
+		52FA13A427C3FA7100DCECFD /* SettingsTimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA139127C3FA7000DCECFD /* SettingsTimePickerCell.swift */; };
+		52FA13A527C3FA7100DCECFD /* SettingsTimePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52FA139227C3FA7000DCECFD /* SettingsTimePickerCell.xib */; };
+		52FA13A627C3FA7100DCECFD /* SettingsValueCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA139427C3FA7000DCECFD /* SettingsValueCellViewModel.swift */; };
+		52FA13A727C3FA7100DCECFD /* SettingsValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA139527C3FA7000DCECFD /* SettingsValueCell.swift */; };
+		52FA13A827C3FA7100DCECFD /* SettingsValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52FA139627C3FA7000DCECFD /* SettingsValueCell.xib */; };
+		52FA13A927C3FA7100DCECFD /* SettingsToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA139827C3FA7000DCECFD /* SettingsToggleCell.swift */; };
+		52FA13AA27C3FA7100DCECFD /* SettingsToggleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA139927C3FA7000DCECFD /* SettingsToggleCellViewModel.swift */; };
+		52FA13AB27C3FA7100DCECFD /* SettingsToggleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52FA139A27C3FA7000DCECFD /* SettingsToggleCell.xib */; };
+		52FA13AC27C3FA7100DCECFD /* SettingsButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA139C27C3FA7000DCECFD /* SettingsButtonCell.swift */; };
+		52FA13AD27C3FA7100DCECFD /* SettingsButtonCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA139D27C3FA7100DCECFD /* SettingsButtonCellViewModel.swift */; };
+		52FA13AE27C3FA7100DCECFD /* SettingsButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52FA139E27C3FA7100DCECFD /* SettingsButtonCell.xib */; };
+		52FA13AF27C3FA7100DCECFD /* SettingsLinkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA13A027C3FA7100DCECFD /* SettingsLinkCellViewModel.swift */; };
+		52FA13B027C3FA7100DCECFD /* SettingsLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA13A127C3FA7100DCECFD /* SettingsLinkCell.swift */; };
+		52FA13B127C3FA7100DCECFD /* SettingsLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52FA13A227C3FA7100DCECFD /* SettingsLinkCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +90,9 @@
 		528FFF4C27C2A57D00C19A25 /* quotes.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = quotes.realm; sourceTree = "<group>"; };
 		528FFF4E27C2A64500C19A25 /* DD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DD.swift; sourceTree = "<group>"; };
 		528FFF5227C2A76D00C19A25 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		52B8090027C400580038FF9D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		52B8090527C4012C0038FF9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52B8090727C4012F0038FF9D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52D3D23527C3B42B00B8B884 /* TrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingService.swift; sourceTree = "<group>"; };
 		52D3D23827C3B60C00B8B884 /* PreferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceService.swift; sourceTree = "<group>"; };
 		52D3D23B27C3BE7200B8B884 /* CALayer+SmoothCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+SmoothCorner.swift"; sourceTree = "<group>"; };
@@ -77,6 +103,28 @@
 		52DFEE7227C1896800CA1FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52DFEE7427C1896800CA1FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52DFEE7F27C18EED00CA1FD8 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../../../motivation/Motivation/Resources/R.generated.swift; sourceTree = "<group>"; };
+		52F14C0527C3FE2F00896847 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		52F14C0727C3FE3D00896847 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		52FA138427C3FA4600DCECFD /* SettingsFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFlowCoordinator.swift; sourceTree = "<group>"; };
+		52FA138527C3FA4600DCECFD /* SettingsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
+		52FA138627C3FA4600DCECFD /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		52FA138727C3FA4600DCECFD /* SettingsDIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDIContainer.swift; sourceTree = "<group>"; };
+		52FA138827C3FA4600DCECFD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		52FA139027C3FA7000DCECFD /* SettingsTimePickerCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTimePickerCellViewModel.swift; sourceTree = "<group>"; };
+		52FA139127C3FA7000DCECFD /* SettingsTimePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTimePickerCell.swift; sourceTree = "<group>"; };
+		52FA139227C3FA7000DCECFD /* SettingsTimePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTimePickerCell.xib; sourceTree = "<group>"; };
+		52FA139427C3FA7000DCECFD /* SettingsValueCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsValueCellViewModel.swift; sourceTree = "<group>"; };
+		52FA139527C3FA7000DCECFD /* SettingsValueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsValueCell.swift; sourceTree = "<group>"; };
+		52FA139627C3FA7000DCECFD /* SettingsValueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsValueCell.xib; sourceTree = "<group>"; };
+		52FA139827C3FA7000DCECFD /* SettingsToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsToggleCell.swift; sourceTree = "<group>"; };
+		52FA139927C3FA7000DCECFD /* SettingsToggleCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsToggleCellViewModel.swift; sourceTree = "<group>"; };
+		52FA139A27C3FA7000DCECFD /* SettingsToggleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsToggleCell.xib; sourceTree = "<group>"; };
+		52FA139C27C3FA7000DCECFD /* SettingsButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsButtonCell.swift; sourceTree = "<group>"; };
+		52FA139D27C3FA7100DCECFD /* SettingsButtonCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsButtonCellViewModel.swift; sourceTree = "<group>"; };
+		52FA139E27C3FA7100DCECFD /* SettingsButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsButtonCell.xib; sourceTree = "<group>"; };
+		52FA13A027C3FA7100DCECFD /* SettingsLinkCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLinkCellViewModel.swift; sourceTree = "<group>"; };
+		52FA13A127C3FA7100DCECFD /* SettingsLinkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLinkCell.swift; sourceTree = "<group>"; };
+		52FA13A227C3FA7100DCECFD /* SettingsLinkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsLinkCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				527EB0D327C2AC0500474245 /* Quote */,
+				52FA138E27C3FA7000DCECFD /* Settings */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -166,6 +215,7 @@
 				527EB0CA27C2AAAB00474245 /* CompositionSection.swift */,
 				527EB0DD27C2B73500474245 /* SnapCenterLayout.swift */,
 				5212A85427C3B248002A5CB3 /* UserIdentifierManager.swift */,
+				52B8090027C400580038FF9D /* Colors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -260,6 +310,8 @@
 		52DFEE7A27C18B2200CA1FD8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				52B8090627C4012C0038FF9D /* InfoPlist.strings */,
+				52F14C0627C3FE2F00896847 /* Localizable.strings */,
 				528FFF4C27C2A57D00C19A25 /* quotes.realm */,
 				52DFEE6F27C1896800CA1FD8 /* Assets.xcassets */,
 				52DFEE7427C1896800CA1FD8 /* Info.plist */,
@@ -283,8 +335,83 @@
 			isa = PBXGroup;
 			children = (
 				528FFF2C27C2918500C19A25 /* Quote */,
+				52FA138327C3FA4600DCECFD /* Settings */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		52FA138327C3FA4600DCECFD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				52FA138727C3FA4600DCECFD /* SettingsDIContainer.swift */,
+				52FA138427C3FA4600DCECFD /* SettingsFlowCoordinator.swift */,
+				52FA138627C3FA4600DCECFD /* SettingsViewModel.swift */,
+				52FA138827C3FA4600DCECFD /* SettingsViewController.swift */,
+				52FA138527C3FA4600DCECFD /* SettingsViewController.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		52FA138E27C3FA7000DCECFD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				52FA138F27C3FA7000DCECFD /* TimePicker */,
+				52FA139327C3FA7000DCECFD /* Value */,
+				52FA139727C3FA7000DCECFD /* Toggle */,
+				52FA139B27C3FA7000DCECFD /* Button */,
+				52FA139F27C3FA7100DCECFD /* Link */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		52FA138F27C3FA7000DCECFD /* TimePicker */ = {
+			isa = PBXGroup;
+			children = (
+				52FA139127C3FA7000DCECFD /* SettingsTimePickerCell.swift */,
+				52FA139027C3FA7000DCECFD /* SettingsTimePickerCellViewModel.swift */,
+				52FA139227C3FA7000DCECFD /* SettingsTimePickerCell.xib */,
+			);
+			path = TimePicker;
+			sourceTree = "<group>";
+		};
+		52FA139327C3FA7000DCECFD /* Value */ = {
+			isa = PBXGroup;
+			children = (
+				52FA139527C3FA7000DCECFD /* SettingsValueCell.swift */,
+				52FA139427C3FA7000DCECFD /* SettingsValueCellViewModel.swift */,
+				52FA139627C3FA7000DCECFD /* SettingsValueCell.xib */,
+			);
+			path = Value;
+			sourceTree = "<group>";
+		};
+		52FA139727C3FA7000DCECFD /* Toggle */ = {
+			isa = PBXGroup;
+			children = (
+				52FA139827C3FA7000DCECFD /* SettingsToggleCell.swift */,
+				52FA139927C3FA7000DCECFD /* SettingsToggleCellViewModel.swift */,
+				52FA139A27C3FA7000DCECFD /* SettingsToggleCell.xib */,
+			);
+			path = Toggle;
+			sourceTree = "<group>";
+		};
+		52FA139B27C3FA7000DCECFD /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				52FA139C27C3FA7000DCECFD /* SettingsButtonCell.swift */,
+				52FA139D27C3FA7100DCECFD /* SettingsButtonCellViewModel.swift */,
+				52FA139E27C3FA7100DCECFD /* SettingsButtonCell.xib */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		52FA139F27C3FA7100DCECFD /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				52FA13A127C3FA7100DCECFD /* SettingsLinkCell.swift */,
+				52FA13A027C3FA7100DCECFD /* SettingsLinkCellViewModel.swift */,
+				52FA13A227C3FA7100DCECFD /* SettingsLinkCell.xib */,
+			);
+			path = Link;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +469,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 52DFEE5A27C1896800CA1FD8;
 			packageReferences = (
@@ -368,9 +496,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */,
+				52F14C0427C3FE2F00896847 /* Localizable.strings in Resources */,
 				52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */,
+				52B8090427C4012C0038FF9D /* InfoPlist.strings in Resources */,
+				52FA13A527C3FA7100DCECFD /* SettingsTimePickerCell.xib in Resources */,
 				527EB0D927C2AC2700474245 /* QuoteCell.xib in Resources */,
+				52FA13A827C3FA7100DCECFD /* SettingsValueCell.xib in Resources */,
 				52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */,
+				52FA13AE27C3FA7100DCECFD /* SettingsButtonCell.xib in Resources */,
+				52FA138A27C3FA4600DCECFD /* SettingsViewController.storyboard in Resources */,
+				52FA13AB27C3FA7100DCECFD /* SettingsToggleCell.xib in Resources */,
+				52FA13B127C3FA7100DCECFD /* SettingsLinkCell.xib in Resources */,
 				528FFF3627C292F300C19A25 /* QuoteViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,40 +560,73 @@
 			buildActionMask = 2147483647;
 			files = (
 				528FFF4327C2A3BF00C19A25 /* DatabaseService.swift in Sources */,
+				52FA13A727C3FA7100DCECFD /* SettingsValueCell.swift in Sources */,
 				528FFF3827C2939B00C19A25 /* AppDIContainer.swift in Sources */,
 				528FFF3A27C293D600C19A25 /* AppFlowCoordinator.swift in Sources */,
 				528FFF4627C2A3ED00C19A25 /* App.swift in Sources */,
 				528FFF3027C291CD00C19A25 /* QuoteFlowCoordinator.swift in Sources */,
+				52FA13A927C3FA7100DCECFD /* SettingsToggleCell.swift in Sources */,
+				52FA138927C3FA4600DCECFD /* SettingsFlowCoordinator.swift in Sources */,
 				52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */,
 				528FFF3227C2924D00C19A25 /* QuoteViewModel.swift in Sources */,
 				52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */,
 				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
+				52FA138B27C3FA4600DCECFD /* SettingsViewModel.swift in Sources */,
 				52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */,
+				52FA13A627C3FA7100DCECFD /* SettingsValueCellViewModel.swift in Sources */,
 				52D3D23C27C3BE7200B8B884 /* CALayer+SmoothCorner.swift in Sources */,
 				52D3D24227C3BF6E00B8B884 /* AnimationButton.swift in Sources */,
+				52FA13AF27C3FA7100DCECFD /* SettingsLinkCellViewModel.swift in Sources */,
+				52FA13A427C3FA7100DCECFD /* SettingsTimePickerCell.swift in Sources */,
+				52FA13AC27C3FA7100DCECFD /* SettingsButtonCell.swift in Sources */,
 				527EB0D527C2AC1300474245 /* QuoteCell.swift in Sources */,
 				528FFF3427C292A300C19A25 /* QuoteViewController.swift in Sources */,
 				528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */,
 				527EB0CB27C2AAAB00474245 /* CompositionSection.swift in Sources */,
+				52FA13A327C3FA7100DCECFD /* SettingsTimePickerCellViewModel.swift in Sources */,
 				5212A85527C3B248002A5CB3 /* UserIdentifierManager.swift in Sources */,
 				527EB0DE27C2B73500474245 /* SnapCenterLayout.swift in Sources */,
 				527EB0D727C2AC1D00474245 /* QuoteCellViewModel.swift in Sources */,
 				528FFF4927C2A40D00C19A25 /* RMQuote.swift in Sources */,
 				528FFF4B27C2A44100C19A25 /* Constants.swift in Sources */,
+				52FA13B027C3FA7100DCECFD /* SettingsLinkCell.swift in Sources */,
+				52B8090127C400580038FF9D /* Colors.swift in Sources */,
+				52FA13AD27C3FA7100DCECFD /* SettingsButtonCellViewModel.swift in Sources */,
 				528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */,
 				528FFF4F27C2A64500C19A25 /* DD.swift in Sources */,
+				52FA138C27C3FA4600DCECFD /* SettingsDIContainer.swift in Sources */,
+				52FA138D27C3FA4600DCECFD /* SettingsViewController.swift in Sources */,
+				52FA13AA27C3FA7100DCECFD /* SettingsToggleCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		52B8090627C4012C0038FF9D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52B8090527C4012C0038FF9D /* en */,
+				52B8090727C4012F0038FF9D /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		52DFEE7127C1896800CA1FD8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				52DFEE7227C1896800CA1FD8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		52F14C0627C3FE2F00896847 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F14C0527C3FE2F00896847 /* en */,
+				52F14C0727C3FE3D00896847 /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -467,6 +636,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -528,6 +698,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

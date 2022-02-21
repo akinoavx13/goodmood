@@ -23,10 +23,17 @@ final class TrackingService: TrackingServiceProtocol {
         
         case showQuoteScreen,
              showNextQuote
+        
+        case showSettings,
+             writeReview,
+             shareApp,
+             sendFeedback,
+             helpTranslateApp
     }
     
     enum EventProperty: String, RawRepresentable {
-        case todo
+        case name,
+             hasSucceed
     }
 
     enum PaywallOrigin: String, RawRepresentable {

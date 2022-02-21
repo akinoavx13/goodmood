@@ -12,6 +12,7 @@ final class QuoteDIContainer {
     struct Dependencies {
         let databaseService: DatabaseServiceProtocol
         let trackingService: TrackingServiceProtocol
+        let settingsDIContainer: SettingsDIContainer
     }
     
     // MARK: - Properties
@@ -43,6 +44,12 @@ final class QuoteDIContainer {
 // MARK: - QuoteFlowCoordinatorDependencies -
 
 extension QuoteDIContainer: QuoteFlowCoordinatorDependencies {
+    
+    // MARK: - Properties
+    
+    var settingsDIContainer: SettingsDIContainer {
+        dependencies.settingsDIContainer
+    }
     
     // MARK: - Methods
     

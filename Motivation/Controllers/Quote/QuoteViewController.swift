@@ -68,6 +68,12 @@ final class QuoteViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    // MARK: - Actions
+    
+    @IBAction private func accountButtonDidTap(_ sender: AnimateButton) {
+        viewModel.presentSettings()
+    }
 }
 
 // MARK: - UICollectionViewDataSource -

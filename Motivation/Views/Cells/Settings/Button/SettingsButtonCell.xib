@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="86" id="DXS-hK-R6T" customClass="SettingsButtonCell" customModule="TheWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DXS-hK-R6T" id="qZN-ds-fmy">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyR-hI-XAD">
+                        <rect key="frame" x="16" y="0.0" width="382" height="90"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lyR-hI-XAD" firstAttribute="leading" secondItem="qZN-ds-fmy" secondAttribute="leading" constant="16" id="LzH-I5-Ytm"/>
+                    <constraint firstAttribute="bottom" secondItem="lyR-hI-XAD" secondAttribute="bottom" id="XbO-Lh-9gW"/>
+                    <constraint firstAttribute="trailing" secondItem="lyR-hI-XAD" secondAttribute="trailing" constant="16" id="lWU-mL-oXm"/>
+                    <constraint firstItem="lyR-hI-XAD" firstAttribute="top" secondItem="qZN-ds-fmy" secondAttribute="top" id="zeP-JB-Rr1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="button" destination="lyR-hI-XAD" id="ULr-im-JJK"/>
+            </connections>
+            <point key="canvasLocation" x="113.04347826086958" y="93.080357142857139"/>
+        </tableViewCell>
+    </objects>
+</document>
