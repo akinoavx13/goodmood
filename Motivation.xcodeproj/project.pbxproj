@@ -37,6 +37,11 @@
 		528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF5227C2A76D00C19A25 /* Quote.swift */; };
 		52B8090127C400580038FF9D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090027C400580038FF9D /* Colors.swift */; };
 		52B8090427C4012C0038FF9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52B8090627C4012C0038FF9D /* InfoPlist.strings */; };
+		52B8090F27C417040038FF9D /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090A27C417030038FF9D /* CategoryViewModel.swift */; };
+		52B8091027C417040038FF9D /* CategoryDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090B27C417030038FF9D /* CategoryDIContainer.swift */; };
+		52B8091127C417040038FF9D /* CategoryFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090C27C417030038FF9D /* CategoryFlowCoordinator.swift */; };
+		52B8091227C417040038FF9D /* CategoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B8090D27C417030038FF9D /* CategoryViewController.storyboard */; };
+		52B8091327C417040038FF9D /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090E27C417030038FF9D /* CategoryViewController.swift */; };
 		52D3D23327C3B40300B8B884 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 52D3D23227C3B40300B8B884 /* Amplitude */; };
 		52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23527C3B42B00B8B884 /* TrackingService.swift */; };
 		52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23827C3B60C00B8B884 /* PreferenceService.swift */; };
@@ -93,6 +98,11 @@
 		52B8090027C400580038FF9D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		52B8090527C4012C0038FF9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52B8090727C4012F0038FF9D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52B8090A27C417030038FF9D /* CategoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		52B8090B27C417030038FF9D /* CategoryDIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDIContainer.swift; sourceTree = "<group>"; };
+		52B8090C27C417030038FF9D /* CategoryFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFlowCoordinator.swift; sourceTree = "<group>"; };
+		52B8090D27C417030038FF9D /* CategoryViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CategoryViewController.storyboard; sourceTree = "<group>"; };
+		52B8090E27C417030038FF9D /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		52D3D23527C3B42B00B8B884 /* TrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingService.swift; sourceTree = "<group>"; };
 		52D3D23827C3B60C00B8B884 /* PreferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceService.swift; sourceTree = "<group>"; };
 		52D3D23B27C3BE7200B8B884 /* CALayer+SmoothCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+SmoothCorner.swift"; sourceTree = "<group>"; };
@@ -237,6 +247,18 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		52B8090927C417030038FF9D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				52B8090B27C417030038FF9D /* CategoryDIContainer.swift */,
+				52B8090C27C417030038FF9D /* CategoryFlowCoordinator.swift */,
+				52B8090A27C417030038FF9D /* CategoryViewModel.swift */,
+				52B8090E27C417030038FF9D /* CategoryViewController.swift */,
+				52B8090D27C417030038FF9D /* CategoryViewController.storyboard */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		52D3D23427C3B41400B8B884 /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				528FFF2C27C2918500C19A25 /* Quote */,
+				52B8090927C417030038FF9D /* Category */,
 				52FA138327C3FA4600DCECFD /* Settings */,
 			);
 			path = Controllers;
@@ -496,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */,
+				52B8091227C417040038FF9D /* CategoryViewController.storyboard in Resources */,
 				52F14C0427C3FE2F00896847 /* Localizable.strings in Resources */,
 				52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */,
 				52B8090427C4012C0038FF9D /* InfoPlist.strings in Resources */,
@@ -566,13 +590,16 @@
 				528FFF4627C2A3ED00C19A25 /* App.swift in Sources */,
 				528FFF3027C291CD00C19A25 /* QuoteFlowCoordinator.swift in Sources */,
 				52FA13A927C3FA7100DCECFD /* SettingsToggleCell.swift in Sources */,
+				52B8091127C417040038FF9D /* CategoryFlowCoordinator.swift in Sources */,
 				52FA138927C3FA4600DCECFD /* SettingsFlowCoordinator.swift in Sources */,
 				52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */,
 				528FFF3227C2924D00C19A25 /* QuoteViewModel.swift in Sources */,
+				52B8091027C417040038FF9D /* CategoryDIContainer.swift in Sources */,
 				52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */,
 				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
 				52FA138B27C3FA4600DCECFD /* SettingsViewModel.swift in Sources */,
 				52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */,
+				52B8091327C417040038FF9D /* CategoryViewController.swift in Sources */,
 				52FA13A627C3FA7100DCECFD /* SettingsValueCellViewModel.swift in Sources */,
 				52D3D23C27C3BE7200B8B884 /* CALayer+SmoothCorner.swift in Sources */,
 				52D3D24227C3BF6E00B8B884 /* AnimationButton.swift in Sources */,
@@ -581,6 +608,7 @@
 				52FA13AC27C3FA7100DCECFD /* SettingsButtonCell.swift in Sources */,
 				527EB0D527C2AC1300474245 /* QuoteCell.swift in Sources */,
 				528FFF3427C292A300C19A25 /* QuoteViewController.swift in Sources */,
+				52B8090F27C417040038FF9D /* CategoryViewModel.swift in Sources */,
 				528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */,
 				527EB0CB27C2AAAB00474245 /* CompositionSection.swift in Sources */,
 				52FA13A327C3FA7100DCECFD /* SettingsTimePickerCellViewModel.swift in Sources */,

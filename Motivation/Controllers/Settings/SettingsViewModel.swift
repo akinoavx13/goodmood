@@ -25,8 +25,8 @@ protocol SettingsViewModelProtocol: AnyObject {
     
     // MARK: - Methods
     
-    func viewDidLoad() async
-    func viewDidAppear() async
+    func viewDidLoad()
+    func viewDidAppear()
     func sendFeedback()
     func writeReview()
     func share(sourceView: UIView?)
@@ -65,11 +65,11 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     
     // MARK: - Methods
     
-    func viewDidLoad() async {
+    func viewDidLoad() {
         configureComposition()
     }
     
-    func viewDidAppear() async {
+    func viewDidAppear() {
         trackingService.track(event: .showSettings, eventProperties: nil)
     }
     

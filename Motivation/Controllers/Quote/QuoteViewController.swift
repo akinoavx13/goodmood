@@ -21,6 +21,9 @@ final class QuoteViewController: UIViewController {
     @IBOutlet private weak var accountButton: AnimateButton! {
         didSet { accountButton.layer.smoothCorner(8) }
     }
+    @IBOutlet private weak var categoryButton: AnimateButton! {
+        didSet { categoryButton.layer.smoothCorner(8) }
+    }
     
     // MARK: - Properties
     
@@ -73,6 +76,10 @@ final class QuoteViewController: UIViewController {
     
     @IBAction private func accountButtonDidTap(_ sender: AnimateButton) {
         viewModel.presentSettings()
+    }
+    
+    @IBAction private func categoryButtonDidTap(_ sender: AnimateButton) {
+        viewModel.presentCategory()
     }
 }
 

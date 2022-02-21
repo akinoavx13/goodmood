@@ -10,6 +10,7 @@ import RxCocoa
 
 struct QuoteViewModelActions {
     let presentSettings: () -> Void
+    let presentCategory: () -> Void
 }
 
 protocol QuoteViewModelProtocol: AnyObject {
@@ -24,6 +25,7 @@ protocol QuoteViewModelProtocol: AnyObject {
     func refreshQuotes()
     func showNextQuote()
     func presentSettings()
+    func presentCategory()
 }
 
 final class QuoteViewModel: QuoteViewModelProtocol {
@@ -70,6 +72,10 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     func presentSettings() {
         actions.presentSettings()
+    }
+    
+    func presentCategory() {
+        actions.presentCategory()
     }
 }
 

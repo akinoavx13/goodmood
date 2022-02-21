@@ -24,6 +24,8 @@ final class TrackingService: TrackingServiceProtocol {
         case showQuoteScreen,
              showNextQuote
         
+        case showCategories
+        
         case showSettings,
              writeReview,
              shareApp,

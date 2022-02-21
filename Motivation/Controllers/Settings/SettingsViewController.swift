@@ -51,13 +51,13 @@ final class SettingsViewController: UIViewController {
         
         bind(to: viewModel)
         
-        Task { await viewModel.viewDidLoad() }
+        viewModel.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        Task { await viewModel.viewDidAppear() }
+        viewModel.viewDidAppear()
     }
     
     // MARK: - Setup methods
