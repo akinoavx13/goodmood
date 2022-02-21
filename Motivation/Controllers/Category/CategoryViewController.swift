@@ -94,10 +94,9 @@ final class CategoryViewController: UIViewController {
     }
     
     private func selectCategory(row: Int) {
-        viewModel.selectCategory(row: row)
-        
-        // TODO: Dismiss only if selected category is different
-        dismiss(animated: true)
+        if viewModel.selectCategory(row: row) {
+            dismiss(animated: true)
+        }
     }
 }
 // MARK: - UICollectionViewDataSource -

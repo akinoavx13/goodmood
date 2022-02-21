@@ -16,7 +16,7 @@ protocol PreferenceServiceProtocol: AnyObject {
     func incrementNbAppLaunch()
     func getNbAppLaunch() -> Int
     func save(selectedCategory: RMQuote.RMCategory)
-    func getSelectedCategory() -> RMQuote.RMCategory?
+    func getSelectedCategory() -> RMQuote.RMCategory
 }
 
 final class PreferenceService: PreferenceServiceProtocol {
@@ -61,9 +61,9 @@ final class PreferenceService: PreferenceServiceProtocol {
         if App.env == .debug { print("💾 Save selected category, now: \(selectedCategory.rawValue)") }
     }
     
-    func getSelectedCategory() -> RMQuote.RMCategory? {
-        guard let selectedCategory = userDefaults.string(forKey: selectedCategoryKey) else { return nil }
+    func getSelectedCategory() -> RMQuote.RMCategory {
+        guard let selectedCategory = userDefaults.string(forKey: selectedCategoryKey) else { return .general }
         
-        return RMQuote.RMCategory(rawValue: selectedCategory)
+        return RMQuote.RMCategory(rawValue: selectedCategory) ?? .general
     }
 }

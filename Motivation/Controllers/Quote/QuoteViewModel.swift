@@ -55,7 +55,7 @@ final class QuoteViewModel: QuoteViewModelProtocol {
         self.databaseService = databaseService
         self.trackingService = trackingService
         self.preferenceService = preferenceService
-        self.selectedCategory = preferenceService.getSelectedCategory() ?? .general
+        self.selectedCategory = preferenceService.getSelectedCategory()
         
         configureComposition()
     }
@@ -66,10 +66,10 @@ final class QuoteViewModel: QuoteViewModelProtocol {
         trackingService.track(event: .showQuoteScreen, eventProperties: nil)
     }
     
-    func refreshQuotesIfNeeded() {        
+    func refreshQuotesIfNeeded() {
         guard shouldRefreshQuotes() else { return }
         
-        selectedCategory = preferenceService.getSelectedCategory() ?? .general
+        selectedCategory = preferenceService.getSelectedCategory()
         
         guard let quotes = try? databaseService.getQuotes(language: RMQuote.RMLanguage.user,
                                                           category: selectedCategory)
