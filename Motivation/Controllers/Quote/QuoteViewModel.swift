@@ -41,8 +41,7 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     private let databaseService: DatabaseServiceProtocol
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
-    private var selectedCategory: RMQuote.RMCategory?
-    
+
     // MARK: - Lifecycle
     
     init(actions: QuoteViewModelActions,

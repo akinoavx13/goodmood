@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,26 +18,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="167.5" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-au-Uib" customClass="AnimateButton" customModule="Motivation" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNp-1j-wtL">
                         <rect key="frame" x="0.0" y="0.0" width="167.5" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PED-DV-asM">
+                                <rect key="frame" x="8" y="8" width="151.5" height="84"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" name="background"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="Button">
-                            <color key="titleColor" systemColor="labelColor"/>
-                        </state>
-                    </button>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="PED-DV-asM" secondAttribute="bottom" constant="8" id="XMI-nJ-ITp"/>
+                            <constraint firstItem="PED-DV-asM" firstAttribute="top" secondItem="yNp-1j-wtL" secondAttribute="top" constant="8" id="h9d-Np-rZX"/>
+                            <constraint firstItem="PED-DV-asM" firstAttribute="leading" secondItem="yNp-1j-wtL" secondAttribute="leading" constant="8" id="uA5-tx-vkO"/>
+                            <constraint firstAttribute="trailing" secondItem="PED-DV-asM" secondAttribute="trailing" constant="8" id="uuq-uK-h8c"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="ecb-au-Uib" secondAttribute="trailing" id="7vW-Gf-dsS"/>
-                    <constraint firstItem="ecb-au-Uib" firstAttribute="top" secondItem="AK6-ZQ-DOT" secondAttribute="top" id="b4Y-cE-VUx"/>
-                    <constraint firstItem="ecb-au-Uib" firstAttribute="leading" secondItem="AK6-ZQ-DOT" secondAttribute="leading" id="o7Q-df-oY8"/>
-                    <constraint firstAttribute="bottom" secondItem="ecb-au-Uib" secondAttribute="bottom" id="yaK-DC-vMQ"/>
+                    <constraint firstAttribute="trailing" secondItem="yNp-1j-wtL" secondAttribute="trailing" id="1C6-qd-gZ6"/>
+                    <constraint firstAttribute="bottom" secondItem="yNp-1j-wtL" secondAttribute="bottom" id="4mp-AK-Gdc"/>
+                    <constraint firstItem="yNp-1j-wtL" firstAttribute="leading" secondItem="AK6-ZQ-DOT" secondAttribute="leading" id="ElJ-uF-03T"/>
+                    <constraint firstItem="yNp-1j-wtL" firstAttribute="top" secondItem="AK6-ZQ-DOT" secondAttribute="top" id="xKA-aQ-r5b"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="375" height="356"/>
             <connections>
-                <outlet property="categoryButton" destination="ecb-au-Uib" id="9CT-wm-Btd"/>
+                <outlet property="containerView" destination="yNp-1j-wtL" id="FdV-3Y-KRb"/>
+                <outlet property="nameLabel" destination="PED-DV-asM" id="Pww-7P-Ovr"/>
             </connections>
             <point key="canvasLocation" x="129.71014492753625" y="158.70535714285714"/>
         </collectionViewCell>
@@ -47,8 +56,5 @@
         <namedColor name="background">
             <color red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
