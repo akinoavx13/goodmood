@@ -9,7 +9,9 @@ import RxSwift
 import RxCocoa
 import Foundation
 
-struct NotificationViewModelActions { }
+struct NotificationViewModelActions {
+    let dismiss: () -> Void
+}
 
 protocol NotificationViewModelProtocol: AnyObject {
 
@@ -22,6 +24,7 @@ protocol NotificationViewModelProtocol: AnyObject {
     // MARK: - Methods
     
     func viewDidAppear()
+    func nextButtonDidTap()
     func update(nbTimes: Double)
     func update(startAt: Date)
     func update(endAt: Date)
@@ -57,6 +60,12 @@ final class NotificationViewModel: NotificationViewModelProtocol {
     
     func viewDidAppear() {
         trackingService.track(event: .showNotification, eventProperties: nil)
+    }
+    
+    func nextButtonDidTap() {
+        preferenceService.onboardingSeen()
+        
+        actions.dismiss()
     }
     
     func update(nbTimes: Double) {

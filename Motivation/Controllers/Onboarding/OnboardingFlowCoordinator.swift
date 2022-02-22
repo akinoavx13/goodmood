@@ -58,7 +58,7 @@ extension OnboardingFlowCoordinator {
     // MARK: - Private methods
     
     private func presentNotification() {
-        let actions = NotificationViewModelActions()
+        let actions = NotificationViewModelActions(dismiss: dismiss)
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -67,5 +67,9 @@ extension OnboardingFlowCoordinator {
             
             self.navigationController.pushViewController(viewController, animated: true)
         }
+    }
+    
+    private func dismiss() {
+        navigationController.dismiss(animated: true)
     }
 }
