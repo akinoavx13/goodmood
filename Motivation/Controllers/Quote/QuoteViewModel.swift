@@ -12,6 +12,7 @@ import Foundation
 struct QuoteViewModelActions {
     let presentSettings: () -> Void
     let presentCategory: () -> Void
+    let presentPreReviewPopup: (@escaping () -> Void, @escaping () -> Void) -> Void
 }
 
 protocol QuoteViewModelProtocol: AnyObject {
@@ -44,6 +45,7 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     private let preferenceService: PreferenceServiceProtocol
     private var selectedCategory: RMQuote.RMCategory
     private var newSelectedCategory: RMQuote.RMCategory?
+    private var rateAppPopupShownInSession = false
     
     // MARK: - Lifecycle
     
@@ -64,6 +66,8 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     func viewDidAppear() {
         trackingService.track(event: .showQuoteScreen, eventProperties: nil)
+        
+        rateAppIfNeeded()
     }
     
     func refreshQuotesIfNeeded() {
@@ -100,6 +104,35 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     private func shouldRefreshQuotes() -> Bool {
         selectedCategory != newSelectedCategory
+    }
+    
+    private func rateAppIfNeeded() {
+        let nbAppLaunch = preferenceService.getNbAppLaunch()
+        let hasRateApp = preferenceService.hasRateApp()
+
+        if !hasRateApp,
+           !rateAppPopupShownInSession,
+           shouldShowPreReviewPopup(nbAppLaunch: nbAppLaunch) {
+            trackingService.increment(userProperty: .nbTimesShowLikeApp, value: 1)
+            trackingService.track(event: .showRatePopup, eventProperties: nil)
+
+            rateAppPopupShownInSession = true
+
+            actions.presentPreReviewPopup(declineReview, acceptReview)
+        }
+    }
+    
+    private func shouldShowPreReviewPopup(nbAppLaunch: Int) -> Bool {
+        nbAppLaunch == 2 || nbAppLaunch.isMultiple(of: 7)
+    }
+    
+    private func acceptReview() {
+        trackingService.track(event: .rateApp, eventProperties: nil)
+        preferenceService.appWasRated()
+    }
+    
+    private func declineReview() {
+        trackingService.track(event: .declineRateApp, eventProperties: nil)
     }
 }
 

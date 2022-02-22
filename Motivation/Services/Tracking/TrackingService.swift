@@ -19,7 +19,10 @@ final class TrackingService: TrackingServiceProtocol {
     
     enum Event: String, RawRepresentable {
         case openApp,
-             appLaunch
+             appLaunch,
+             rateApp,
+             declineRateApp,
+             showRatePopup
         
         case showQuoteScreen,
              showNextQuote
@@ -45,7 +48,7 @@ final class TrackingService: TrackingServiceProtocol {
     }
 
     enum UserProperty: String, RawRepresentable {
-        case todo
+        case nbTimesShowLikeApp
     }
     
     // MARK: - Properties

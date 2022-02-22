@@ -17,5 +17,5 @@ struct Constants {
     static let amplitudeApiKey = "d84cd4074dfe5b96a9b170d6d4ba3d69"
     
     static let appId = "1610882835"
-    static let email = "imaxame@gmail.com" // TODO: Find new one
+    static let email = "motivation.ios.app@gmail.com"
 }
