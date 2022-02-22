@@ -35,8 +35,13 @@ final class OnboardingDIContainer {
     
     private func makeWelcomeViewModel(actions: WelcomeViewModelActions) -> WelcomeViewModelProtocol {
         WelcomeViewModel(actions: actions,
-                         trackingService: dependencies.trackingService,
-                         preferenceService: dependencies.preferenceService)
+                         trackingService: dependencies.trackingService)
+    }
+    
+    private func makeNotificationViewModel(actions: NotificationViewModelActions) -> NotificationViewModelProtocol {
+        NotificationViewModel(actions: actions,
+                              trackingService: dependencies.trackingService,
+                              preferenceService: dependencies.preferenceService)
     }
 }
 
@@ -45,5 +50,9 @@ final class OnboardingDIContainer {
 extension OnboardingDIContainer: OnboardingFlowCoordinatorDependencies {
     func makeWelcomeViewController(actions: WelcomeViewModelActions) -> WelcomeViewController {
         WelcomeViewController.create(with: makeWelcomeViewModel(actions: actions))
+    }
+    
+    func makeNotificationViewController(actions: NotificationViewModelActions) -> NotificationViewController {
+        NotificationViewController.create(with: makeNotificationViewModel(actions: actions))
     }
 }

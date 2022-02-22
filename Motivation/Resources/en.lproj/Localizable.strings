@@ -30,3 +30,8 @@
 "continue" = "Continue";
 "welcome" = "Welcome!";
 "welcome_description" = "<b>Inspirational</b> and <b>motivational</b> quotes, delivered daily to increase your inner strength and provide you with constant inspiration <b>throughout the day.</b>";
+"notification_title" = "Set daily motivation reminders";
+"x_times" = "%i times";
+"number_of_reminders" = "Number of reminders";
+"start_at" = "Start at";
+"end_at" = "End at";

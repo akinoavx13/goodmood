@@ -21,6 +21,12 @@ protocol PreferenceServiceProtocol: AnyObject {
     func hasRateApp() -> Bool
     func hasSeenOnboarding() -> Bool
     func onboardingSeen()
+    func getStartAtTime() -> Date
+    func save(startAt: Date)
+    func getEndAtTime() -> Date
+    func save(endAt: Date)
+    func getNbTimesNotif() -> Int
+    func save(nbTimesNotif: Int)
 }
 
 final class PreferenceService: PreferenceServiceProtocol {
@@ -28,17 +34,23 @@ final class PreferenceService: PreferenceServiceProtocol {
     // MARK: - Properties
     
     private let userDefaults: UserDefaults
+    private let calendar: Calendar
     
     private let nbAppOpenKey = "nbAppOpenKey"
     private let nbAppLaunchKey = "nbAppLaunchKey"
     private let selectedCategoryKey = "selectedCategoryKey"
     private let hasRateAppKey = "hasRateAppKey"
     private let hasSeenOnboardingKey = "hasSeenOnboardingKey"
+    private let startAtTimeKey = "startAtTimeKey"
+    private let endAtTimeKey = "endAtTimeKey"
+    private let nbTimesNotifKey = "nbTimesNotifKey"
 
     // MARK: - Lifecycle
     
-    init(userDefaults: UserDefaults = UserDefaults.standard) {
+    init(userDefaults: UserDefaults = UserDefaults.standard,
+         calendar: Calendar = Calendar.current) {
         self.userDefaults = userDefaults
+        self.calendar = calendar
     }
     
     // MARK: - Methods
@@ -87,5 +99,71 @@ final class PreferenceService: PreferenceServiceProtocol {
         userDefaults.set(true, forKey: hasSeenOnboardingKey)
         
         if App.env == .debug { print("💾 Has seen onboarding") }
+    }
+    
+    func getStartAtTime() -> Date {
+        let timeIntervalSince1970 = userDefaults.double(forKey: startAtTimeKey)
+        
+        guard timeIntervalSince1970 > 0 else { return getDate(hour: 9) }
+        
+        return Date(timeIntervalSince1970: timeIntervalSince1970)
+    }
+    
+    func save(startAt: Date) {
+        if App.env == .debug {
+            print("💾 Update start at time to \(startAt)")
+        }
+        
+        userDefaults.set(startAt.timeIntervalSince1970, forKey: startAtTimeKey)
+    }
+    
+    func getEndAtTime() -> Date {
+        let timeIntervalSince1970 = userDefaults.double(forKey: endAtTimeKey)
+        
+        guard timeIntervalSince1970 > 0 else { return getDate(hour: 19) }
+        
+        return Date(timeIntervalSince1970: timeIntervalSince1970)
+    }
+    
+    func save(endAt: Date) {
+        if App.env == .debug {
+            print("💾 Update end at time to \(endAt)")
+        }
+        
+        userDefaults.set(endAt.timeIntervalSince1970, forKey: endAtTimeKey)
+    }
+    
+    func getNbTimesNotif() -> Int {
+        let nbTimesNotif = userDefaults.integer(forKey: nbTimesNotifKey)
+        
+        if nbTimesNotif == 0 {
+            return 10
+        }
+        
+        return nbTimesNotif
+    }
+    
+    func save(nbTimesNotif: Int) {
+        if App.env == .debug {
+            print("💾 Update nb times notif to \(nbTimesNotif)")
+        }
+        
+        userDefaults.set(nbTimesNotif, forKey: nbTimesNotifKey)
+    }
+    
+    // MARK: - Private methods
+    
+    private func getDate(hour: Int) -> Date {
+        let date = Date()
+        let dateComponents = date.get(.day, .month, .year, calendar: calendar)
+        
+        guard let day = dateComponents.day,
+              let month = dateComponents.month,
+              let year = dateComponents.year
+        else { return date }
+        
+        let triggerComponents = DateComponents(year: year, month: month, day: day, hour: hour)
+        
+        return calendar.date(from: triggerComponents) ?? date
     }
 }

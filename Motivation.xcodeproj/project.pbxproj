@@ -14,6 +14,10 @@
 		5212A85327C3B21B002A5CB3 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5212A85227C3B21B002A5CB3 /* KeychainSwift */; };
 		5212A85527C3B248002A5CB3 /* UserIdentifierManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212A85427C3B248002A5CB3 /* UserIdentifierManager.swift */; };
 		52529BAF27C57609009AF9FF /* SwiftRichString in Frameworks */ = {isa = PBXBuildFile; productRef = 52529BAE27C57609009AF9FF /* SwiftRichString */; };
+		5256F57427C5776C00FD7454 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256F57127C5776C00FD7454 /* NotificationViewController.swift */; };
+		5256F57527C5776C00FD7454 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256F57227C5776C00FD7454 /* NotificationViewModel.swift */; };
+		5256F57627C5776C00FD7454 /* NotificationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5256F57327C5776C00FD7454 /* NotificationViewController.storyboard */; };
+		5256F57827C58B9800FD7454 /* Date+GetComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256F57727C58B9800FD7454 /* Date+GetComponent.swift */; };
 		527EB0CB27C2AAAB00474245 /* CompositionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EB0CA27C2AAAB00474245 /* CompositionSection.swift */; };
 		527EB0CE27C2AB7B00474245 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 527EB0CD27C2AB7B00474245 /* RxCocoa */; };
 		527EB0D027C2AB7B00474245 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 527EB0CF27C2AB7B00474245 /* RxSwift */; };
@@ -92,6 +96,10 @@
 		520D638327C56AA00067F0A9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		520D638527C56ABD0067F0A9 /* WelcomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeViewController.storyboard; sourceTree = "<group>"; };
 		5212A85427C3B248002A5CB3 /* UserIdentifierManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentifierManager.swift; sourceTree = "<group>"; };
+		5256F57127C5776C00FD7454 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		5256F57227C5776C00FD7454 /* NotificationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		5256F57327C5776C00FD7454 /* NotificationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NotificationViewController.storyboard; sourceTree = "<group>"; };
+		5256F57727C58B9800FD7454 /* Date+GetComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+GetComponent.swift"; sourceTree = "<group>"; };
 		527EB0CA27C2AAAB00474245 /* CompositionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionSection.swift; sourceTree = "<group>"; };
 		527EB0D427C2AC1300474245 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
 		527EB0D627C2AC1D00474245 /* QuoteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCellViewModel.swift; sourceTree = "<group>"; };
@@ -193,6 +201,16 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		5256F57027C5773E00FD7454 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				5256F57227C5776C00FD7454 /* NotificationViewModel.swift */,
+				5256F57127C5776C00FD7454 /* NotificationViewController.swift */,
+				5256F57327C5776C00FD7454 /* NotificationViewController.storyboard */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		527EB0D127C2ABE500474245 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +301,7 @@
 				5212A85427C3B248002A5CB3 /* UserIdentifierManager.swift */,
 				52B8090027C400580038FF9D /* Colors.swift */,
 				52B6627527C42B5D0071598F /* Locale+Language.swift */,
+				5256F57727C58B9800FD7454 /* Date+GetComponent.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -437,6 +456,7 @@
 				52E11E0327C5647D006C71ED /* OnboardingDIContainer.swift */,
 				52E11E0527C564A0006C71ED /* OnboardingFlowCoordinator.swift */,
 				520D638027C56A470067F0A9 /* Welcome */,
+				5256F57027C5773E00FD7454 /* Notification */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -598,6 +618,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5256F57627C5776C00FD7454 /* NotificationViewController.storyboard in Resources */,
 				528DC39C27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib in Resources */,
 				528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */,
 				52B8091227C417040038FF9D /* CategoryViewController.storyboard in Resources */,
@@ -684,10 +705,12 @@
 				52B8091027C417040038FF9D /* CategoryDIContainer.swift in Sources */,
 				52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */,
 				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
+				5256F57827C58B9800FD7454 /* Date+GetComponent.swift in Sources */,
 				52FA138B27C3FA4600DCECFD /* SettingsViewModel.swift in Sources */,
 				52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */,
 				52E11E0627C564A0006C71ED /* OnboardingFlowCoordinator.swift in Sources */,
 				52B8091327C417040038FF9D /* CategoryViewController.swift in Sources */,
+				5256F57427C5776C00FD7454 /* NotificationViewController.swift in Sources */,
 				52FA13A627C3FA7100DCECFD /* SettingsValueCellViewModel.swift in Sources */,
 				52D3D23C27C3BE7200B8B884 /* CALayer+SmoothCorner.swift in Sources */,
 				52D3D24227C3BF6E00B8B884 /* AnimationButton.swift in Sources */,
@@ -708,6 +731,7 @@
 				528FFF4B27C2A44100C19A25 /* Constants.swift in Sources */,
 				52FA13B027C3FA7100DCECFD /* SettingsLinkCell.swift in Sources */,
 				52B8091A27C41C4E0038FF9D /* CategoryCellViewModel.swift in Sources */,
+				5256F57527C5776C00FD7454 /* NotificationViewModel.swift in Sources */,
 				528DC39A27C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift in Sources */,
 				52B8090127C400580038FF9D /* Colors.swift in Sources */,
 				52FA13AD27C3FA7100DCECFD /* SettingsButtonCellViewModel.swift in Sources */,

@@ -13,6 +13,7 @@ protocol OnboardingFlowCoordinatorDelegate: AnyObject {
 
 protocol OnboardingFlowCoordinatorDependencies: AnyObject {
     func makeWelcomeViewController(actions: WelcomeViewModelActions) -> WelcomeViewController
+    func makeNotificationViewController(actions: NotificationViewModelActions) -> NotificationViewController
 }
 
 final class OnboardingFlowCoordinator {
@@ -31,12 +32,14 @@ final class OnboardingFlowCoordinator {
          dependencies: OnboardingFlowCoordinatorDependencies) {
         self.parentViewController = parentViewController
         self.dependencies = dependencies
+        
+        navigationController.setNavigationBarHidden(true, animated: false)
     }
 
     // MARK: - Methods
     
     func start() {
-        let actions = WelcomeViewModelActions()
+        let actions = WelcomeViewModelActions(presentNotification: presentNotification)
         
         DispatchQueue.main.async {
             self.navigationController.setViewControllers([self.dependencies.makeWelcomeViewController(actions: actions)],
@@ -44,6 +47,25 @@ final class OnboardingFlowCoordinator {
             self.navigationController.modalPresentationStyle = .fullScreen
             
             self.parentViewController.present(self.navigationController, animated: true)
+        }
+    }
+}
+
+// MARK: - OnboardingFlowCoordinator -
+
+extension OnboardingFlowCoordinator {
+    
+    // MARK: - Private methods
+    
+    private func presentNotification() {
+        let actions = NotificationViewModelActions()
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let viewController = self.dependencies.makeNotificationViewController(actions: actions)
+            
+            self.navigationController.pushViewController(viewController, animated: true)
         }
     }
 }

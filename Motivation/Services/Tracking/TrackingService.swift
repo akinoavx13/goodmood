@@ -24,7 +24,8 @@ final class TrackingService: TrackingServiceProtocol {
              declineRateApp,
              showRatePopup
         
-        case showWelcome
+        case showWelcome,
+             showNotification
         
         case showQuoteScreen,
              showNextQuote

@@ -16,9 +16,7 @@ final class WelcomeViewController: UIViewController {
         didSet { titleLabel.text = R.string.localizable.welcome() }
     }
     @IBOutlet private weak var subtitleLabel: UILabel! {
-        didSet {
-            subtitleLabel.attributedText = R.string.localizable.welcome_description().set(style: subtitleStyles)
-        }
+        didSet { subtitleLabel.attributedText = R.string.localizable.welcome_description().set(style: subtitleStyles) }
     }
     @IBOutlet private weak var continueButton: AnimateButton! {
         didSet {
@@ -47,21 +45,15 @@ final class WelcomeViewController: UIViewController {
         return viewController
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        bind(to: viewModel)
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         viewModel.viewDidAppear()
     }
     
-    // MARK: - Private methods
+    // MARK: - Actions
     
-    private func bind(to viewModel: WelcomeViewModelProtocol) {
-        
+    @IBAction private func continueButtonDidTap(_ sender: AnimateButton) {
+        viewModel.nextButtonDidTap()
     }
 }

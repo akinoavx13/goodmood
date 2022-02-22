@@ -30,3 +30,8 @@
 "continue" = "Continuer";
 "welcome" = "Bienvenue !";
 "welcome_description" = "Des citations <b>inspirantes</b> et <b>motivantes</b>, livrées chaque jour pour augmenter votre force intérieure et vous fournir une inspiration constante <b>tout au long de la journée.</b>";
+"notification_title" = "Définir des rappels de motivations quotidiens";
+"x_times" = "%i fois";
+"number_of_reminders" = "Nombre de rappels";
+"start_at" = "Commencer à";
+"end_at" = "Terminer à";

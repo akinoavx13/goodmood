@@ -5,13 +5,16 @@
 //  Created by Maxime Maheo on 22/02/2022.
 //
 
-struct WelcomeViewModelActions { }
+struct WelcomeViewModelActions {
+    let presentNotification: () -> Void
+}
 
 protocol WelcomeViewModelProtocol: AnyObject {
 
     // MARK: - Methods
     
     func viewDidAppear()
+    func nextButtonDidTap()
 }
 
 final class WelcomeViewModel: WelcomeViewModelProtocol {
@@ -20,21 +23,22 @@ final class WelcomeViewModel: WelcomeViewModelProtocol {
     
     private let actions: WelcomeViewModelActions
     private let trackingService: TrackingServiceProtocol
-    private let preferenceService: PreferenceServiceProtocol
     
     // MARK: - Lifecycle
     
     init(actions: WelcomeViewModelActions,
-         trackingService: TrackingServiceProtocol,
-         preferenceService: PreferenceServiceProtocol) {
+         trackingService: TrackingServiceProtocol) {
         self.actions = actions
         self.trackingService = trackingService
-        self.preferenceService = preferenceService
     }
     
     // MARK: - Methods
     
     func viewDidAppear() {
         trackingService.track(event: .showWelcome, eventProperties: nil)
+    }
+    
+    func nextButtonDidTap() {
+        actions.presentNotification()
     }
 }
