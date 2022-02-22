@@ -43,5 +43,8 @@ final class CategoryCell: UICollectionViewCell, NibReusable {
     
     func bind(to viewModel: CategoryCellViewModel) {
         nameLabel.text = viewModel.name
+        
+        containerView.backgroundColor = viewModel.isSelected ? Colors.accent : Colors.background
+        nameLabel.textColor = viewModel.isSelected ? .white : .label
     }
 }

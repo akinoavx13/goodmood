@@ -80,7 +80,7 @@ extension CategoryViewModel {
     }
     
     enum SectionType {
-        case categories
+        case categories(_ for: CategorySectionHeaderReusableViewModel)
     }
     
     enum Cell {
@@ -98,9 +98,10 @@ extension CategoryViewModel {
     }
     
     private func configureCategoriesSection() -> Section {
-        let cells: [Cell] = RMQuote.RMCategory.allCases.map { .category(CategoryCellViewModel(name: "\($0.translatedName) \($0.icon)")) }
-        
-        return .section(.categories,
+        let cells: [Cell] = RMQuote.RMCategory.allCases.map { .category(CategoryCellViewModel(name: "\($0.translatedName) \($0.icon)",
+                                                                                              isSelected: $0 == selectedCategory)) }
+
+        return .section(.categories(CategorySectionHeaderReusableViewModel(title: R.string.localizable.change_category())),
                         title: nil,
                         cells: cells)
     }

@@ -10,10 +10,13 @@ final class CategoryCellViewModel {
     // MARK: - Properties
     
     let name: String
+    let isSelected: Bool
     
     // MARK: - Lifecycle
     
-    init(name: String) {
+    init(name: String,
+         isSelected: Bool) {
         self.name = name
+        self.isSelected = isSelected
     }
 }

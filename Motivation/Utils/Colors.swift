@@ -9,7 +9,7 @@ import UIKit
 
 struct Colors {
     
-    static let green = R.color.green() ?? .systemPink
+    static let blue = R.color.blue() ?? .systemPink
     static let background = R.color.background() ?? .systemPink
     static let accent = R.color.accentColor() ?? .systemPink
     

@@ -17,7 +17,10 @@ final class CategoryViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private weak var collectionView: UICollectionView! {
-        didSet { collectionView.register(cellType: CategoryCell.self) }
+        didSet {
+            collectionView.register(cellType: CategoryCell.self)
+            collectionView.register(supplementaryViewType: CategorySectionHeaderReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
+        }
     }
     @IBOutlet private weak var accountButton: AnimateButton! {
         didSet { accountButton.layer.smoothCorner(8) }
@@ -119,6 +122,21 @@ extension CategoryViewController: UICollectionViewDataSource {
             return cell
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        let section = composition.sections[indexPath.section]
+        
+        switch section.type {
+        case let .categories(viewModel):
+            let headerView: CategorySectionHeaderReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                                                                for: indexPath)
+            headerView.bind(to: viewModel)
+            
+            return headerView
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout -
@@ -131,6 +149,16 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         
         switch type {
         case .category: return CategoryCell.size
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout
+                        collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let section = composition.sections[section]
+        
+        switch section.type {
+        case let .categories(viewModel): return CategorySectionHeaderReusableView.size(for: viewModel)
         }
     }
     

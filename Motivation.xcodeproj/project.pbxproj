@@ -19,6 +19,9 @@
 		527EB0DC27C2AC5A00474245 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 527EB0DB27C2AC5A00474245 /* Reusable */; };
 		527EB0DE27C2B73500474245 /* SnapCenterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EB0DD27C2B73500474245 /* SnapCenterLayout.swift */; };
 		52800DEB27C1916F00149CA5 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 52800DEA27C1916F00149CA5 /* Rswift */; };
+		528DC39827C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DC39727C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift */; };
+		528DC39A27C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DC39927C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift */; };
+		528DC39C27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528DC39B27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib */; };
 		528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF2D27C291A100C19A25 /* QuoteDIContainer.swift */; };
 		528FFF3027C291CD00C19A25 /* QuoteFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF2F27C291CD00C19A25 /* QuoteFlowCoordinator.swift */; };
 		528FFF3227C2924D00C19A25 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF3127C2924D00C19A25 /* QuoteViewModel.swift */; };
@@ -85,6 +88,9 @@
 		527EB0D627C2AC1D00474245 /* QuoteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCellViewModel.swift; sourceTree = "<group>"; };
 		527EB0D827C2AC2700474245 /* QuoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCell.xib; sourceTree = "<group>"; };
 		527EB0DD27C2B73500474245 /* SnapCenterLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCenterLayout.swift; sourceTree = "<group>"; };
+		528DC39727C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySectionHeaderReusableView.swift; sourceTree = "<group>"; };
+		528DC39927C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySectionHeaderReusableViewModel.swift; sourceTree = "<group>"; };
+		528DC39B27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySectionHeaderReusableView.xib; sourceTree = "<group>"; };
 		528FFF2D27C291A100C19A25 /* QuoteDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDIContainer.swift; sourceTree = "<group>"; };
 		528FFF2F27C291CD00C19A25 /* QuoteFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteFlowCoordinator.swift; sourceTree = "<group>"; };
 		528FFF3127C2924D00C19A25 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 			children = (
 				527EB0D227C2ABEC00474245 /* Cells */,
 				52D3D23F27C3BF5600B8B884 /* Views */,
+				528DC39527C4CF5300DE0F9C /* ReusableViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +199,24 @@
 				527EB0D827C2AC2700474245 /* QuoteCell.xib */,
 			);
 			path = Quote;
+			sourceTree = "<group>";
+		};
+		528DC39527C4CF5300DE0F9C /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				528DC39627C4CF6700DE0F9C /* CategorySectionHeader */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		528DC39627C4CF6700DE0F9C /* CategorySectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				528DC39727C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift */,
+				528DC39927C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift */,
+				528DC39B27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib */,
+			);
+			path = CategorySectionHeader;
 			sourceTree = "<group>";
 		};
 		528FFF2C27C2918500C19A25 /* Quote */ = {
@@ -538,6 +563,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528DC39C27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib in Resources */,
 				528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */,
 				52B8091227C417040038FF9D /* CategoryViewController.storyboard in Resources */,
 				52F14C0427C3FE2F00896847 /* Localizable.strings in Resources */,
@@ -616,6 +642,7 @@
 				52FA138927C3FA4600DCECFD /* SettingsFlowCoordinator.swift in Sources */,
 				52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */,
 				528FFF3227C2924D00C19A25 /* QuoteViewModel.swift in Sources */,
+				528DC39827C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift in Sources */,
 				52B8091027C417040038FF9D /* CategoryDIContainer.swift in Sources */,
 				52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */,
 				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
@@ -642,6 +669,7 @@
 				528FFF4B27C2A44100C19A25 /* Constants.swift in Sources */,
 				52FA13B027C3FA7100DCECFD /* SettingsLinkCell.swift in Sources */,
 				52B8091A27C41C4E0038FF9D /* CategoryCellViewModel.swift in Sources */,
+				528DC39A27C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift in Sources */,
 				52B8090127C400580038FF9D /* Colors.swift in Sources */,
 				52FA13AD27C3FA7100DCECFD /* SettingsButtonCellViewModel.swift in Sources */,
 				528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */,

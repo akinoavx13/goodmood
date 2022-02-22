@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="miu-YR-mmE" customClass="CategorySectionHeaderReusableView" customModule="Motivation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85u-yh-uUw">
+                    <rect key="frame" x="16" y="8" width="343" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="ZNE-5U-iHa"/>
+            <constraints>
+                <constraint firstItem="ZNE-5U-iHa" firstAttribute="bottom" secondItem="85u-yh-uUw" secondAttribute="bottom" constant="8" id="2Nw-Xh-qiR"/>
+                <constraint firstAttribute="trailing" secondItem="85u-yh-uUw" secondAttribute="trailing" constant="16" id="Wfy-Sk-nVy"/>
+                <constraint firstItem="85u-yh-uUw" firstAttribute="top" secondItem="miu-YR-mmE" secondAttribute="top" constant="8" id="pxB-rB-p2Z"/>
+                <constraint firstItem="85u-yh-uUw" firstAttribute="leading" secondItem="miu-YR-mmE" secondAttribute="leading" constant="16" id="xBo-ur-FHa"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="85u-yh-uUw" id="k9m-wQ-7xA"/>
+            </connections>
+            <point key="canvasLocation" x="-100" y="94"/>
+        </collectionReusableView>
+    </objects>
+</document>
