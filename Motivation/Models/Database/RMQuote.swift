@@ -14,7 +14,12 @@ final class RMQuote: Object {
         case general,
              positivity,
              encouragement,
-             breakup
+             breakup,
+             anxiety,
+             depression,
+             fallingInLove,
+             love,
+             moveOn
         
         var translatedName: String {
             switch self {
@@ -22,6 +27,11 @@ final class RMQuote: Object {
             case .positivity: return R.string.localizable.positivity()
             case .encouragement: return R.string.localizable.encouragement()
             case .breakup: return R.string.localizable.breakup()
+            case .anxiety: return R.string.localizable.anxiety()
+            case .depression: return R.string.localizable.depression()
+            case .fallingInLove: return R.string.localizable.fallingInLove()
+            case .love: return R.string.localizable.love()
+            case .moveOn: return R.string.localizable.moveOn()
             }
         }
         
@@ -31,6 +41,11 @@ final class RMQuote: Object {
             case .positivity: return "👍"
             case .encouragement: return "👏"
             case .breakup: return "💔"
+            case .anxiety: return "😧"
+            case .depression: return "😞"
+            case .fallingInLove: return "🥰"
+            case .love: return "❤️"
+            case .moveOn: return "🤜"
             }
         }
     }
