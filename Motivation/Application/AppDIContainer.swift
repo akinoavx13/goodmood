@@ -32,6 +32,12 @@ final class AppDIContainer {
         
         return QuoteDIContainer(dependencies: dependencies)
     }()
+    lazy var onboardingDIContainer: OnboardingDIContainer = {
+        let dependencies = OnboardingDIContainer.Dependencies(trackingService: trackingService,
+                                                              preferenceService: preferenceService)
+        
+        return OnboardingDIContainer(dependencies: dependencies)
+    }()
     private lazy var settingsDIContainer: SettingsDIContainer = {
         let dependencies = SettingsDIContainer.Dependencies(trackingService: trackingService)
         

@@ -102,6 +102,7 @@ final class CategoryViewController: UIViewController {
         }
     }
 }
+
 // MARK: - UICollectionViewDataSource -
 
 extension CategoryViewController: UICollectionViewDataSource {

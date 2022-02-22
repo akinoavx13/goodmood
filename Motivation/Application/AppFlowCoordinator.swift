@@ -34,10 +34,24 @@ final class AppFlowCoordinator {
             .quoteDIContainer
             .makeQuoteFlowCoordinator(navigationController: navigationController)
             .start()
+        
+        startOnboardingIfNeeded()
     }
     
     func applicationDidBecomeActive() {
         appDIContainer.trackingService.track(event: .openApp, eventProperties: nil)
         appDIContainer.preferenceService.incrementNbAppOpen()
+    }
+    
+    // MARK: - Methods
+    
+    private func startOnboardingIfNeeded() {
+        // TODO: Remove comment
+//        guard !appDIContainer.preferenceService.hasSeenOnboarding() else { return }
+
+        appDIContainer
+            .onboardingDIContainer
+            .makeOnboardingFlowCoordinator(parentViewController: navigationController)
+            .start()
     }
 }

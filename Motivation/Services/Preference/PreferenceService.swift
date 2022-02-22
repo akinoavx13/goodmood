@@ -19,6 +19,8 @@ protocol PreferenceServiceProtocol: AnyObject {
     func getSelectedCategory() -> RMQuote.RMCategory
     func appWasRated()
     func hasRateApp() -> Bool
+    func hasSeenOnboarding() -> Bool
+    func onboardingSeen()
 }
 
 final class PreferenceService: PreferenceServiceProtocol {
@@ -31,6 +33,7 @@ final class PreferenceService: PreferenceServiceProtocol {
     private let nbAppLaunchKey = "nbAppLaunchKey"
     private let selectedCategoryKey = "selectedCategoryKey"
     private let hasRateAppKey = "hasRateAppKey"
+    private let hasSeenOnboardingKey = "hasSeenOnboardingKey"
 
     // MARK: - Lifecycle
     
@@ -77,4 +80,12 @@ final class PreferenceService: PreferenceServiceProtocol {
     }
     
     func hasRateApp() -> Bool { userDefaults.bool(forKey: hasRateAppKey) }
+    
+    func hasSeenOnboarding() -> Bool { userDefaults.bool(forKey: hasSeenOnboardingKey) }
+    
+    func onboardingSeen() {
+        userDefaults.set(true, forKey: hasSeenOnboardingKey)
+        
+        if App.env == .debug { print("💾 Has seen onboarding") }
+    }
 }
