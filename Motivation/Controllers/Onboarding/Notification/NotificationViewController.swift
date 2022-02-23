@@ -50,6 +50,7 @@ final class NotificationViewController: UIViewController {
     var viewModel: NotificationViewModelProtocol!
     
     private let disposeBag = DisposeBag()
+    private let impactGenerator = UIImpactFeedbackGenerator(style: .rigid)
     
     // MARK: - Lifecycle
     
@@ -119,6 +120,7 @@ final class NotificationViewController: UIViewController {
     }
     
     @IBAction private func nbTimesStepperValueChanged(_ sender: UIStepper) {
+        impactGenerator.impactOccurred()
         viewModel.update(nbTimes: sender.value)
     }
     

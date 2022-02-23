@@ -65,7 +65,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="dMx-sv-u9O">
                                                         <rect key="frame" x="221" y="17" width="94" height="32"/>
                                                         <subviews>
-                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="1" maximumValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="MG2-4r-b0k">
+                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="48" translatesAutoresizingMaskIntoConstraints="NO" id="MG2-4r-b0k">
                                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="32"/>
                                                                 <connections>
                                                                     <action selector="nbTimesStepperValueChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="Jlb-Pq-sf8"/>

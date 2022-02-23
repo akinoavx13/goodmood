@@ -139,9 +139,7 @@ final class PreferenceService: PreferenceServiceProtocol {
     func getNbTimesNotif() -> Int {
         let nbTimesNotif = userDefaults.integer(forKey: nbTimesNotifKey)
         
-        if nbTimesNotif == 0 {
-            return 10
-        }
+        if nbTimesNotif == 0 { return 12 }
         
         return nbTimesNotif
     }
