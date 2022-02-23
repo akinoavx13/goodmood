@@ -71,14 +71,16 @@ final class NotificationViewModel: NotificationViewModelProtocol {
     }
     
     func nextButtonDidTap() async {
-        await notificationService.requestAuthorization()
+        let isGranted = await notificationService.requestAuthorization()
         
         trackingService.set(userProperty: .nbTimesShowLikeApp, value: NSNumber(value: nbTimes.value))
         trackingService.track(event: .closeOnboarding, eventProperties: nil)
         
         await quoteService.triggerNotificationsIfNeeded(nbDays: 14)
         
+        preferenceService.save(isNotificationEnabled: isGranted)
         preferenceService.onboardingSeen()
+        
         actions.dismiss()
     }
     
