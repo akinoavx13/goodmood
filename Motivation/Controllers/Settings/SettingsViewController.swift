@@ -29,6 +29,7 @@ final class SettingsViewController: UIViewController {
     
     private var composition = SettingsViewModel.Composition()
     private let disposeBag = DisposeBag()
+    private let impactGenerator = UIImpactFeedbackGenerator(style: .rigid)
     
     // MARK: - Lifecycle
     
@@ -50,6 +51,12 @@ final class SettingsViewController: UIViewController {
         bind(to: viewModel)
         
         viewModel.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        impactGenerator.impactOccurred()
     }
     
     override func viewDidAppear(_ animated: Bool) {

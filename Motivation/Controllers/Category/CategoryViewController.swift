@@ -34,6 +34,7 @@ final class CategoryViewController: UIViewController {
     
     private var composition = CategoryViewModel.Composition()
     private let disposeBag = DisposeBag()
+    private let impactGenerator = UIImpactFeedbackGenerator(style: .rigid)
     
     // MARK: - Lifecycle
     
@@ -55,6 +56,12 @@ final class CategoryViewController: UIViewController {
         bind(to: viewModel)
         
         viewModel.refreshCategories()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        impactGenerator.impactOccurred()
     }
     
     override func viewDidAppear(_ animated: Bool) {
