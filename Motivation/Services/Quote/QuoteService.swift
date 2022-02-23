@@ -63,6 +63,8 @@ final class QuoteService: QuoteServiceProtocol {
                 var dayComponent = DateComponents()
                 dayComponent.day = index
                 
+                // TODO: trigger dates in futur
+                
                 return calendar.date(byAdding: dayComponent, to: Date(timeIntervalSince1970: startAt))
             }
             .forEach { date in

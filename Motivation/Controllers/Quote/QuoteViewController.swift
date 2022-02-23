@@ -21,6 +21,9 @@ final class QuoteViewController: UIViewController {
     @IBOutlet private weak var accountButton: AnimateButton! {
         didSet { accountButton.layer.smoothCorner(8) }
     }
+    @IBOutlet private weak var nextLabel: UILabel! {
+        didSet { nextLabel.text = R.string.localizable.next() }
+    }
     @IBOutlet private weak var categoryButton: AnimateButton! {
         didSet { categoryButton.layer.smoothCorner(8) }
     }
