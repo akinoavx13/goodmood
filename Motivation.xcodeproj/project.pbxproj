@@ -68,6 +68,7 @@
 		52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DFEE7F27C18EED00CA1FD8 /* R.generated.swift */; };
 		52E11E0427C5647D006C71ED /* OnboardingDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E11E0327C5647D006C71ED /* OnboardingDIContainer.swift */; };
 		52E11E0627C564A0006C71ED /* OnboardingFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E11E0527C564A0006C71ED /* OnboardingFlowCoordinator.swift */; };
+		52E4134E27C655AE0046503A /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E4134D27C655AE0046503A /* NotificationService.swift */; };
 		52F14C0427C3FE2F00896847 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F14C0627C3FE2F00896847 /* Localizable.strings */; };
 		52FA138927C3FA4600DCECFD /* SettingsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA138427C3FA4600DCECFD /* SettingsFlowCoordinator.swift */; };
 		52FA138A27C3FA4600DCECFD /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FA138527C3FA4600DCECFD /* SettingsViewController.storyboard */; };
@@ -146,6 +147,7 @@
 		52DFEE7F27C18EED00CA1FD8 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../../../motivation/Motivation/Resources/R.generated.swift; sourceTree = "<group>"; };
 		52E11E0327C5647D006C71ED /* OnboardingDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDIContainer.swift; sourceTree = "<group>"; };
 		52E11E0527C564A0006C71ED /* OnboardingFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowCoordinator.swift; sourceTree = "<group>"; };
+		52E4134D27C655AE0046503A /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		52F14C0527C3FE2F00896847 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		52F14C0727C3FE3D00896847 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		52FA138427C3FA4600DCECFD /* SettingsFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				528FFF4127C2A3B500C19A25 /* Database */,
 				52D3D23427C3B41400B8B884 /* Tracking */,
 				52D3D23727C3B5F100B8B884 /* Preference */,
+				52E4134C27C6559F0046503A /* Notification */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -459,6 +462,14 @@
 				5256F57027C5773E00FD7454 /* Notification */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		52E4134C27C6559F0046503A /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				52E4134D27C655AE0046503A /* NotificationService.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		52FA138327C3FA4600DCECFD /* Settings */ = {
@@ -710,6 +721,7 @@
 				52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */,
 				52E11E0627C564A0006C71ED /* OnboardingFlowCoordinator.swift in Sources */,
 				52B8091327C417040038FF9D /* CategoryViewController.swift in Sources */,
+				52E4134E27C655AE0046503A /* NotificationService.swift in Sources */,
 				5256F57427C5776C00FD7454 /* NotificationViewController.swift in Sources */,
 				52FA13A627C3FA7100DCECFD /* SettingsValueCellViewModel.swift in Sources */,
 				52D3D23C27C3BE7200B8B884 /* CALayer+SmoothCorner.swift in Sources */,

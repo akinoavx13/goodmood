@@ -12,9 +12,7 @@ import RxCocoa
 final class NotificationViewController: UIViewController {
     
     // MARK: - Outlets
-    
-    // TODO: Add this in a scroll view
-    
+        
     @IBOutlet private weak var titleLabel: UILabel! {
         didSet { titleLabel.text = R.string.localizable.notification_title() }
     }
@@ -106,7 +104,9 @@ final class NotificationViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func nextButtonDidTap(_ sender: AnimateButton) {
-        viewModel.nextButtonDidTap()
+        Task {
+            await viewModel.nextButtonDidTap()
+        }
     }
     
     @IBAction private func nbTimesStepperValueChanged(_ sender: UIStepper) {

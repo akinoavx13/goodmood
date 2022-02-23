@@ -70,6 +70,10 @@ extension OnboardingFlowCoordinator {
     }
     
     private func dismiss() {
-        navigationController.dismiss(animated: true)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+
+            self.navigationController.dismiss(animated: true)
+        }
     }
 }

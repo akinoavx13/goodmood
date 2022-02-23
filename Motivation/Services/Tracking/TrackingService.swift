@@ -25,7 +25,8 @@ final class TrackingService: TrackingServiceProtocol {
              showRatePopup
         
         case showWelcome,
-             showNotification
+             showNotification,
+             closeOnboarding
         
         case showQuoteScreen,
              showNextQuote
@@ -51,7 +52,9 @@ final class TrackingService: TrackingServiceProtocol {
     }
 
     enum UserProperty: String, RawRepresentable {
-        case nbTimesShowLikeApp
+        case nbTimesShowLikeApp,
+             nbNotifPerDay,
+             hasNotificationEnabled
     }
     
     // MARK: - Properties

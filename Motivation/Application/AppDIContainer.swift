@@ -20,6 +20,9 @@ final class AppDIContainer {
     lazy var preferenceService: PreferenceServiceProtocol = {
         PreferenceService()
     }()
+    private lazy var notificationService: NotificationServiceProtocol = {
+        NotificationService(trackingService: trackingService)
+    }()
     
     // MARK: - Methods
     
@@ -34,7 +37,8 @@ final class AppDIContainer {
     }()
     lazy var onboardingDIContainer: OnboardingDIContainer = {
         let dependencies = OnboardingDIContainer.Dependencies(trackingService: trackingService,
-                                                              preferenceService: preferenceService)
+                                                              preferenceService: preferenceService,
+                                                              notificationService: notificationService)
         
         return OnboardingDIContainer(dependencies: dependencies)
     }()

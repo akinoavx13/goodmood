@@ -24,7 +24,7 @@ protocol NotificationViewModelProtocol: AnyObject {
     // MARK: - Methods
     
     func viewDidAppear()
-    func nextButtonDidTap()
+    func nextButtonDidTap() async
     func update(nbTimes: Double)
     func update(startAt: Date)
     func update(endAt: Date)
@@ -41,15 +41,18 @@ final class NotificationViewModel: NotificationViewModelProtocol {
     private let actions: NotificationViewModelActions
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
+    private let notificationService: NotificationServiceProtocol
     
     // MARK: - Lifecycle
     
     init(actions: NotificationViewModelActions,
          trackingService: TrackingServiceProtocol,
-         preferenceService: PreferenceServiceProtocol) {
+         preferenceService: PreferenceServiceProtocol,
+         notificationService: NotificationServiceProtocol) {
         self.actions = actions
         self.trackingService = trackingService
         self.preferenceService = preferenceService
+        self.notificationService = notificationService
         
         self.nbTimes = .init(value: preferenceService.getNbTimesNotif())
         self.startAt = .init(value: preferenceService.getStartAtTime())
@@ -62,7 +65,12 @@ final class NotificationViewModel: NotificationViewModelProtocol {
         trackingService.track(event: .showNotification, eventProperties: nil)
     }
     
-    func nextButtonDidTap() {
+    func nextButtonDidTap() async {
+        await notificationService.requestAuthorization()
+        
+        trackingService.set(userProperty: .nbTimesShowLikeApp, value: NSNumber(value: nbTimes.value))
+        trackingService.track(event: .closeOnboarding, eventProperties: nil)
+
         preferenceService.onboardingSeen()
         
         actions.dismiss()

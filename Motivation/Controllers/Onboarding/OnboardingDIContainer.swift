@@ -12,6 +12,7 @@ final class OnboardingDIContainer {
     struct Dependencies {
         let trackingService: TrackingServiceProtocol
         let preferenceService: PreferenceServiceProtocol
+        let notificationService: NotificationServiceProtocol
     }
     
     // MARK: - Properties
@@ -41,7 +42,8 @@ final class OnboardingDIContainer {
     private func makeNotificationViewModel(actions: NotificationViewModelActions) -> NotificationViewModelProtocol {
         NotificationViewModel(actions: actions,
                               trackingService: dependencies.trackingService,
-                              preferenceService: dependencies.preferenceService)
+                              preferenceService: dependencies.preferenceService,
+                              notificationService: dependencies.notificationService)
     }
 }
 
