@@ -9,22 +9,28 @@ import Foundation
 
 final class AppDIContainer {
     
-    // MARK: - Properties
+    // MARK: - Services
     
-    private lazy var databaseService: DatabaseServiceProtocol = {
-        DatabaseService()
-    }()
     lazy var trackingService: TrackingServiceProtocol = {
         TrackingService()
     }()
     lazy var preferenceService: PreferenceServiceProtocol = {
         PreferenceService()
     }()
+    lazy var quoteService: QuoteServiceProtocol = {
+        QuoteService(databaseService: databaseService,
+                     notificationService: notificationService,
+                     preferenceService: preferenceService)
+    }()
+    
+    private lazy var databaseService: DatabaseServiceProtocol = {
+        DatabaseService()
+    }()
     private lazy var notificationService: NotificationServiceProtocol = {
         NotificationService(trackingService: trackingService)
     }()
     
-    // MARK: - Methods
+    // MARK: - Containers
     
     lazy var quoteDIContainer: QuoteDIContainer = {
         let dependencies = QuoteDIContainer.Dependencies(databaseService: databaseService,
@@ -38,10 +44,12 @@ final class AppDIContainer {
     lazy var onboardingDIContainer: OnboardingDIContainer = {
         let dependencies = OnboardingDIContainer.Dependencies(trackingService: trackingService,
                                                               preferenceService: preferenceService,
-                                                              notificationService: notificationService)
+                                                              notificationService: notificationService,
+                                                              quoteService: quoteService)
         
         return OnboardingDIContainer(dependencies: dependencies)
     }()
+    
     private lazy var settingsDIContainer: SettingsDIContainer = {
         let dependencies = SettingsDIContainer.Dependencies(trackingService: trackingService)
         

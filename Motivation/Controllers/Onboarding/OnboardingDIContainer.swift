@@ -13,6 +13,7 @@ final class OnboardingDIContainer {
         let trackingService: TrackingServiceProtocol
         let preferenceService: PreferenceServiceProtocol
         let notificationService: NotificationServiceProtocol
+        let quoteService: QuoteServiceProtocol
     }
     
     // MARK: - Properties
@@ -43,7 +44,8 @@ final class OnboardingDIContainer {
         NotificationViewModel(actions: actions,
                               trackingService: dependencies.trackingService,
                               preferenceService: dependencies.preferenceService,
-                              notificationService: dependencies.notificationService)
+                              notificationService: dependencies.notificationService,
+                              quoteService: dependencies.quoteService)
     }
 }
 

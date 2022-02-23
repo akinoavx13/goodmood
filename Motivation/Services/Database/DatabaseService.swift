@@ -48,5 +48,4 @@ final class DatabaseService: DatabaseServiceProtocol {
             .map { Quote(rmQuote: $0) }
             .shuffled()
     }
-    
 }

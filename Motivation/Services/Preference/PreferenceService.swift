@@ -104,7 +104,7 @@ final class PreferenceService: PreferenceServiceProtocol {
     func getStartAtTime() -> Date {
         let timeIntervalSince1970 = userDefaults.double(forKey: startAtTimeKey)
         
-        guard timeIntervalSince1970 > 0 else { return getDate(hour: 9) }
+        guard timeIntervalSince1970 > 0 else { return getDate(hour: 8) }
         
         return Date(timeIntervalSince1970: timeIntervalSince1970)
     }
@@ -120,7 +120,7 @@ final class PreferenceService: PreferenceServiceProtocol {
     func getEndAtTime() -> Date {
         let timeIntervalSince1970 = userDefaults.double(forKey: endAtTimeKey)
         
-        guard timeIntervalSince1970 > 0 else { return getDate(hour: 19) }
+        guard timeIntervalSince1970 > 0 else { return getDate(hour: 20) }
         
         return Date(timeIntervalSince1970: timeIntervalSince1970)
     }

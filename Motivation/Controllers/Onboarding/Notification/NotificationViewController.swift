@@ -99,14 +99,23 @@ final class NotificationViewController: UIViewController {
             .endAt
             .bind(to: endAtDatePicker.rx.date)
             .disposed(by: disposeBag)
+        
+        viewModel
+            .isNextButtonEnabled
+            .asDriver()
+            .drive(onNext: { [weak self] isNextButtonEnabled in
+                guard let self = self else { return }
+              
+                self.continueButton.alpha = isNextButtonEnabled ? 1 : 0.5
+                self.continueButton.isUserInteractionEnabled = isNextButtonEnabled
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Actions
     
     @IBAction private func nextButtonDidTap(_ sender: AnimateButton) {
-        Task {
-            await viewModel.nextButtonDidTap()
-        }
+        Task { await viewModel.nextButtonDidTap() }
     }
     
     @IBAction private func nbTimesStepperValueChanged(_ sender: UIStepper) {

@@ -15,15 +15,13 @@ protocol NotificationServiceProtocol: AnyObject {
                              body: String?)
     func removeAllPendingNotifications(type: NotificationService.NotificationType)
     @discardableResult func requestAuthorization() async -> Bool
+    func notificationStatus() async -> UNAuthorizationStatus
 }
 
 final class NotificationService: NotificationServiceProtocol {
     
     enum NotificationType: String {
-        case morningReports = "weather",
-             subscriptionReminder,
-             snowAlerts,
-             rainAlerts
+        case quote
     }
     
     // MARK: - Properties
@@ -39,7 +37,9 @@ final class NotificationService: NotificationServiceProtocol {
         self.notificationCenter = notificationCenter
         self.trackingService = trackingService
         
-        trackNotificationStatus()
+        Task {
+            await trackNotificationStatus()
+        }
     }
     
     // MARK: - Methods
@@ -91,21 +91,27 @@ final class NotificationService: NotificationServiceProtocol {
                 }
         }
     }
+
+    func notificationStatus() async -> UNAuthorizationStatus {
+        await withCheckedContinuation { continuation in
+            notificationCenter.getNotificationSettings { settings in
+                continuation.resume(returning: settings.authorizationStatus)
+            }
+        }
+    }
     
     // MARK: - Private methods
     
     private func getIdentifier(type: NotificationType, identifier: String? = nil) -> String { "\(type.rawValue)_\(identifier ?? UUID().uuidString)" }
     
-    private func trackNotificationStatus() {
-        notificationCenter.getNotificationSettings { [weak self] settings in
-            guard let self = self else { return }
-            
-            if settings.authorizationStatus != .denied,
-               settings.authorizationStatus != .notDetermined {
-                self.trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: true))
-            } else {
-                self.trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: false))
-            }
+    private func trackNotificationStatus() async {
+        let notificationStatus = await notificationStatus()
+        
+        if notificationStatus != .denied,
+           notificationStatus != .notDetermined {
+            self.trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: true))
+        } else {
+            self.trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: false))
         }
     }
 }

@@ -20,6 +20,7 @@ protocol NotificationViewModelProtocol: AnyObject {
     var nbTimes: BehaviorRelay<Int> { get }
     var startAt: BehaviorRelay<Date> { get }
     var endAt: BehaviorRelay<Date> { get }
+    var isNextButtonEnabled: BehaviorRelay<Bool> { get }
     
     // MARK: - Methods
     
@@ -37,22 +38,26 @@ final class NotificationViewModel: NotificationViewModelProtocol {
     let nbTimes: BehaviorRelay<Int>
     let startAt: BehaviorRelay<Date>
     let endAt: BehaviorRelay<Date>
+    let isNextButtonEnabled: BehaviorRelay<Bool> = .init(value: true)
     
     private let actions: NotificationViewModelActions
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
     private let notificationService: NotificationServiceProtocol
+    private let quoteService: QuoteServiceProtocol
     
     // MARK: - Lifecycle
     
     init(actions: NotificationViewModelActions,
          trackingService: TrackingServiceProtocol,
          preferenceService: PreferenceServiceProtocol,
-         notificationService: NotificationServiceProtocol) {
+         notificationService: NotificationServiceProtocol,
+         quoteService: QuoteServiceProtocol) {
         self.actions = actions
         self.trackingService = trackingService
         self.preferenceService = preferenceService
         self.notificationService = notificationService
+        self.quoteService = quoteService
         
         self.nbTimes = .init(value: preferenceService.getNbTimesNotif())
         self.startAt = .init(value: preferenceService.getStartAtTime())
@@ -70,9 +75,10 @@ final class NotificationViewModel: NotificationViewModelProtocol {
         
         trackingService.set(userProperty: .nbTimesShowLikeApp, value: NSNumber(value: nbTimes.value))
         trackingService.track(event: .closeOnboarding, eventProperties: nil)
-
-        preferenceService.onboardingSeen()
         
+        await quoteService.triggerNotificationsIfNeeded(nbDays: 14)
+        
+        preferenceService.onboardingSeen()
         actions.dismiss()
     }
     
@@ -84,13 +90,19 @@ final class NotificationViewModel: NotificationViewModelProtocol {
     
     func update(startAt: Date) {
         self.startAt.accept(startAt)
+        isNextButtonEnabled.accept(self.startAt.value.timeIntervalSince1970 < self.endAt.value.timeIntervalSince1970)
         
-        preferenceService.save(startAt: startAt)
+        if isNextButtonEnabled.value {
+            preferenceService.save(startAt: startAt)
+        }
     }
     
     func update(endAt: Date) {
         self.endAt.accept(endAt)
+        isNextButtonEnabled.accept(self.startAt.value.timeIntervalSince1970 < self.endAt.value.timeIntervalSince1970)
         
-        preferenceService.save(endAt: endAt)
+        if isNextButtonEnabled.value {
+            preferenceService.save(endAt: endAt)
+        }
     }
 }

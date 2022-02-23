@@ -36,6 +36,12 @@ final class AppFlowCoordinator {
             .start()
         
         startOnboardingIfNeeded()
+        
+        if appDIContainer.preferenceService.hasSeenOnboarding() {
+            Task {
+                await appDIContainer.quoteService.triggerNotificationsIfNeeded(nbDays: 14)
+            }
+        }
     }
     
     func applicationDidBecomeActive() {
@@ -46,8 +52,7 @@ final class AppFlowCoordinator {
     // MARK: - Methods
     
     private func startOnboardingIfNeeded() {
-        // TODO: Remove comment
-//        guard !appDIContainer.preferenceService.hasSeenOnboarding() else { return }
+        guard !appDIContainer.preferenceService.hasSeenOnboarding() else { return }
 
         appDIContainer
             .onboardingDIContainer
