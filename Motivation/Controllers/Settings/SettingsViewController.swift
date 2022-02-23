@@ -99,13 +99,6 @@ final class SettingsViewController: UIViewController {
         case .writeReview: viewModel.writeReview()
         case .share: viewModel.share(sourceView: sourceView)
         case .helpTranslateTheApp: viewModel.helpTranslateApp()
-        }
-    }
-    
-    private func buttonDidTap(id: String) {
-        guard let rowId = SettingsViewModel.RowId(rawValue: id) else { return }
-        
-        switch rowId {
         default: fatalError("Can't handle \(id)")
         }
     }
@@ -190,11 +183,9 @@ extension SettingsViewController: UITableViewDelegate {
         switch type {
         case let .link(viewModel): linkDidTap(id: viewModel.id,
                                               sourceView: tableView.cellForRow(at: indexPath))
-        case let .button(viewModel): buttonDidTap(id: viewModel.id)
         default: break
         }
     }
-    
 }
 
 // MARK: - SettingsToggleCellDelegate -
@@ -206,6 +197,7 @@ extension SettingsViewController: SettingsToggleCellDelegate {
         guard let rowId = SettingsViewModel.RowId(rawValue: id) else { return }
         
         switch rowId {
+        case .hasNotificationEnabled: viewModel.toggleHasNotificationEnabled()
         default: fatalError("Can't handle \(id)")
         }
     }

@@ -27,7 +27,8 @@ final class AppDIContainer {
         DatabaseService()
     }()
     private lazy var notificationService: NotificationServiceProtocol = {
-        NotificationService(trackingService: trackingService)
+        NotificationService(trackingService: trackingService,
+                            preferenceService: preferenceService)
     }()
     
     // MARK: - Containers
@@ -51,7 +52,10 @@ final class AppDIContainer {
     }()
     
     private lazy var settingsDIContainer: SettingsDIContainer = {
-        let dependencies = SettingsDIContainer.Dependencies(trackingService: trackingService)
+        let dependencies = SettingsDIContainer.Dependencies(trackingService: trackingService,
+                                                            preferenceService: preferenceService,
+                                                            notificationService: notificationService,
+                                                            quoteService: quoteService)
         
         return SettingsDIContainer(dependencies: dependencies)
     }()

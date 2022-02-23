@@ -31,6 +31,7 @@ protocol SettingsViewModelProtocol: AnyObject {
     func writeReview()
     func share(sourceView: UIView?)
     func helpTranslateApp()
+    func toggleHasNotificationEnabled()
 }
 
 final class SettingsViewModel: SettingsViewModelProtocol {
@@ -39,7 +40,8 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         case sendFeedback,
              writeReview,
              share,
-             helpTranslateTheApp
+             helpTranslateTheApp,
+             hasNotificationEnabled
     }
     
     // MARK: - Properties
@@ -52,15 +54,24 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     private let device: UIDevice
     
     private let trackingService: TrackingServiceProtocol
+    private let preferenceService: PreferenceServiceProtocol
+    private let notificationService: NotificationServiceProtocol
+    private let quoteService: QuoteServiceProtocol
     
     // MARK: - Lifecycle
     
     init(actions: SettingsViewModelActions,
          device: UIDevice = UIDevice.current,
-         trackingService: TrackingServiceProtocol) {
+         trackingService: TrackingServiceProtocol,
+         preferenceService: PreferenceServiceProtocol,
+         notificationService: NotificationServiceProtocol,
+         quoteService: QuoteServiceProtocol) {
         self.actions = actions
         self.device = device
         self.trackingService = trackingService
+        self.preferenceService = preferenceService
+        self.notificationService = notificationService
+        self.quoteService = quoteService
     }
     
     // MARK: - Methods
@@ -124,6 +135,21 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         
         actions.openUrl(stringUrl)
     }
+    
+    func toggleHasNotificationEnabled() {
+        preferenceService.save(isNotificationEnabled: !preferenceService.isNotificationEnabled())
+        
+        let newIsNotificationEnabled = preferenceService.isNotificationEnabled()
+        trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: newIsNotificationEnabled))
+
+        if !newIsNotificationEnabled {
+            notificationService.removeAllPendingNotifications(type: .quote)
+        } else {
+            Task { await quoteService.triggerNotificationsIfNeeded(nbDays: 14) }
+        }
+        
+        configureComposition()
+    }
 }
 
 // MARK: - Composition
@@ -136,7 +162,8 @@ extension SettingsViewModel {
     }
     
     enum SectionType {
-        case support
+        case support,
+             notifications
     }
     
     enum Cell {
@@ -150,9 +177,22 @@ extension SettingsViewModel {
     private func configureComposition() {
         var sections = [Section]()
         
+        sections.append(configureNotificationSection())
         sections.append(configureSupportSection())
         
         compositionSubject.onNext(Composition(sections: sections))
+    }
+    
+    private func configureNotificationSection() -> Section {
+        let cells: [Cell] = [.toggle(SettingsToggleCellViewModel(id: RowId.hasNotificationEnabled.rawValue,
+                                                                 title: R.string.localizable.motivations(),
+                                                                 subtitle: R.string.localizable.daily_reminders(),
+                                                                 isOn: preferenceService.isNotificationEnabled(),
+                                                                 isDisabled: false))]
+        
+        return .section(.notifications,
+                        title: R.string.localizable.notifications(),
+                        cells: cells)
     }
     
     private func configureSupportSection() -> Section {

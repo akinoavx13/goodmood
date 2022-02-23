@@ -29,17 +29,18 @@ final class NotificationService: NotificationServiceProtocol {
     private let notificationCenter: UNUserNotificationCenter
     
     private let trackingService: TrackingServiceProtocol
+    private let preferenceService: PreferenceServiceProtocol
     
     // MARK: - Lifecycle
     
     init(notificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current(),
-         trackingService: TrackingServiceProtocol) {
+         trackingService: TrackingServiceProtocol,
+         preferenceService: PreferenceServiceProtocol) {
         self.notificationCenter = notificationCenter
         self.trackingService = trackingService
+        self.preferenceService = preferenceService
         
-        Task {
-            await trackNotificationStatus()
-        }
+        Task { await trackNotificationStatus() }
     }
     
     // MARK: - Methods
@@ -110,8 +111,10 @@ final class NotificationService: NotificationServiceProtocol {
         if notificationStatus != .denied,
            notificationStatus != .notDetermined {
             self.trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: true))
+            self.preferenceService.save(isNotificationEnabled: true)
         } else {
             self.trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: false))
+            self.preferenceService.save(isNotificationEnabled: false)
         }
     }
 }

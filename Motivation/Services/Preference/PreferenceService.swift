@@ -27,6 +27,8 @@ protocol PreferenceServiceProtocol: AnyObject {
     func save(endAt: Date)
     func getNbTimesNotif() -> Int
     func save(nbTimesNotif: Int)
+    func isNotificationEnabled() -> Bool
+    func save(isNotificationEnabled: Bool)
 }
 
 final class PreferenceService: PreferenceServiceProtocol {
@@ -44,6 +46,7 @@ final class PreferenceService: PreferenceServiceProtocol {
     private let startAtTimeKey = "startAtTimeKey"
     private let endAtTimeKey = "endAtTimeKey"
     private let nbTimesNotifKey = "nbTimesNotifKey"
+    private let isNotificationEnabledKey = "isNotificationEnabledKey"
 
     // MARK: - Lifecycle
     
@@ -149,6 +152,16 @@ final class PreferenceService: PreferenceServiceProtocol {
         }
         
         userDefaults.set(nbTimesNotif, forKey: nbTimesNotifKey)
+    }
+    
+    func isNotificationEnabled() -> Bool { userDefaults.bool(forKey: isNotificationEnabledKey) }
+    
+    func save(isNotificationEnabled: Bool) {
+        if App.env == .debug {
+            print("💾 Update is notification enabled to \(isNotificationEnabled)")
+        }
+        
+        userDefaults.set(isNotificationEnabled, forKey: isNotificationEnabledKey)
     }
     
     // MARK: - Private methods

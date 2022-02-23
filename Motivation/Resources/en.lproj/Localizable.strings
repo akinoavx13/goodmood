@@ -35,3 +35,6 @@
 "number_of_reminders" = "Number of reminders";
 "start_at" = "Start at";
 "end_at" = "End at";
+"notifications" = "Notifications";
+"daily_reminders" = "Daily reminders";
+"motivations" = "Motivations";

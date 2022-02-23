@@ -11,6 +11,9 @@ final class SettingsDIContainer {
     
     struct Dependencies {
         let trackingService: TrackingServiceProtocol
+        let preferenceService: PreferenceServiceProtocol
+        let notificationService: NotificationServiceProtocol
+        let quoteService: QuoteServiceProtocol
     }
     
     // MARK: - Properties
@@ -34,7 +37,10 @@ final class SettingsDIContainer {
     
     private func makeSettingsViewModel(actions: SettingsViewModelActions) -> SettingsViewModelProtocol {
         SettingsViewModel(actions: actions,
-                          trackingService: dependencies.trackingService)
+                          trackingService: dependencies.trackingService,
+                          preferenceService: dependencies.preferenceService,
+                          notificationService: dependencies.notificationService,
+                          quoteService: dependencies.quoteService)
     }
     
 }
