@@ -76,7 +76,7 @@ final class NotificationViewModel: NotificationViewModelProtocol {
         trackingService.set(userProperty: .nbTimesShowLikeApp, value: NSNumber(value: nbTimes.value))
         trackingService.track(event: .closeOnboarding, eventProperties: nil)
         
-        await quoteService.triggerNotificationsIfNeeded(nbDays: 14)
+        await quoteService.triggerNotificationsIfNeeded()
         
         preferenceService.save(isNotificationEnabled: isGranted)
         preferenceService.onboardingSeen()

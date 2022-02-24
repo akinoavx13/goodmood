@@ -11,7 +11,7 @@ protocol QuoteServiceProtocol: AnyObject {
     
     // MARK: - Methods
     
-    func triggerNotificationsIfNeeded(nbDays: Int) async
+    func triggerNotificationsIfNeeded() async
 }
 
 final class QuoteService: QuoteServiceProtocol {
@@ -39,7 +39,8 @@ final class QuoteService: QuoteServiceProtocol {
 
     // MARK: - Methods
     
-    func triggerNotificationsIfNeeded(nbDays: Int) async {
+    func triggerNotificationsIfNeeded() async {
+        let nbDays = 14
         var notificationStatus = await notificationService.notificationStatus()
         
         if notificationStatus == .notDetermined {

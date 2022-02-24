@@ -39,7 +39,7 @@ final class AppFlowCoordinator {
         
         if appDIContainer.preferenceService.hasSeenOnboarding() {
             Task {
-                await appDIContainer.quoteService.triggerNotificationsIfNeeded(nbDays: 14)
+                await appDIContainer.quoteService.triggerNotificationsIfNeeded()
             }
         }
     }

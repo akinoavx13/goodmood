@@ -145,7 +145,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         if !newIsNotificationEnabled {
             notificationService.removeAllPendingNotifications(type: .quote)
         } else {
-            Task { await quoteService.triggerNotificationsIfNeeded(nbDays: 14) }
+            Task { await quoteService.triggerNotificationsIfNeeded() }
         }
         
         configureComposition()
