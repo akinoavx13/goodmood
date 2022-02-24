@@ -27,6 +27,8 @@ final class WelcomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     var viewModel: WelcomeViewModelProtocol!
     
     private lazy var subtitleStyleNormal = Style { $0.font = UIFont.systemFont(ofSize: 17, weight: .regular) }

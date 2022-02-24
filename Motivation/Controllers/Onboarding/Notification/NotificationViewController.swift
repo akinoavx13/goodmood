@@ -47,6 +47,8 @@ final class NotificationViewController: UIViewController {
     
     // MARK: - Properties
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     var viewModel: NotificationViewModelProtocol!
     
     private let disposeBag = DisposeBag()
