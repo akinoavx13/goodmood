@@ -88,23 +88,26 @@ final class NotificationViewModel: NotificationViewModelProtocol {
         self.nbTimes.accept(Int(nbTimes))
         
         preferenceService.save(nbTimesNotif: self.nbTimes.value)
+        
+        trackingService.set(userProperty: .nbNotifPerDay, value: NSNumber(value: nbTimes))
+        trackingService.track(event: .updateNbNotifPerDay, eventProperties: nil)
     }
     
     func update(startAt: Date) {
         self.startAt.accept(startAt)
+        
         isNextButtonEnabled.accept(self.startAt.value.timeIntervalSince1970 < self.endAt.value.timeIntervalSince1970)
         
-        if isNextButtonEnabled.value {
-            preferenceService.save(startAt: startAt)
-        }
+        preferenceService.save(startAt: startAt)
+        trackingService.track(event: .updateStartAt, eventProperties: nil)
     }
     
     func update(endAt: Date) {
         self.endAt.accept(endAt)
+        
         isNextButtonEnabled.accept(self.startAt.value.timeIntervalSince1970 < self.endAt.value.timeIntervalSince1970)
         
-        if isNextButtonEnabled.value {
-            preferenceService.save(endAt: endAt)
-        }
+        preferenceService.save(endAt: endAt)
+        trackingService.track(event: .updateEndAt, eventProperties: nil)
     }
 }

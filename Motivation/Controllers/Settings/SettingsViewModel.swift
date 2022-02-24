@@ -27,6 +27,7 @@ protocol SettingsViewModelProtocol: AnyObject {
     
     func viewDidLoad()
     func viewDidAppear()
+    func viewDidDisappear()
     func sendFeedback()
     func writeReview()
     func share(sourceView: UIView?)
@@ -34,6 +35,7 @@ protocol SettingsViewModelProtocol: AnyObject {
     func toggleHasNotificationEnabled()
     func update(startAt: Date)
     func update(endAt: Date)
+    func update(nbNotifPerDay: Double)
 }
 
 final class SettingsViewModel: SettingsViewModelProtocol {
@@ -45,7 +47,8 @@ final class SettingsViewModel: SettingsViewModelProtocol {
              helpTranslateTheApp,
              hasNotificationEnabled,
              startAt,
-             endAt
+             endAt,
+             nbNotifPerDay
     }
     
     // MARK: - Properties
@@ -86,6 +89,16 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     
     func viewDidAppear() {
         trackingService.track(event: .showSettings, eventProperties: nil)
+    }
+    
+    func viewDidDisappear() {
+        Task {
+            if !preferenceService.isNotificationEnabled() {
+                await notificationService.removeAllPendingNotifications(type: .quote)
+            } else {
+                await quoteService.triggerNotificationsIfNeeded()
+            }
+        }
     }
     
     func sendFeedback() {
@@ -143,17 +156,8 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     func toggleHasNotificationEnabled() {
         preferenceService.save(isNotificationEnabled: !preferenceService.isNotificationEnabled())
         
-        let newIsNotificationEnabled = preferenceService.isNotificationEnabled()
-        trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: newIsNotificationEnabled))
+        trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: preferenceService.isNotificationEnabled()))
 
-        Task {
-            if !newIsNotificationEnabled {
-                await notificationService.removeAllPendingNotifications(type: .quote)
-            } else {
-                await quoteService.triggerNotificationsIfNeeded()
-            }
-        }
-        
         configureComposition()
     }
     
@@ -161,20 +165,21 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         trackingService.track(event: .updateStartAt, eventProperties: nil)
 
         preferenceService.save(startAt: startAt)
-        
-        Task {
-            await quoteService.triggerNotificationsIfNeeded()
-        }
     }
     
     func update(endAt: Date) {
         trackingService.track(event: .updateEndAt, eventProperties: nil)
 
         preferenceService.save(endAt: endAt)
+    }
+    
+    func update(nbNotifPerDay: Double) {
+        trackingService.set(userProperty: .nbNotifPerDay, value: NSNumber(value: nbNotifPerDay))
+        trackingService.track(event: .updateNbNotifPerDay, eventProperties: nil)
         
-        Task {
-            await quoteService.triggerNotificationsIfNeeded()
-        }
+        preferenceService.save(nbTimesNotif: Int(nbNotifPerDay))
+        
+        configureComposition()
     }
 }
 
@@ -197,7 +202,8 @@ extension SettingsViewModel {
              timePicker(_ for: SettingsTimePickerCellViewModel),
              link(_ for: SettingsLinkCellViewModel),
              value(_ for: SettingsValueCellViewModel),
-             button(_ for: SettingsButtonCellViewModel)
+             button(_ for: SettingsButtonCellViewModel),
+             stepper(_ for: SettingsStepperCellViewModel)
     }
     
     private func configureComposition() {
@@ -218,6 +224,14 @@ extension SettingsViewModel {
                                                                  isDisabled: false))]
         
         if isNotificationEnabled {
+            cells.append(.stepper(SettingsStepperCellViewModel(id: RowId.nbNotifPerDay.rawValue,
+                                                               title: R.string.localizable.number_of_reminders(),
+                                                               subtitle: R.string.localizable.x_times(Int(preferenceService.getNbTimesNotif())),
+                                                               value: Double(preferenceService.getNbTimesNotif()),
+                                                               min: 1,
+                                                               max: 48,
+                                                               step: 1,
+                                                               isDisabled: false)))
             cells.append(.timePicker(SettingsTimePickerCellViewModel(id: RowId.startAt.rawValue,
                                                                      title: R.string.localizable.start_at(),
                                                                      date: preferenceService.getStartAtTime(),

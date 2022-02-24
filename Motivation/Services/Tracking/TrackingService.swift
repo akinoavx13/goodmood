@@ -40,7 +40,8 @@ final class TrackingService: TrackingServiceProtocol {
              sendFeedback,
              helpTranslateApp,
              updateStartAt,
-             updateEndAt
+             updateEndAt,
+             updateNbNotifPerDay
     }
     
     enum EventProperty: String, RawRepresentable {

@@ -19,6 +19,7 @@ final class SettingsViewController: UIViewController {
             tableView.register(cellType: SettingsLinkCell.self)
             tableView.register(cellType: SettingsValueCell.self)
             tableView.register(cellType: SettingsButtonCell.self)
+            tableView.register(cellType: SettingsStepperCell.self)
         }
     }
     @IBOutlet private weak var appVersionLabel: UILabel!
@@ -63,6 +64,12 @@ final class SettingsViewController: UIViewController {
         super.viewDidAppear(animated)
         
         viewModel.viewDidAppear()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        viewModel.viewDidDisappear()
     }
     
     // MARK: - Setup methods
@@ -158,6 +165,12 @@ extension SettingsViewController: UITableViewDataSource {
             cell.viewModel = viewModel
             
             return cell
+        case let .stepper(viewModel):
+            let cell: SettingsStepperCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.viewModel = viewModel
+            cell.delegate = self
+            
+            return cell
         }
     }
     
@@ -178,6 +191,7 @@ extension SettingsViewController: UITableViewDelegate {
         case let .link(viewModel): return SettingsLinkCell.size(for: viewModel).height
         case .value: return SettingsValueCell.size.height
         case let .button(viewModel): return SettingsButtonCell.size(for: viewModel).height
+        case let .stepper(viewModel): return SettingsStepperCell.size(for: viewModel).height
         }
     }
     
@@ -221,6 +235,23 @@ extension SettingsViewController: SettingsTimePickerCellDelegate {
         switch rowId {
         case .startAt: viewModel.update(startAt: date)
         case .endAt: viewModel.update(endAt: date)
+        default: fatalError("Can't handle \(id)")
+        }
+    }
+}
+
+// MARK: - SettingsStepperCellDelegate -
+
+extension SettingsViewController: SettingsStepperCellDelegate {
+    func settingsStepperCell(_ sender: SettingsStepperCell,
+                             stepperValueDidChange value: Double,
+                             id: String) {
+        guard let rowId = SettingsViewModel.RowId(rawValue: id) else { return }
+        
+        switch rowId {
+        case .nbNotifPerDay:
+            viewModel.update(nbNotifPerDay: value)
+            impactGenerator.impactOccurred()
         default: fatalError("Can't handle \(id)")
         }
     }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="DXS-hK-R6T" customClass="SettingsStepperCell" customModule="Motivation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DXS-hK-R6T" id="qZN-ds-fmy">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0Ka-7S-juO">
+                        <rect key="frame" x="16" y="12" width="272" height="46"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPP-xD-s0I">
+                                <rect key="frame" x="0.0" y="0.0" width="272" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubh-zs-qTw">
+                                <rect key="frame" x="0.0" y="24.5" width="272" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="G79-LS-Gqw">
+                        <rect key="frame" x="304" y="19" width="94" height="32"/>
+                        <connections>
+                            <action selector="stepperValueChanged:" destination="DXS-hK-R6T" eventType="valueChanged" id="xpy-bo-1p4"/>
+                        </connections>
+                    </stepper>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="G79-LS-Gqw" secondAttribute="trailing" constant="16" id="7s4-bY-5f8"/>
+                    <constraint firstAttribute="bottom" secondItem="0Ka-7S-juO" secondAttribute="bottom" constant="12" id="N4x-uQ-4dd"/>
+                    <constraint firstItem="G79-LS-Gqw" firstAttribute="centerY" secondItem="qZN-ds-fmy" secondAttribute="centerY" id="RgC-QW-hFe"/>
+                    <constraint firstItem="G79-LS-Gqw" firstAttribute="leading" secondItem="0Ka-7S-juO" secondAttribute="trailing" constant="16" id="dF7-WC-zTh"/>
+                    <constraint firstItem="0Ka-7S-juO" firstAttribute="top" secondItem="qZN-ds-fmy" secondAttribute="top" constant="12" id="tAf-Sh-rnC"/>
+                    <constraint firstItem="0Ka-7S-juO" firstAttribute="leading" secondItem="qZN-ds-fmy" secondAttribute="leading" constant="16" id="xMR-bQ-Lk2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="stepper" destination="G79-LS-Gqw" id="hKm-PS-0NW"/>
+                <outlet property="subtitleLabel" destination="ubh-zs-qTw" id="WnC-3Y-TTq"/>
+                <outlet property="titleLabel" destination="bPP-xD-s0I" id="cBX-Ay-EYV"/>
+            </connections>
+            <point key="canvasLocation" x="113.04347826086958" y="51.897321428571423"/>
+        </tableViewCell>
+    </objects>
+</document>

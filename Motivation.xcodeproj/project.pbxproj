@@ -57,6 +57,9 @@
 		52B8091827C41C4E0038FF9D /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B8091527C41C4E0038FF9D /* CategoryCell.xib */; };
 		52B8091927C41C4E0038FF9D /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8091627C41C4E0038FF9D /* CategoryCell.swift */; };
 		52B8091A27C41C4E0038FF9D /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8091727C41C4E0038FF9D /* CategoryCellViewModel.swift */; };
+		52C825B027C7B71900B23AFF /* SettingsStepperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C825AD27C7B71800B23AFF /* SettingsStepperCell.xib */; };
+		52C825B127C7B71900B23AFF /* SettingsStepperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C825AE27C7B71800B23AFF /* SettingsStepperCell.swift */; };
+		52C825B227C7B71900B23AFF /* SettingsStepperCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C825AF27C7B71900B23AFF /* SettingsStepperCellViewModel.swift */; };
 		52D3D23327C3B40300B8B884 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 52D3D23227C3B40300B8B884 /* Amplitude */; };
 		52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23527C3B42B00B8B884 /* TrackingService.swift */; };
 		52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3D23827C3B60C00B8B884 /* PreferenceService.swift */; };
@@ -136,6 +139,9 @@
 		52B8091527C41C4E0038FF9D /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		52B8091627C41C4E0038FF9D /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		52B8091727C41C4E0038FF9D /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
+		52C825AD27C7B71800B23AFF /* SettingsStepperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsStepperCell.xib; sourceTree = "<group>"; };
+		52C825AE27C7B71800B23AFF /* SettingsStepperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStepperCell.swift; sourceTree = "<group>"; };
+		52C825AF27C7B71900B23AFF /* SettingsStepperCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStepperCellViewModel.swift; sourceTree = "<group>"; };
 		52D3D23527C3B42B00B8B884 /* TrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingService.swift; sourceTree = "<group>"; };
 		52D3D23827C3B60C00B8B884 /* PreferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceService.swift; sourceTree = "<group>"; };
 		52D3D23B27C3BE7200B8B884 /* CALayer+SmoothCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+SmoothCorner.swift"; sourceTree = "<group>"; };
@@ -351,6 +357,16 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		52C825AC27C7B6E900B23AFF /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				52C825AE27C7B71800B23AFF /* SettingsStepperCell.swift */,
+				52C825AF27C7B71900B23AFF /* SettingsStepperCellViewModel.swift */,
+				52C825AD27C7B71800B23AFF /* SettingsStepperCell.xib */,
+			);
+			path = Stepper;
+			sourceTree = "<group>";
+		};
 		52D3D23427C3B41400B8B884 /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +514,7 @@
 		52FA138E27C3FA7000DCECFD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				52C825AC27C7B6E900B23AFF /* Stepper */,
 				52FA138F27C3FA7000DCECFD /* TimePicker */,
 				52FA139327C3FA7000DCECFD /* Value */,
 				52FA139727C3FA7000DCECFD /* Toggle */,
@@ -652,6 +669,7 @@
 				52FA13A827C3FA7100DCECFD /* SettingsValueCell.xib in Resources */,
 				520D638627C56ABD0067F0A9 /* WelcomeViewController.storyboard in Resources */,
 				52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */,
+				52C825B027C7B71900B23AFF /* SettingsStepperCell.xib in Resources */,
 				52FA13AE27C3FA7100DCECFD /* SettingsButtonCell.xib in Resources */,
 				52B8091827C41C4E0038FF9D /* CategoryCell.xib in Resources */,
 				52FA138A27C3FA4600DCECFD /* SettingsViewController.storyboard in Resources */,
@@ -734,6 +752,7 @@
 				52B8091327C417040038FF9D /* CategoryViewController.swift in Sources */,
 				52E4134E27C655AE0046503A /* NotificationService.swift in Sources */,
 				5256F57427C5776C00FD7454 /* NotificationViewController.swift in Sources */,
+				52C825B227C7B71900B23AFF /* SettingsStepperCellViewModel.swift in Sources */,
 				52FA13A627C3FA7100DCECFD /* SettingsValueCellViewModel.swift in Sources */,
 				52D3D23C27C3BE7200B8B884 /* CALayer+SmoothCorner.swift in Sources */,
 				52D3D24227C3BF6E00B8B884 /* AnimationButton.swift in Sources */,
@@ -751,6 +770,7 @@
 				5212A85527C3B248002A5CB3 /* UserIdentifierManager.swift in Sources */,
 				527EB0DE27C2B73500474245 /* SnapCenterLayout.swift in Sources */,
 				527EB0D727C2AC1D00474245 /* QuoteCellViewModel.swift in Sources */,
+				52C825B127C7B71900B23AFF /* SettingsStepperCell.swift in Sources */,
 				528FFF4927C2A40D00C19A25 /* RMQuote.swift in Sources */,
 				528FFF4B27C2A44100C19A25 /* Constants.swift in Sources */,
 				52FA13B027C3FA7100DCECFD /* SettingsLinkCell.swift in Sources */,
