@@ -142,10 +142,12 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         let newIsNotificationEnabled = preferenceService.isNotificationEnabled()
         trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: newIsNotificationEnabled))
 
-        if !newIsNotificationEnabled {
-            notificationService.removeAllPendingNotifications(type: .quote)
-        } else {
-            Task { await quoteService.triggerNotificationsIfNeeded() }
+        Task {
+            if !newIsNotificationEnabled {
+                await notificationService.removeAllPendingNotifications(type: .quote)
+            } else {
+                await quoteService.triggerNotificationsIfNeeded()
+            }
         }
         
         configureComposition()

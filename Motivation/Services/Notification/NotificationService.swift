@@ -13,7 +13,7 @@ protocol NotificationServiceProtocol: AnyObject {
                              title: String?,
                              subtitle: String?,
                              body: String?)
-    func removeAllPendingNotifications(type: NotificationService.NotificationType)
+    func removeAllPendingNotifications(type: NotificationService.NotificationType) async
     @discardableResult func requestAuthorization() async -> Bool
     func notificationStatus() async -> UNAuthorizationStatus
 }
@@ -26,8 +26,10 @@ final class NotificationService: NotificationServiceProtocol {
     
     // MARK: - Properties
     
-    private let notificationCenter: UNUserNotificationCenter
+    private let nbMaxNotifScheduled = 64
+    private var nbNotifScheduled = 0
     
+    private let notificationCenter: UNUserNotificationCenter
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
     
@@ -40,7 +42,10 @@ final class NotificationService: NotificationServiceProtocol {
         self.trackingService = trackingService
         self.preferenceService = preferenceService
         
-        Task { await trackNotificationStatus() }
+        Task {
+            await trackNotificationStatus()
+            nbNotifScheduled = await getPendingRequests().count
+        }
     }
     
     // MARK: - Methods
@@ -52,7 +57,7 @@ final class NotificationService: NotificationServiceProtocol {
                              body: String?) {
         let now = Date().timeIntervalSince1970
         
-        guard now < datetime else { return }
+        guard now < datetime && nbNotifScheduled < nbMaxNotifScheduled else { return }
         
         let content = UNMutableNotificationContent()
         
@@ -64,22 +69,21 @@ final class NotificationService: NotificationServiceProtocol {
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: datetime - now, repeats: false)
         let request = UNNotificationRequest(identifier: getIdentifier(type: type), content: content, trigger: trigger)
-        
+            
+        nbNotifScheduled += 1
         notificationCenter.add(request)
     }
     
-    func removeAllPendingNotifications(type: NotificationType) {
-        notificationCenter.getPendingNotificationRequests { [weak self] notificationRequests in
-            guard let self = self else { return }
+    func removeAllPendingNotifications(type: NotificationType) async {
+        let pendingNotificationRequests = await getPendingRequests()
+        let identifiers = pendingNotificationRequests.compactMap { pendingNotificationRequest -> String? in
+            guard pendingNotificationRequest.identifier.contains(type.rawValue) else { return nil }
             
-            let identifiers = notificationRequests.compactMap { notificationRequest -> String? in
-                guard notificationRequest.identifier.contains(type.rawValue) else { return nil }
-                
-                return notificationRequest.identifier
-            }
-            
-            self.notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
+            return pendingNotificationRequest.identifier
         }
+        
+        nbNotifScheduled -= identifiers.count
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
     }
     
     func requestAuthorization() async -> Bool {
@@ -115,6 +119,14 @@ final class NotificationService: NotificationServiceProtocol {
         } else {
             self.trackingService.set(userProperty: .hasNotificationEnabled, value: NSNumber(value: false))
             self.preferenceService.save(isNotificationEnabled: false)
+        }
+    }
+    
+    private func getPendingRequests() async -> [UNNotificationRequest] {
+        await withCheckedContinuation { continuation in
+            notificationCenter.getPendingNotificationRequests {
+                continuation.resume(returning: $0)
+            }
         }
     }
 }

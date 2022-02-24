@@ -42,29 +42,28 @@ final class QuoteService: QuoteServiceProtocol {
     func triggerNotificationsIfNeeded() async {
         let nbDays = 14
         var notificationStatus = await notificationService.notificationStatus()
-        
+
         if notificationStatus == .notDetermined {
             await notificationService.requestAuthorization()
-            
+
             notificationStatus = await notificationService.notificationStatus()
         }
         
         guard notificationStatus != .denied else { return }
-        
-        
+
         let nbNotifPerDay = preferenceService.getNbTimesNotif()
         let startAt = preferenceService.getStartAtTime().timeIntervalSince1970
         let endAt = preferenceService.getEndAtTime().timeIntervalSince1970
-        
-        notificationService.removeAllPendingNotifications(type: .quote)
-        
+
+        await notificationService.removeAllPendingNotifications(type: .quote)
+
         refreshQuotes()
-        
+
         (0...nbDays)
             .compactMap { index -> Date? in
                 var dayComponent = DateComponents()
                 dayComponent.day = index
-                
+
                 return calendar.date(byAdding: dayComponent, to: Date(timeIntervalSince1970: startAt))
             }
             .forEach { date in
@@ -88,7 +87,7 @@ final class QuoteService: QuoteServiceProtocol {
                                                         datetime: triggerTime.timeIntervalSince1970,
                                                         title: nil,
                                                         subtitle: nil,
-                                                        body: quote.content)
+                                                        body: quote.content.replacingOccurrences(of: "\n", with: " "))
             }
     }
     
