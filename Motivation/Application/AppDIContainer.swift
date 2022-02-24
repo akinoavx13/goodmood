@@ -61,7 +61,8 @@ final class AppDIContainer {
     }()
     private lazy var categoryDIContainer: CategoryDIContainer = {
         let dependencies = CategoryDIContainer.Dependencies(trackingService: trackingService,
-                                                            preferenceService: preferenceService)
+                                                            preferenceService: preferenceService,
+                                                            quoteService: quoteService)
         
         return CategoryDIContainer(dependencies: dependencies)
     }()

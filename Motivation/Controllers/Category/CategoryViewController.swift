@@ -104,8 +104,15 @@ final class CategoryViewController: UIViewController {
     }
     
     private func selectCategory(row: Int) {
-        if viewModel.selectCategory(row: row) {
-            dismiss(animated: true)
+        Task {
+            guard await viewModel.selectCategory(row: row) else { return }
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                self.impactGenerator.impactOccurred()
+                self.dismiss(animated: true)
+            }
         }
     }
 }

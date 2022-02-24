@@ -20,7 +20,7 @@ protocol CategoryViewModelProtocol: AnyObject {
     
     func viewDidAppear()
     func refreshCategories()
-    func selectCategory(row: Int) -> Bool
+    func selectCategory(row: Int) async -> Bool
 }
 
 final class CategoryViewModel: CategoryViewModelProtocol {
@@ -30,20 +30,24 @@ final class CategoryViewModel: CategoryViewModelProtocol {
     lazy private(set) var composition: Driver<Composition> = compositionSubject.asDriver(onErrorDriveWith: .never())
 
     private let compositionSubject = ReplaySubject<Composition>.create(bufferSize: 1)
+    private let selectedCategory: RMQuote.RMCategory
     
     private let actions: CategoryViewModelActions
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
-    private let selectedCategory: RMQuote.RMCategory
+    private let quoteService: QuoteServiceProtocol
     
     // MARK: - Lifecycle
     
     init(actions: CategoryViewModelActions,
          trackingService: TrackingServiceProtocol,
-         preferenceService: PreferenceServiceProtocol) {
+         preferenceService: PreferenceServiceProtocol,
+         quoteService: QuoteServiceProtocol) {
         self.actions = actions
         self.trackingService = trackingService
         self.preferenceService = preferenceService
+        self.quoteService = quoteService
+        
         self.selectedCategory = preferenceService.getSelectedCategory()
     }
     
@@ -57,16 +61,20 @@ final class CategoryViewModel: CategoryViewModelProtocol {
         configureComposition()
     }
     
-    func selectCategory(row: Int) -> Bool {
+    func selectCategory(row: Int) async -> Bool {
         guard RMQuote.RMCategory.allCases.count > row else { return false }
         
         let category = RMQuote.RMCategory.allCases[row]
+        
+        guard selectedCategory != category else { return false }
         
         trackingService.track(event: .selectCategory, eventProperties: [.name: category.rawValue])
         
         preferenceService.save(selectedCategory: category)
         
-        return selectedCategory != category
+        await quoteService.triggerNotificationsIfNeeded()
+        
+        return true
     }
 }
 
