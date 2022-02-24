@@ -50,7 +50,8 @@ final class QuoteService: QuoteServiceProtocol {
         
         guard notificationStatus != .denied else { return }
         
-        let nbNotifPerDay = preferenceService.getNbTimesNotif() - 1
+        
+        let nbNotifPerDay = preferenceService.getNbTimesNotif()
         let startAt = preferenceService.getStartAtTime().timeIntervalSince1970
         let endAt = preferenceService.getEndAtTime().timeIntervalSince1970
         
