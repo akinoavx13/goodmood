@@ -32,6 +32,8 @@ protocol SettingsViewModelProtocol: AnyObject {
     func share(sourceView: UIView?)
     func helpTranslateApp()
     func toggleHasNotificationEnabled()
+    func update(startAt: Date)
+    func update(endAt: Date)
 }
 
 final class SettingsViewModel: SettingsViewModelProtocol {
@@ -41,7 +43,9 @@ final class SettingsViewModel: SettingsViewModelProtocol {
              writeReview,
              share,
              helpTranslateTheApp,
-             hasNotificationEnabled
+             hasNotificationEnabled,
+             startAt,
+             endAt
     }
     
     // MARK: - Properties
@@ -152,6 +156,26 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         
         configureComposition()
     }
+    
+    func update(startAt: Date) {
+        trackingService.track(event: .updateStartAt, eventProperties: nil)
+
+        preferenceService.save(startAt: startAt)
+        
+        Task {
+            await quoteService.triggerNotificationsIfNeeded()
+        }
+    }
+    
+    func update(endAt: Date) {
+        trackingService.track(event: .updateEndAt, eventProperties: nil)
+
+        preferenceService.save(endAt: endAt)
+        
+        Task {
+            await quoteService.triggerNotificationsIfNeeded()
+        }
+    }
 }
 
 // MARK: - Composition
@@ -186,11 +210,23 @@ extension SettingsViewModel {
     }
     
     private func configureNotificationSection() -> Section {
-        let cells: [Cell] = [.toggle(SettingsToggleCellViewModel(id: RowId.hasNotificationEnabled.rawValue,
+        let isNotificationEnabled = preferenceService.isNotificationEnabled()
+        var cells: [Cell] = [.toggle(SettingsToggleCellViewModel(id: RowId.hasNotificationEnabled.rawValue,
                                                                  title: R.string.localizable.motivations(),
                                                                  subtitle: R.string.localizable.daily_reminders(),
-                                                                 isOn: preferenceService.isNotificationEnabled(),
+                                                                 isOn: isNotificationEnabled,
                                                                  isDisabled: false))]
+        
+        if isNotificationEnabled {
+            cells.append(.timePicker(SettingsTimePickerCellViewModel(id: RowId.startAt.rawValue,
+                                                                     title: R.string.localizable.start_at(),
+                                                                     date: preferenceService.getStartAtTime(),
+                                                                     isDisabled: false)))
+            cells.append(.timePicker(SettingsTimePickerCellViewModel(id: RowId.endAt.rawValue,
+                                                                     title: R.string.localizable.end_at(),
+                                                                     date: preferenceService.getEndAtTime(),
+                                                                     isDisabled: false)))
+        }
         
         return .section(.notifications,
                         title: R.string.localizable.notifications(),

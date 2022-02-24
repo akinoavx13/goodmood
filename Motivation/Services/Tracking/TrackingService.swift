@@ -38,7 +38,9 @@ final class TrackingService: TrackingServiceProtocol {
              writeReview,
              shareApp,
              sendFeedback,
-             helpTranslateApp
+             helpTranslateApp,
+             updateStartAt,
+             updateEndAt
     }
     
     enum EventProperty: String, RawRepresentable {

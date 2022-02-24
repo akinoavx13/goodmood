@@ -219,6 +219,8 @@ extension SettingsViewController: SettingsTimePickerCellDelegate {
         guard let rowId = SettingsViewModel.RowId(rawValue: id) else { return }
         
         switch rowId {
+        case .startAt: viewModel.update(startAt: date)
+        case .endAt: viewModel.update(endAt: date)
         default: fatalError("Can't handle \(id)")
         }
     }
