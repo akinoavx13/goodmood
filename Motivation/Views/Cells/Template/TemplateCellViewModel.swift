@@ -9,14 +9,14 @@ final class TemplateCellViewModel {
     
     // MARK: - Properties
     
-    let templateImage: TemplateViewModel.TemplateImage
+    let templateId: String
     let isSelected: Bool
     
     // MARK: - Lifecycle
     
-    init(templateImage: TemplateViewModel.TemplateImage,
+    init(templateId: String,
          selectedTemplate: String?) {
-        self.templateImage = templateImage
-        self.isSelected = templateImage.rawValue == selectedTemplate
+        self.templateId = templateId
+        self.isSelected = templateId == selectedTemplate
     }
 }

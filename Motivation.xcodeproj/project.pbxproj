@@ -51,6 +51,24 @@
 		5298E13127E0C4C100BFA9EC /* TemplateDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298E12C27E0C4C100BFA9EC /* TemplateDIContainer.swift */; };
 		5298E13227E0C4C100BFA9EC /* TemplateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5298E12D27E0C4C100BFA9EC /* TemplateViewController.storyboard */; };
 		5298E13327E0C4C100BFA9EC /* TemplateFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298E12E27E0C4C100BFA9EC /* TemplateFlowCoordinator.swift */; };
+		529E804627E13BED0072EC96 /* background3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803427E13BEC0072EC96 /* background3.jpg */; };
+		529E804727E13BED0072EC96 /* background18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803527E13BEC0072EC96 /* background18.jpg */; };
+		529E804827E13BED0072EC96 /* background7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803627E13BEC0072EC96 /* background7.jpg */; };
+		529E804927E13BED0072EC96 /* background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803727E13BEC0072EC96 /* background2.jpg */; };
+		529E804A27E13BED0072EC96 /* background4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803827E13BEC0072EC96 /* background4.jpg */; };
+		529E804B27E13BED0072EC96 /* background16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803927E13BEC0072EC96 /* background16.jpg */; };
+		529E804C27E13BED0072EC96 /* background5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803A27E13BEC0072EC96 /* background5.jpg */; };
+		529E804D27E13BED0072EC96 /* background8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803B27E13BEC0072EC96 /* background8.jpg */; };
+		529E804E27E13BED0072EC96 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803C27E13BED0072EC96 /* background1.jpg */; };
+		529E804F27E13BED0072EC96 /* background12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803D27E13BED0072EC96 /* background12.jpg */; };
+		529E805027E13BED0072EC96 /* background10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803E27E13BED0072EC96 /* background10.jpg */; };
+		529E805127E13BED0072EC96 /* background13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E803F27E13BED0072EC96 /* background13.jpg */; };
+		529E805227E13BED0072EC96 /* background15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E804027E13BED0072EC96 /* background15.jpg */; };
+		529E805327E13BED0072EC96 /* background6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E804127E13BED0072EC96 /* background6.jpg */; };
+		529E805427E13BED0072EC96 /* background9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E804227E13BED0072EC96 /* background9.jpg */; };
+		529E805527E13BED0072EC96 /* background11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E804327E13BED0072EC96 /* background11.jpg */; };
+		529E805627E13BED0072EC96 /* background17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E804427E13BED0072EC96 /* background17.jpg */; };
+		529E805727E13BED0072EC96 /* background14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529E804527E13BED0072EC96 /* background14.jpg */; };
 		52A49C4827E1237300CDCA08 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A49C4727E1237300CDCA08 /* TemplateCell.swift */; };
 		52A49C4A27E1237C00CDCA08 /* TemplateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A49C4927E1237C00CDCA08 /* TemplateCellViewModel.swift */; };
 		52A49C4C27E1238400CDCA08 /* TemplateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A49C4B27E1238400CDCA08 /* TemplateCell.xib */; };
@@ -140,6 +158,24 @@
 		5298E12C27E0C4C100BFA9EC /* TemplateDIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateDIContainer.swift; sourceTree = "<group>"; };
 		5298E12D27E0C4C100BFA9EC /* TemplateViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TemplateViewController.storyboard; sourceTree = "<group>"; };
 		5298E12E27E0C4C100BFA9EC /* TemplateFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateFlowCoordinator.swift; sourceTree = "<group>"; };
+		529E803427E13BEC0072EC96 /* background3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background3.jpg; sourceTree = "<group>"; };
+		529E803527E13BEC0072EC96 /* background18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background18.jpg; sourceTree = "<group>"; };
+		529E803627E13BEC0072EC96 /* background7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background7.jpg; sourceTree = "<group>"; };
+		529E803727E13BEC0072EC96 /* background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpg; sourceTree = "<group>"; };
+		529E803827E13BEC0072EC96 /* background4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background4.jpg; sourceTree = "<group>"; };
+		529E803927E13BEC0072EC96 /* background16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background16.jpg; sourceTree = "<group>"; };
+		529E803A27E13BEC0072EC96 /* background5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background5.jpg; sourceTree = "<group>"; };
+		529E803B27E13BEC0072EC96 /* background8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background8.jpg; sourceTree = "<group>"; };
+		529E803C27E13BED0072EC96 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
+		529E803D27E13BED0072EC96 /* background12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background12.jpg; sourceTree = "<group>"; };
+		529E803E27E13BED0072EC96 /* background10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background10.jpg; sourceTree = "<group>"; };
+		529E803F27E13BED0072EC96 /* background13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background13.jpg; sourceTree = "<group>"; };
+		529E804027E13BED0072EC96 /* background15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background15.jpg; sourceTree = "<group>"; };
+		529E804127E13BED0072EC96 /* background6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background6.jpg; sourceTree = "<group>"; };
+		529E804227E13BED0072EC96 /* background9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background9.jpg; sourceTree = "<group>"; };
+		529E804327E13BED0072EC96 /* background11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background11.jpg; sourceTree = "<group>"; };
+		529E804427E13BED0072EC96 /* background17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background17.jpg; sourceTree = "<group>"; };
+		529E804527E13BED0072EC96 /* background14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background14.jpg; sourceTree = "<group>"; };
 		52A49C4727E1237300CDCA08 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
 		52A49C4927E1237C00CDCA08 /* TemplateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCellViewModel.swift; sourceTree = "<group>"; };
 		52A49C4B27E1238400CDCA08 /* TemplateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateCell.xib; sourceTree = "<group>"; };
@@ -364,6 +400,31 @@
 			path = Template;
 			sourceTree = "<group>";
 		};
+		529E803327E13BE30072EC96 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				529E803C27E13BED0072EC96 /* background1.jpg */,
+				529E803727E13BEC0072EC96 /* background2.jpg */,
+				529E803427E13BEC0072EC96 /* background3.jpg */,
+				529E803827E13BEC0072EC96 /* background4.jpg */,
+				529E803A27E13BEC0072EC96 /* background5.jpg */,
+				529E804127E13BED0072EC96 /* background6.jpg */,
+				529E803627E13BEC0072EC96 /* background7.jpg */,
+				529E803B27E13BEC0072EC96 /* background8.jpg */,
+				529E804227E13BED0072EC96 /* background9.jpg */,
+				529E803E27E13BED0072EC96 /* background10.jpg */,
+				529E804327E13BED0072EC96 /* background11.jpg */,
+				529E803D27E13BED0072EC96 /* background12.jpg */,
+				529E803F27E13BED0072EC96 /* background13.jpg */,
+				529E804527E13BED0072EC96 /* background14.jpg */,
+				529E804027E13BED0072EC96 /* background15.jpg */,
+				529E803927E13BEC0072EC96 /* background16.jpg */,
+				529E804427E13BED0072EC96 /* background17.jpg */,
+				529E803527E13BEC0072EC96 /* background18.jpg */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		52A49C4627E1236800CDCA08 /* Template */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +540,7 @@
 		52DFEE7A27C18B2200CA1FD8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				529E803327E13BE30072EC96 /* Templates */,
 				52B8090627C4012C0038FF9D /* InfoPlist.strings */,
 				52F14C0627C3FE2F00896847 /* Localizable.strings */,
 				528FFF4C27C2A57D00C19A25 /* quotes.realm */,
@@ -697,25 +759,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529E805027E13BED0072EC96 /* background10.jpg in Resources */,
 				5256F57627C5776C00FD7454 /* NotificationViewController.storyboard in Resources */,
+				529E805527E13BED0072EC96 /* background11.jpg in Resources */,
+				529E804627E13BED0072EC96 /* background3.jpg in Resources */,
 				528DC39C27C4CFA500DE0F9C /* SectionHeaderReusableView.xib in Resources */,
 				528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */,
 				52B8091227C417040038FF9D /* CategoryViewController.storyboard in Resources */,
+				529E805127E13BED0072EC96 /* background13.jpg in Resources */,
 				52F14C0427C3FE2F00896847 /* Localizable.strings in Resources */,
+				529E805727E13BED0072EC96 /* background14.jpg in Resources */,
 				52DFEE7327C1896800CA1FD8 /* LaunchScreen.storyboard in Resources */,
+				529E804C27E13BED0072EC96 /* background5.jpg in Resources */,
 				52B8090427C4012C0038FF9D /* InfoPlist.strings in Resources */,
+				529E804F27E13BED0072EC96 /* background12.jpg in Resources */,
 				52FA13A527C3FA7100DCECFD /* SettingsTimePickerCell.xib in Resources */,
+				529E804B27E13BED0072EC96 /* background16.jpg in Resources */,
 				527EB0D927C2AC2700474245 /* QuoteCell.xib in Resources */,
 				52FA13A827C3FA7100DCECFD /* SettingsValueCell.xib in Resources */,
+				529E804E27E13BED0072EC96 /* background1.jpg in Resources */,
 				520D638627C56ABD0067F0A9 /* WelcomeViewController.storyboard in Resources */,
+				529E805327E13BED0072EC96 /* background6.jpg in Resources */,
+				529E805427E13BED0072EC96 /* background9.jpg in Resources */,
 				52DFEE7027C1896800CA1FD8 /* Assets.xcassets in Resources */,
+				529E804827E13BED0072EC96 /* background7.jpg in Resources */,
 				52C825B027C7B71900B23AFF /* SettingsStepperCell.xib in Resources */,
+				529E805227E13BED0072EC96 /* background15.jpg in Resources */,
 				52FA13AE27C3FA7100DCECFD /* SettingsButtonCell.xib in Resources */,
 				52B8091827C41C4E0038FF9D /* CategoryCell.xib in Resources */,
 				52FA138A27C3FA4600DCECFD /* SettingsViewController.storyboard in Resources */,
 				52FA13AB27C3FA7100DCECFD /* SettingsToggleCell.xib in Resources */,
+				529E804727E13BED0072EC96 /* background18.jpg in Resources */,
+				529E804A27E13BED0072EC96 /* background4.jpg in Resources */,
+				529E805627E13BED0072EC96 /* background17.jpg in Resources */,
 				5298E13227E0C4C100BFA9EC /* TemplateViewController.storyboard in Resources */,
 				52FA13B127C3FA7100DCECFD /* SettingsLinkCell.xib in Resources */,
+				529E804D27E13BED0072EC96 /* background8.jpg in Resources */,
+				529E804927E13BED0072EC96 /* background2.jpg in Resources */,
 				52A49C4C27E1238400CDCA08 /* TemplateCell.xib in Resources */,
 				528FFF3627C292F300C19A25 /* QuoteViewController.storyboard in Resources */,
 			);
