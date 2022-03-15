@@ -52,28 +52,8 @@ final class TemplateCell: UICollectionViewCell, NibReusable {
     // MARK: - Methods
     
     func bind(to viewModel: TemplateCellViewModel) {
-        templateImageView.image = resizedImage(templateId: viewModel.templateId,
-                                               for: TemplateCell.size)
+        templateImageView.image = viewModel.templateImage
         templateImageView.layer.borderWidth = viewModel.isSelected ? 2 : 0
         selectedImageView.isHidden = !viewModel.isSelected
-    }
-    
-    // MARK: - Private methods
-    
-    private func resizedImage(templateId: String,
-                              for size: CGSize) -> UIImage? {
-        let options: [CFString: Any] = [
-            kCGImageSourceCreateThumbnailFromImageIfAbsent: true,
-            kCGImageSourceCreateThumbnailWithTransform: true,
-            kCGImageSourceShouldCacheImmediately: true,
-            kCGImageSourceThumbnailMaxPixelSize: max(size.width * UIScreen.main.scale, size.height * UIScreen.main.scale)
-        ]
-        
-        guard let url = Bundle.main.url(forResource: templateId, withExtension: "jpg"),
-              let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
-              let image = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary)
-        else { return nil }
-        
-        return UIImage(cgImage: image)
     }
 }

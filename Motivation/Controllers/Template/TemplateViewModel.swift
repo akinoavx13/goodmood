@@ -86,6 +86,25 @@ final class TemplateViewModel: TemplateViewModelProtocol {
         
         return template.rawValue
     }
+    
+    // MARK: - Private methods
+    
+    private func resizedImage(templateId: String,
+                              for size: CGSize) -> UIImage? {
+        let options: [CFString: Any] = [
+            kCGImageSourceCreateThumbnailFromImageIfAbsent: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceThumbnailMaxPixelSize: max(size.width * UIScreen.main.scale, size.height * UIScreen.main.scale)
+        ]
+        
+        guard let url = Bundle.main.url(forResource: templateId, withExtension: "jpg"),
+              let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
+              let image = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary)
+        else { return nil }
+        
+        return UIImage(cgImage: image)
+    }
 }
 
 // MARK: - Composition -
@@ -110,14 +129,17 @@ extension TemplateViewModel {
     private func configureComposition(selectedTemplate: String?) {
         var sections = [Section]()
         
-        sections.append(configureTemplatesSection(selectedTemplate: selectedTemplate))
-        
-        compositionSubject.onNext(Composition(sections: sections))
+        DispatchQueue.global(qos: .userInteractive).async {
+            sections.append(self.configureTemplatesSection(selectedTemplate: selectedTemplate))
+            self.compositionSubject.onNext(Composition(sections: sections))
+        }
     }
     
     private func configureTemplatesSection(selectedTemplate: String?) -> Section {
         let cells: [Cell] = TemplateImage.allCases.map { .template(TemplateCellViewModel(templateId: $0.rawValue,
-                                                                                         selectedTemplate: selectedTemplate)) }
+                                                                                         selectedTemplate: selectedTemplate,
+                                                                                         templateImage: resizedImage(templateId: $0.rawValue,
+                                                                                                                     for: TemplateCell.size))) }
         
         return .section(.templates,
                         title: nil,

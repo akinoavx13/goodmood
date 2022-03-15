@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -32,17 +32,24 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="dn4-DE-ghi"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="684-Q9-kjC">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Q2j-Mm-pbd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="EPZ-U5-oBz"/>
+                            <constraint firstItem="684-Q9-kjC" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Hh0-lh-fL8"/>
                             <constraint firstItem="Q2j-Mm-pbd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UdU-gb-1Rc"/>
                             <constraint firstAttribute="bottom" secondItem="Q2j-Mm-pbd" secondAttribute="bottom" id="YrS-fS-OmR"/>
+                            <constraint firstItem="684-Q9-kjC" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jok-Pk-Ogn"/>
                             <constraint firstItem="Q2j-Mm-pbd" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="oFI-w0-j7Z"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="684-Q9-kjC" id="ilo-yU-VQl"/>
                         <outlet property="collectionView" destination="Q2j-Mm-pbd" id="eb5-NT-0iO"/>
                     </connections>
                 </viewController>

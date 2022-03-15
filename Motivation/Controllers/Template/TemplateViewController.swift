@@ -20,6 +20,7 @@ final class TemplateViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet { collectionView.register(cellType: TemplateCell.self) }
     }
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
         
@@ -72,6 +73,7 @@ final class TemplateViewController: UIViewController {
                 
                 self.composition = $0
                 self.collectionView.reloadData()
+                self.activityIndicator.stopAnimating()
             })
             .disposed(by: disposeBag)
     }
