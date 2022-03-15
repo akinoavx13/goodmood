@@ -46,6 +46,11 @@
 		528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */ = {isa = PBXBuildFile; fileRef = 528FFF4C27C2A57D00C19A25 /* quotes.realm */; };
 		528FFF4F27C2A64500C19A25 /* DD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF4E27C2A64500C19A25 /* DD.swift */; };
 		528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF5227C2A76D00C19A25 /* Quote.swift */; };
+		5298E12F27E0C4C100BFA9EC /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298E12A27E0C4C100BFA9EC /* TemplateViewController.swift */; };
+		5298E13027E0C4C100BFA9EC /* TemplateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298E12B27E0C4C100BFA9EC /* TemplateViewModel.swift */; };
+		5298E13127E0C4C100BFA9EC /* TemplateDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298E12C27E0C4C100BFA9EC /* TemplateDIContainer.swift */; };
+		5298E13227E0C4C100BFA9EC /* TemplateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5298E12D27E0C4C100BFA9EC /* TemplateViewController.storyboard */; };
+		5298E13327E0C4C100BFA9EC /* TemplateFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298E12E27E0C4C100BFA9EC /* TemplateFlowCoordinator.swift */; };
 		52B6627627C42B5D0071598F /* Locale+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6627527C42B5D0071598F /* Locale+Language.swift */; };
 		52B8090127C400580038FF9D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090027C400580038FF9D /* Colors.swift */; };
 		52B8090427C4012C0038FF9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52B8090627C4012C0038FF9D /* InfoPlist.strings */; };
@@ -127,6 +132,11 @@
 		528FFF4C27C2A57D00C19A25 /* quotes.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = quotes.realm; sourceTree = "<group>"; };
 		528FFF4E27C2A64500C19A25 /* DD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DD.swift; sourceTree = "<group>"; };
 		528FFF5227C2A76D00C19A25 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		5298E12A27E0C4C100BFA9EC /* TemplateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
+		5298E12B27E0C4C100BFA9EC /* TemplateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateViewModel.swift; sourceTree = "<group>"; };
+		5298E12C27E0C4C100BFA9EC /* TemplateDIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateDIContainer.swift; sourceTree = "<group>"; };
+		5298E12D27E0C4C100BFA9EC /* TemplateViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TemplateViewController.storyboard; sourceTree = "<group>"; };
+		5298E12E27E0C4C100BFA9EC /* TemplateFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateFlowCoordinator.swift; sourceTree = "<group>"; };
 		52B6627527C42B5D0071598F /* Locale+Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Language.swift"; sourceTree = "<group>"; };
 		52B8090027C400580038FF9D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		52B8090527C4012C0038FF9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -335,6 +345,18 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		5298E12927E0C41E00BFA9EC /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				5298E12C27E0C4C100BFA9EC /* TemplateDIContainer.swift */,
+				5298E12E27E0C4C100BFA9EC /* TemplateFlowCoordinator.swift */,
+				5298E12B27E0C4C100BFA9EC /* TemplateViewModel.swift */,
+				5298E12A27E0C4C100BFA9EC /* TemplateViewController.swift */,
+				5298E12D27E0C4C100BFA9EC /* TemplateViewController.storyboard */,
+			);
+			path = Template;
+			sourceTree = "<group>";
+		};
 		52B8090927C417030038FF9D /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +489,7 @@
 				52E11E0227C5646C006C71ED /* Onboarding */,
 				528FFF2C27C2918500C19A25 /* Quote */,
 				52B8090927C417030038FF9D /* Category */,
+				5298E12927E0C41E00BFA9EC /* Template */,
 				52FA138327C3FA4600DCECFD /* Settings */,
 			);
 			path = Controllers;
@@ -674,6 +697,7 @@
 				52B8091827C41C4E0038FF9D /* CategoryCell.xib in Resources */,
 				52FA138A27C3FA4600DCECFD /* SettingsViewController.storyboard in Resources */,
 				52FA13AB27C3FA7100DCECFD /* SettingsToggleCell.xib in Resources */,
+				5298E13227E0C4C100BFA9EC /* TemplateViewController.storyboard in Resources */,
 				52FA13B127C3FA7100DCECFD /* SettingsLinkCell.xib in Resources */,
 				528FFF3627C292F300C19A25 /* QuoteViewController.storyboard in Resources */,
 			);
@@ -737,6 +761,7 @@
 				528FFF3027C291CD00C19A25 /* QuoteFlowCoordinator.swift in Sources */,
 				52FA13A927C3FA7100DCECFD /* SettingsToggleCell.swift in Sources */,
 				52B8091127C417040038FF9D /* CategoryFlowCoordinator.swift in Sources */,
+				5298E13027E0C4C100BFA9EC /* TemplateViewModel.swift in Sources */,
 				52E11E0427C5647D006C71ED /* OnboardingDIContainer.swift in Sources */,
 				52FA138927C3FA4600DCECFD /* SettingsFlowCoordinator.swift in Sources */,
 				52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */,
@@ -750,6 +775,7 @@
 				52D3D23627C3B42B00B8B884 /* TrackingService.swift in Sources */,
 				52E11E0627C564A0006C71ED /* OnboardingFlowCoordinator.swift in Sources */,
 				52B8091327C417040038FF9D /* CategoryViewController.swift in Sources */,
+				5298E13127E0C4C100BFA9EC /* TemplateDIContainer.swift in Sources */,
 				52E4134E27C655AE0046503A /* NotificationService.swift in Sources */,
 				5256F57427C5776C00FD7454 /* NotificationViewController.swift in Sources */,
 				52C825B227C7B71900B23AFF /* SettingsStepperCellViewModel.swift in Sources */,
@@ -762,6 +788,8 @@
 				52FA13AC27C3FA7100DCECFD /* SettingsButtonCell.swift in Sources */,
 				527EB0D527C2AC1300474245 /* QuoteCell.swift in Sources */,
 				528FFF3427C292A300C19A25 /* QuoteViewController.swift in Sources */,
+				5298E12F27E0C4C100BFA9EC /* TemplateViewController.swift in Sources */,
+				5298E13327E0C4C100BFA9EC /* TemplateFlowCoordinator.swift in Sources */,
 				52B8090F27C417040038FF9D /* CategoryViewModel.swift in Sources */,
 				528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */,
 				52B8091927C41C4E0038FF9D /* CategoryCell.swift in Sources */,

@@ -13,7 +13,8 @@ protocol QuoteFlowCoordinatorDependencies: AnyObject {
     // MARK: - Properties
     
     var settingsDIContainer: SettingsDIContainer { get }
-    var cateogryDIContainer: CategoryDIContainer { get }
+    var categoryDIContainer: CategoryDIContainer { get }
+    var templateDIContainer: TemplateDIContainer { get }
     
     // MARK: - Methods
     
@@ -42,6 +43,7 @@ final class QuoteFlowCoordinator {
     func start() {
         let actions = QuoteViewModelActions(presentSettings: presentSettings,
                                             presentCategory: presentCategory,
+                                            presentTemplateViewController: presentTemplateViewController,
                                             presentPreReviewPopup: presentPreReviewPopup(destructiveCompletion:defaultCompletion:))
         
         DispatchQueue.main.async {
@@ -71,9 +73,18 @@ extension QuoteFlowCoordinator {
         guard let navigationController = navigationController else { return }
         
         dependencies
-            .cateogryDIContainer
+            .categoryDIContainer
             .makeCategoryFlowCoordinator(navigationController: navigationController,
                                          delegate: delegate)
+            .start()
+    }
+    
+    private func presentTemplateViewController() {
+        guard let navigationController = navigationController else { return }
+        
+        dependencies
+            .templateDIContainer
+            .makeTemplateFlowCoordinator(navigationController: navigationController)
             .start()
     }
     

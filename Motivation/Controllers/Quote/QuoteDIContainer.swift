@@ -15,6 +15,7 @@ final class QuoteDIContainer {
         let preferenceService: PreferenceServiceProtocol
         let settingsDIContainer: SettingsDIContainer
         let categoryDIContainer: CategoryDIContainer
+        let templateDIContainer: TemplateDIContainer
     }
     
     // MARK: - Properties
@@ -54,8 +55,12 @@ extension QuoteDIContainer: QuoteFlowCoordinatorDependencies {
         dependencies.settingsDIContainer
     }
     
-    var cateogryDIContainer: CategoryDIContainer {
+    var categoryDIContainer: CategoryDIContainer {
         dependencies.categoryDIContainer
+    }
+    
+    var templateDIContainer: TemplateDIContainer {
+        dependencies.templateDIContainer
     }
     
     // MARK: - Methods

@@ -12,6 +12,7 @@ import Foundation
 struct QuoteViewModelActions {
     let presentSettings: () -> Void
     let presentCategory: () -> Void
+    let presentTemplateViewController: () -> Void
     let presentPreReviewPopup: (@escaping () -> Void, @escaping () -> Void) -> Void
 }
 
@@ -29,6 +30,7 @@ protocol QuoteViewModelProtocol: AnyObject {
     func showNextQuote()
     func presentSettings()
     func presentCategory()
+    func presentTemplateViewController()
 }
 
 final class QuoteViewModel: QuoteViewModelProtocol {
@@ -66,6 +68,7 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     func viewDidAppear() {
         trackingService.track(event: .showQuoteScreen, eventProperties: nil)
+        trackingService.increment(userProperty: .nbQuotesShown, value: 1)
         
         rateAppIfNeeded()
     }
@@ -90,6 +93,7 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     func showNextQuote() {
         trackingService.track(event: .showNextQuote, eventProperties: [.category: selectedCategory.rawValue])
+        trackingService.increment(userProperty: .nbQuotesShown, value: 1)
     }
     
     func presentSettings() {
@@ -98,6 +102,10 @@ final class QuoteViewModel: QuoteViewModelProtocol {
     
     func presentCategory() {
         actions.presentCategory()
+    }
+    
+    func presentTemplateViewController() {
+        actions.presentTemplateViewController()
     }
     
     // MARK: - Methods

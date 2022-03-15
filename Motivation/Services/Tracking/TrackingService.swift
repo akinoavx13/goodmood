@@ -57,7 +57,8 @@ final class TrackingService: TrackingServiceProtocol {
     enum UserProperty: String, RawRepresentable {
         case nbTimesShowLikeApp,
              nbNotifPerDay,
-             hasNotificationEnabled
+             hasNotificationEnabled,
+             nbQuotesShown
     }
     
     // MARK: - Properties
