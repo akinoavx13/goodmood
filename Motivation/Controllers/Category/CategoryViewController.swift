@@ -19,7 +19,7 @@ final class CategoryViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(cellType: CategoryCell.self)
-            collectionView.register(supplementaryViewType: CategorySectionHeaderReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
+            collectionView.register(supplementaryViewType: SectionHeaderReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
         }
     }
     @IBOutlet private weak var accountButton: AnimateButton! {
@@ -145,7 +145,7 @@ extension CategoryViewController: UICollectionViewDataSource {
         
         switch section.type {
         case let .categories(viewModel):
-            let headerView: CategorySectionHeaderReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+            let headerView: SectionHeaderReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                                                                                 for: indexPath)
             headerView.bind(to: viewModel)
             
@@ -173,11 +173,12 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         let section = composition.sections[section]
         
         switch section.type {
-        case let .categories(viewModel): return CategorySectionHeaderReusableView.size(for: viewModel)
+        case let .categories(viewModel): return SectionHeaderReusableView.size(for: viewModel)
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
         guard let type = composition.sections[indexPath.section].cellForIndex(indexPath.row) else { return }
         
         switch type {

@@ -34,6 +34,9 @@ final class TrackingService: TrackingServiceProtocol {
         case showCategories,
              selectCategory
         
+        case showTemplate,
+             selectTemplate
+        
         case showSettings,
              writeReview,
              shareApp,
@@ -47,7 +50,8 @@ final class TrackingService: TrackingServiceProtocol {
     enum EventProperty: String, RawRepresentable {
         case name,
              hasSucceed,
-             category
+             category,
+             templateId
     }
 
     enum PaywallOrigin: String, RawRepresentable {

@@ -21,6 +21,7 @@ protocol QuoteViewModelProtocol: AnyObject {
     // MARK: - Properties
     
     var composition: Driver<QuoteViewModel.Composition> { get }
+    var selectedTemplate: BehaviorRelay<String?> { get }
     
     // MARK: - Methods
     
@@ -31,14 +32,17 @@ protocol QuoteViewModelProtocol: AnyObject {
     func presentSettings()
     func presentCategory()
     func presentTemplateViewController()
+    func refreshSelectedTemplate()
 }
 
 final class QuoteViewModel: QuoteViewModelProtocol {
     
     // MARK: - Properties
     
+    let selectedTemplate: BehaviorRelay<String?>
+    
     lazy private(set) var composition: Driver<Composition> = compositionSubject.asDriver(onErrorDriveWith: .never())
-
+    
     private let compositionSubject = ReplaySubject<Composition>.create(bufferSize: 1)
     
     private let actions: QuoteViewModelActions
@@ -60,6 +64,7 @@ final class QuoteViewModel: QuoteViewModelProtocol {
         self.trackingService = trackingService
         self.preferenceService = preferenceService
         self.selectedCategory = preferenceService.getSelectedCategory()
+        self.selectedTemplate = .init(value: preferenceService.selectedTemplate())
         
         configureComposition()
     }
@@ -89,6 +94,10 @@ final class QuoteViewModel: QuoteViewModelProtocol {
         newSelectedCategory = preferenceService.getSelectedCategory()
         
         refreshQuotesIfNeeded()
+    }
+    
+    func refreshSelectedTemplate() {
+        selectedTemplate.accept(preferenceService.selectedTemplate())
     }
     
     func showNextQuote() {

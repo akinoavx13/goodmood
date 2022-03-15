@@ -29,6 +29,8 @@ protocol PreferenceServiceProtocol: AnyObject {
     func save(nbTimesNotif: Int)
     func isNotificationEnabled() -> Bool
     func save(isNotificationEnabled: Bool)
+    func selectedTemplate() -> String?
+    func save(selectedTemplate: String)
 }
 
 final class PreferenceService: PreferenceServiceProtocol {
@@ -47,6 +49,7 @@ final class PreferenceService: PreferenceServiceProtocol {
     private let endAtTimeKey = "endAtTimeKey"
     private let nbTimesNotifKey = "nbTimesNotifKey"
     private let isNotificationEnabledKey = "isNotificationEnabledKey"
+    private let selectedTemplateKey = "selectedTemplateKey"
 
     // MARK: - Lifecycle
     
@@ -160,6 +163,16 @@ final class PreferenceService: PreferenceServiceProtocol {
         }
         
         userDefaults.set(isNotificationEnabled, forKey: isNotificationEnabledKey)
+    }
+    
+    func selectedTemplate() -> String? { userDefaults.string(forKey: selectedTemplateKey) }
+    
+    func save(selectedTemplate: String) {
+        if App.env == .debug {
+            print("💾 Update selected template to \(selectedTemplate)")
+        }
+        
+        userDefaults.set(selectedTemplate, forKey: selectedTemplateKey)
     }
     
     // MARK: - Private methods

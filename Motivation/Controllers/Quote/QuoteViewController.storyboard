@@ -18,9 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="templates/background_1" translatesAutoresizingMaskIntoConstraints="NO" id="khc-Ze-2hr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwK-n5-Rbl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aUc-Ye-Qbz">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="OpU-5U-543" customClass="SnapCenterLayout" customModule="Motivation" customModuleProvider="target"/>
                                 <cells/>
                                 <connections>
@@ -90,24 +97,34 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FIT-Sf-M50" firstAttribute="centerX" secondItem="G1r-KK-ibU" secondAttribute="centerX" id="7yK-gJ-TGT"/>
+                            <constraint firstItem="XwK-n5-Rbl" firstAttribute="top" secondItem="khc-Ze-2hr" secondAttribute="top" id="AFy-Co-Jxl"/>
                             <constraint firstItem="YcU-fF-jYZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="D9K-CG-tV9"/>
+                            <constraint firstItem="XwK-n5-Rbl" firstAttribute="trailing" secondItem="khc-Ze-2hr" secondAttribute="trailing" id="KRT-lA-mvc"/>
+                            <constraint firstItem="khc-Ze-2hr" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Kua-PW-Pz2"/>
                             <constraint firstItem="aUc-Ye-Qbz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MZD-lL-ipV"/>
+                            <constraint firstItem="khc-Ze-2hr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RP7-0n-H6H"/>
                             <constraint firstAttribute="bottom" secondItem="aUc-Ye-Qbz" secondAttribute="bottom" id="X19-Au-wRw"/>
                             <constraint firstItem="aUc-Ye-Qbz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="XYE-e7-yps"/>
                             <constraint firstItem="FIT-Sf-M50" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="Ygp-ga-sMK"/>
                             <constraint firstItem="YcU-fF-jYZ" firstAttribute="centerY" secondItem="G1r-KK-ibU" secondAttribute="centerY" id="av6-Ao-IOg"/>
                             <constraint firstItem="87y-PT-1fR" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="dLN-un-XYc"/>
+                            <constraint firstAttribute="bottom" secondItem="khc-Ze-2hr" secondAttribute="bottom" id="fRp-fz-Mff"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="G1r-KK-ibU" secondAttribute="bottom" constant="16" id="fvd-en-qpu"/>
+                            <constraint firstItem="XwK-n5-Rbl" firstAttribute="bottom" secondItem="khc-Ze-2hr" secondAttribute="bottom" id="jr5-1l-dcR"/>
+                            <constraint firstItem="khc-Ze-2hr" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="kM2-js-CbL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="G1r-KK-ibU" secondAttribute="trailing" constant="16" id="lxE-FS-uiF"/>
+                            <constraint firstItem="XwK-n5-Rbl" firstAttribute="leading" secondItem="khc-Ze-2hr" secondAttribute="leading" id="qIc-qC-k0I"/>
                             <constraint firstItem="87y-PT-1fR" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="uGU-JS-EKs"/>
                             <constraint firstItem="aUc-Ye-Qbz" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="zXQ-NB-Vv3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="accountButton" destination="G1r-KK-ibU" id="QcO-LW-L3V"/>
+                        <outlet property="backgroundImageView" destination="khc-Ze-2hr" id="3CI-Aq-Dt1"/>
                         <outlet property="categoryButton" destination="YcU-fF-jYZ" id="JTc-uG-9T7"/>
                         <outlet property="collectionView" destination="aUc-Ye-Qbz" id="aw1-df-ocx"/>
                         <outlet property="nextLabel" destination="EER-DO-yYv" id="hHm-n7-PI8"/>
+                        <outlet property="opaqueView" destination="XwK-n5-Rbl" id="Gvr-4l-lxu"/>
                         <outlet property="templateButton" destination="FIT-Sf-M50" id="NhV-CY-dQ1"/>
                     </connections>
                 </viewController>
@@ -121,6 +138,7 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="rectangle.grid.2x2" catalog="system" width="128" height="99"/>
+        <image name="templates/background_1" width="4912" height="7360"/>
         <namedColor name="background">
             <color red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

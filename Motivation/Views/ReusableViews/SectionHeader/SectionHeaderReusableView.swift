@@ -1,5 +1,5 @@
 //
-//  CategorySectionHeaderReusableView.swift
+//  SectionHeaderReusableView.swift
 //  Motivation
 //
 //  Created by Maxime Maheo on 22/02/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import Reusable
 
-final class CategorySectionHeaderReusableView: UICollectionReusableView, NibReusable {
+final class SectionHeaderReusableView: UICollectionReusableView, NibReusable {
 
     // MARK: - Outlets
     
@@ -31,7 +31,7 @@ final class CategorySectionHeaderReusableView: UICollectionReusableView, NibReus
     
     // MARK: - Methods
     
-    static func size(for viewModel: CategorySectionHeaderReusableViewModel) -> CGSize {
+    static func size(for viewModel: SectionHeaderReusableViewModel) -> CGSize {
         let constraintRect = CGSize(width: UIScreen.main.bounds.width - 32,
                                     height: CGFloat.greatestFiniteMagnitude)
 
@@ -45,7 +45,7 @@ final class CategorySectionHeaderReusableView: UICollectionReusableView, NibReus
                       height: 10 + titleBoundingBox.height + 10)
     }
     
-    func bind(to viewModel: CategorySectionHeaderReusableViewModel) {
+    func bind(to viewModel: SectionHeaderReusableViewModel) {
         titleLabel.text = viewModel.title
     }
 }

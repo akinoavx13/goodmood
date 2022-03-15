@@ -10,6 +10,8 @@ import UIKit
 final class TemplateDIContainer {
     
     struct Dependencies {
+        let trackingService: TrackingServiceProtocol
+        let preferenceService: PreferenceServiceProtocol
     }
     
     // MARK: - Properties
@@ -24,15 +26,19 @@ final class TemplateDIContainer {
     
     // MARK: - Methods
     
-    func makeTemplateFlowCoordinator(navigationController: UINavigationController) -> TemplateFlowCoordinator {
+    func makeTemplateFlowCoordinator(navigationController: UINavigationController,
+                                     delegate: TemplateViewControllerDelegate?) -> TemplateFlowCoordinator {
         TemplateFlowCoordinator(navigationController: navigationController,
+                                delegate: delegate,
                                 dependencies: self)
     }
     
     // MARK: - Private methods
     
     private func makeTemplateViewModel(actions: TemplateViewModelActions) -> TemplateViewModelProtocol {
-        TemplateViewModel(actions: actions)
+        TemplateViewModel(actions: actions,
+                          trackingService: dependencies.trackingService,
+                          preferenceService: dependencies.preferenceService)
     }
 }
 

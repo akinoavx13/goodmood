@@ -12,6 +12,12 @@ final class QuoteViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet private weak var backgroundImageView: UIImageView! {
+        didSet { backgroundImageView.image = nil }
+    }
+    @IBOutlet private weak var opaqueView: UIView! {
+        didSet { opaqueView.alpha = 0 }
+    }
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(cellType: QuoteCell.self)
@@ -74,6 +80,22 @@ final class QuoteViewController: UIViewController {
                 
                 self.composition = $0
                 self.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.selectedTemplate
+            .asDriver()
+            .drive(onNext: { [weak self] selectedTemplate in
+                guard let self = self else { return }
+                
+                if let selectedTemplate = selectedTemplate,
+                   let selectedTemplateImage = TemplateViewModel.TemplateImage.template(templateId: selectedTemplate)?.image {
+                    self.backgroundImageView.image = selectedTemplateImage
+                    self.opaqueView.alpha = 0.2
+                } else {
+                    self.backgroundImageView.image = nil
+                    self.opaqueView.alpha = 0
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -148,5 +170,14 @@ extension QuoteViewController: UICollectionViewDelegate {
 extension QuoteViewController: CategoryViewControllerDelegate {
     func categoryViewControllerDidDismiss(_ sender: CategoryViewController) {
         viewModel.refreshSelectedCategory()
+    }
+}
+
+// MARK: - TemplateViewControllerDelegate -
+
+extension QuoteViewController: TemplateViewControllerDelegate {
+    func templateViewController(_ sender: TemplateViewController,
+                                didSelectTemplate templateId: String) {
+        viewModel.refreshSelectedTemplate()
     }
 }

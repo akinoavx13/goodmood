@@ -27,9 +27,9 @@
 		527EB0DC27C2AC5A00474245 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 527EB0DB27C2AC5A00474245 /* Reusable */; };
 		527EB0DE27C2B73500474245 /* SnapCenterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EB0DD27C2B73500474245 /* SnapCenterLayout.swift */; };
 		52800DEB27C1916F00149CA5 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 52800DEA27C1916F00149CA5 /* Rswift */; };
-		528DC39827C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DC39727C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift */; };
-		528DC39A27C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DC39927C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift */; };
-		528DC39C27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528DC39B27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib */; };
+		528DC39827C4CF9900DE0F9C /* SectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DC39727C4CF9900DE0F9C /* SectionHeaderReusableView.swift */; };
+		528DC39A27C4CFA000DE0F9C /* SectionHeaderReusableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DC39927C4CFA000DE0F9C /* SectionHeaderReusableViewModel.swift */; };
+		528DC39C27C4CFA500DE0F9C /* SectionHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528DC39B27C4CFA500DE0F9C /* SectionHeaderReusableView.xib */; };
 		528FFF2E27C291A100C19A25 /* QuoteDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF2D27C291A100C19A25 /* QuoteDIContainer.swift */; };
 		528FFF3027C291CD00C19A25 /* QuoteFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF2F27C291CD00C19A25 /* QuoteFlowCoordinator.swift */; };
 		528FFF3227C2924D00C19A25 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FFF3127C2924D00C19A25 /* QuoteViewModel.swift */; };
@@ -51,6 +51,9 @@
 		5298E13127E0C4C100BFA9EC /* TemplateDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298E12C27E0C4C100BFA9EC /* TemplateDIContainer.swift */; };
 		5298E13227E0C4C100BFA9EC /* TemplateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5298E12D27E0C4C100BFA9EC /* TemplateViewController.storyboard */; };
 		5298E13327E0C4C100BFA9EC /* TemplateFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298E12E27E0C4C100BFA9EC /* TemplateFlowCoordinator.swift */; };
+		52A49C4827E1237300CDCA08 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A49C4727E1237300CDCA08 /* TemplateCell.swift */; };
+		52A49C4A27E1237C00CDCA08 /* TemplateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A49C4927E1237C00CDCA08 /* TemplateCellViewModel.swift */; };
+		52A49C4C27E1238400CDCA08 /* TemplateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A49C4B27E1238400CDCA08 /* TemplateCell.xib */; };
 		52B6627627C42B5D0071598F /* Locale+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6627527C42B5D0071598F /* Locale+Language.swift */; };
 		52B8090127C400580038FF9D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8090027C400580038FF9D /* Colors.swift */; };
 		52B8090427C4012C0038FF9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52B8090627C4012C0038FF9D /* InfoPlist.strings */; };
@@ -115,9 +118,9 @@
 		527EB0D627C2AC1D00474245 /* QuoteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCellViewModel.swift; sourceTree = "<group>"; };
 		527EB0D827C2AC2700474245 /* QuoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCell.xib; sourceTree = "<group>"; };
 		527EB0DD27C2B73500474245 /* SnapCenterLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCenterLayout.swift; sourceTree = "<group>"; };
-		528DC39727C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySectionHeaderReusableView.swift; sourceTree = "<group>"; };
-		528DC39927C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySectionHeaderReusableViewModel.swift; sourceTree = "<group>"; };
-		528DC39B27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySectionHeaderReusableView.xib; sourceTree = "<group>"; };
+		528DC39727C4CF9900DE0F9C /* SectionHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderReusableView.swift; sourceTree = "<group>"; };
+		528DC39927C4CFA000DE0F9C /* SectionHeaderReusableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderReusableViewModel.swift; sourceTree = "<group>"; };
+		528DC39B27C4CFA500DE0F9C /* SectionHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderReusableView.xib; sourceTree = "<group>"; };
 		528FFF2D27C291A100C19A25 /* QuoteDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDIContainer.swift; sourceTree = "<group>"; };
 		528FFF2F27C291CD00C19A25 /* QuoteFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteFlowCoordinator.swift; sourceTree = "<group>"; };
 		528FFF3127C2924D00C19A25 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
@@ -137,6 +140,9 @@
 		5298E12C27E0C4C100BFA9EC /* TemplateDIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateDIContainer.swift; sourceTree = "<group>"; };
 		5298E12D27E0C4C100BFA9EC /* TemplateViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TemplateViewController.storyboard; sourceTree = "<group>"; };
 		5298E12E27E0C4C100BFA9EC /* TemplateFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateFlowCoordinator.swift; sourceTree = "<group>"; };
+		52A49C4727E1237300CDCA08 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
+		52A49C4927E1237C00CDCA08 /* TemplateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCellViewModel.swift; sourceTree = "<group>"; };
+		52A49C4B27E1238400CDCA08 /* TemplateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateCell.xib; sourceTree = "<group>"; };
 		52B6627527C42B5D0071598F /* Locale+Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Language.swift"; sourceTree = "<group>"; };
 		52B8090027C400580038FF9D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		52B8090527C4012C0038FF9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -244,6 +250,7 @@
 		527EB0D227C2ABEC00474245 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				52A49C4627E1236800CDCA08 /* Template */,
 				527EB0D327C2AC0500474245 /* Quote */,
 				52B8091427C41C130038FF9D /* Category */,
 				52FA138E27C3FA7000DCECFD /* Settings */,
@@ -264,19 +271,19 @@
 		528DC39527C4CF5300DE0F9C /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
-				528DC39627C4CF6700DE0F9C /* CategorySectionHeader */,
+				528DC39627C4CF6700DE0F9C /* SectionHeader */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
 		};
-		528DC39627C4CF6700DE0F9C /* CategorySectionHeader */ = {
+		528DC39627C4CF6700DE0F9C /* SectionHeader */ = {
 			isa = PBXGroup;
 			children = (
-				528DC39727C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift */,
-				528DC39927C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift */,
-				528DC39B27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib */,
+				528DC39727C4CF9900DE0F9C /* SectionHeaderReusableView.swift */,
+				528DC39927C4CFA000DE0F9C /* SectionHeaderReusableViewModel.swift */,
+				528DC39B27C4CFA500DE0F9C /* SectionHeaderReusableView.xib */,
 			);
-			path = CategorySectionHeader;
+			path = SectionHeader;
 			sourceTree = "<group>";
 		};
 		528FFF2C27C2918500C19A25 /* Quote */ = {
@@ -353,6 +360,16 @@
 				5298E12B27E0C4C100BFA9EC /* TemplateViewModel.swift */,
 				5298E12A27E0C4C100BFA9EC /* TemplateViewController.swift */,
 				5298E12D27E0C4C100BFA9EC /* TemplateViewController.storyboard */,
+			);
+			path = Template;
+			sourceTree = "<group>";
+		};
+		52A49C4627E1236800CDCA08 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				52A49C4927E1237C00CDCA08 /* TemplateCellViewModel.swift */,
+				52A49C4727E1237300CDCA08 /* TemplateCell.swift */,
+				52A49C4B27E1238400CDCA08 /* TemplateCell.xib */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -681,7 +698,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5256F57627C5776C00FD7454 /* NotificationViewController.storyboard in Resources */,
-				528DC39C27C4CFA500DE0F9C /* CategorySectionHeaderReusableView.xib in Resources */,
+				528DC39C27C4CFA500DE0F9C /* SectionHeaderReusableView.xib in Resources */,
 				528FFF4D27C2A57D00C19A25 /* quotes.realm in Resources */,
 				52B8091227C417040038FF9D /* CategoryViewController.storyboard in Resources */,
 				52F14C0427C3FE2F00896847 /* Localizable.strings in Resources */,
@@ -699,6 +716,7 @@
 				52FA13AB27C3FA7100DCECFD /* SettingsToggleCell.xib in Resources */,
 				5298E13227E0C4C100BFA9EC /* TemplateViewController.storyboard in Resources */,
 				52FA13B127C3FA7100DCECFD /* SettingsLinkCell.xib in Resources */,
+				52A49C4C27E1238400CDCA08 /* TemplateCell.xib in Resources */,
 				528FFF3627C292F300C19A25 /* QuoteViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -766,7 +784,7 @@
 				52FA138927C3FA4600DCECFD /* SettingsFlowCoordinator.swift in Sources */,
 				52DFEE6727C1896800CA1FD8 /* AppDelegate.swift in Sources */,
 				528FFF3227C2924D00C19A25 /* QuoteViewModel.swift in Sources */,
-				528DC39827C4CF9900DE0F9C /* CategorySectionHeaderReusableView.swift in Sources */,
+				528DC39827C4CF9900DE0F9C /* SectionHeaderReusableView.swift in Sources */,
 				52B8091027C417040038FF9D /* CategoryDIContainer.swift in Sources */,
 				52D3D23927C3B60C00B8B884 /* PreferenceService.swift in Sources */,
 				52DFEE8027C18EED00CA1FD8 /* R.generated.swift in Sources */,
@@ -782,6 +800,7 @@
 				52FA13A627C3FA7100DCECFD /* SettingsValueCellViewModel.swift in Sources */,
 				52D3D23C27C3BE7200B8B884 /* CALayer+SmoothCorner.swift in Sources */,
 				52D3D24227C3BF6E00B8B884 /* AnimationButton.swift in Sources */,
+				52A49C4827E1237300CDCA08 /* TemplateCell.swift in Sources */,
 				52E4135127C65B890046503A /* QuoteService.swift in Sources */,
 				52FA13AF27C3FA7100DCECFD /* SettingsLinkCellViewModel.swift in Sources */,
 				52FA13A427C3FA7100DCECFD /* SettingsTimePickerCell.swift in Sources */,
@@ -804,7 +823,7 @@
 				52FA13B027C3FA7100DCECFD /* SettingsLinkCell.swift in Sources */,
 				52B8091A27C41C4E0038FF9D /* CategoryCellViewModel.swift in Sources */,
 				5256F57527C5776C00FD7454 /* NotificationViewModel.swift in Sources */,
-				528DC39A27C4CFA000DE0F9C /* CategorySectionHeaderReusableViewModel.swift in Sources */,
+				528DC39A27C4CFA000DE0F9C /* SectionHeaderReusableViewModel.swift in Sources */,
 				52B8090127C400580038FF9D /* Colors.swift in Sources */,
 				52FA13AD27C3FA7100DCECFD /* SettingsButtonCellViewModel.swift in Sources */,
 				528FFF5327C2A76D00C19A25 /* Quote.swift in Sources */,
@@ -812,6 +831,7 @@
 				528FFF4F27C2A64500C19A25 /* DD.swift in Sources */,
 				52FA138C27C3FA4600DCECFD /* SettingsDIContainer.swift in Sources */,
 				52FA138D27C3FA4600DCECFD /* SettingsViewController.swift in Sources */,
+				52A49C4A27E1237C00CDCA08 /* TemplateCellViewModel.swift in Sources */,
 				52FA13AA27C3FA7100DCECFD /* SettingsToggleCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

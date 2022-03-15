@@ -16,15 +16,18 @@ final class TemplateFlowCoordinator {
     // MARK: - Properties
     
     private weak var navigationController: UINavigationController?
-    
+    private weak var delegate: TemplateViewControllerDelegate?
+
     private var viewController: UINavigationController!
     private let dependencies: TemplateFlowCoordinatorDependencies
     
     // MARK: - Lifecycle
     
     init(navigationController: UINavigationController,
+         delegate: TemplateViewControllerDelegate?,
          dependencies: TemplateFlowCoordinatorDependencies) {
         self.navigationController = navigationController
+        self.delegate = delegate
         self.dependencies = dependencies
     }
     
@@ -35,7 +38,8 @@ final class TemplateFlowCoordinator {
         
         DispatchQueue.main.async {
             let settingsViewController = self.dependencies.makeTemplateViewController(actions: actions)
-            
+            settingsViewController.delegate = self.delegate
+
             self.viewController = UINavigationController(rootViewController: settingsViewController)
             self.viewController.navigationBar.prefersLargeTitles = true
             

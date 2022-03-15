@@ -1,5 +1,5 @@
 //
-//  CategorySectionHeaderReusableViewModel.swift
+//  SectionHeaderReusableViewModel.swift
 //  Motivation
 //
 //  Created by Maxime Maheo on 22/02/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CategorySectionHeaderReusableViewModel {
+final class SectionHeaderReusableViewModel {
         
     // MARK: - Properties
     
