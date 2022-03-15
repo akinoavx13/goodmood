@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/bugsnag/bugsnag-cocoa",
         "state": {
           "branch": null,
-          "revision": "c8454a80f14716be3732e2381c097931a0a59e07",
-          "version": "6.16.2"
+          "revision": "b4758ce9dfead9178c90fa620041aaa337f1cdb2",
+          "version": "6.16.4"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/realm/realm-core",
         "state": {
           "branch": null,
-          "revision": "6b81f1a7a2d421f9e0b9e7f04e76bcf736a54409",
-          "version": "11.9.0"
+          "revision": "e9eec444d13ebebc062202407e79b9833428a24e",
+          "version": "11.11.0"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/realm/realm-swift.git",
         "state": {
           "branch": null,
-          "revision": "9dff9f2862240d521ad6ad599541269177ddb993",
-          "version": "10.22.0"
+          "revision": "11ef7d31e3f3668c7434c5fd129a85ca52740b24",
+          "version": "10.24.1"
         }
       },
       {
