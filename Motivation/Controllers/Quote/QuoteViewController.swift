@@ -91,7 +91,7 @@ final class QuoteViewController: UIViewController {
                 if let selectedTemplate = selectedTemplate,
                    let selectedTemplateImage = TemplateViewModel.TemplateImage.template(templateId: selectedTemplate)?.image {
                     self.backgroundImageView.image = selectedTemplateImage
-                    self.opaqueView.alpha = 0.2
+                    self.opaqueView.alpha = 0.35
                 } else {
                     self.backgroundImageView.image = nil
                     self.opaqueView.alpha = 0
