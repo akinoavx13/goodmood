@@ -2,10 +2,10 @@
 
 # Paths to include during linting.
 included:
-  - Motivation
+  - GoodMood
 
 excluded:
-  - Motivation/Resources/R.generated.swift
+  - GoodMood/Resources/R.generated.swift
 
 # Disable some of them:
 disabled_rules:

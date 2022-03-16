@@ -45,7 +45,7 @@ platform :ios do
 
 	private_lane :build do
 		build_app(
-			scheme: "Good Mood"
+			scheme: "GoodMood"
 		)
 	end
 end
