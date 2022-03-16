@@ -18,29 +18,10 @@ default_platform(:ios)
 platform :ios do
 	desc "Release"
 	lane :release do
-		make_screenshots
-
 		build
 
 		upload_to_app_store(
 			force: true,
-			overwrite_screenshots: true,
-			automatic_release: true,
-			submit_for_review: true,
-			reject_if_possible: true,
-			submission_information: {
-				add_id_info_uses_idfa: false
-			}
-		)
-	end
-
-	desc "Release without screenshot"
-	lane :release_without_screenshots do
-		build
-
-		upload_to_app_store(
-			force: true,
-			skip_screenshots: true,
 			automatic_release: true,
 			submit_for_review: true,
 			reject_if_possible: true,
@@ -54,33 +35,7 @@ platform :ios do
 	lane :upload_metadata do
 		upload_to_app_store(
 			force: true,
-			overwrite_screenshots: false,
 			skip_screenshots: true,
-			skip_binary_upload: true,
-			automatic_release: true
-		)
-	end
-
-	desc "Make screenshots"
-	lane :make_screenshots do
-		capture_ios_screenshots(
-			skip_open_summary: true
-		)
-	end
-
-
-	desc "Make and upload screenshots"
-	lane :make_and_upload_screenshots do
-		make_screenshots
-		upload_screenshots
-	end
-
-
-	desc "Upload screenshots"
-	lane :upload_screenshots do
-		upload_to_app_store(
-			force: true,
-			overwrite_screenshots: true,
 			skip_binary_upload: true,
 			automatic_release: true
 		)
@@ -90,7 +45,7 @@ platform :ios do
 
 	private_lane :build do
 		build_app(
-			scheme: "Motivation"
+			scheme: "Good Mood"
 		)
 	end
 end
