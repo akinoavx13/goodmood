@@ -23,14 +23,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Release
 
-### ios release_without_screenshots
-
-```sh
-[bundle exec] fastlane ios release_without_screenshots
-```
-
-Release without screenshot
-
 ### ios upload_metadata
 
 ```sh
@@ -38,30 +30,6 @@ Release without screenshot
 ```
 
 Upload metadata
-
-### ios make_screenshots
-
-```sh
-[bundle exec] fastlane ios make_screenshots
-```
-
-Make screenshots
-
-### ios make_and_upload_screenshots
-
-```sh
-[bundle exec] fastlane ios make_and_upload_screenshots
-```
-
-Make and upload screenshots
-
-### ios upload_screenshots
-
-```sh
-[bundle exec] fastlane ios upload_screenshots
-```
-
-Upload screenshots
 
 ----
 
