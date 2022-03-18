@@ -66,6 +66,8 @@ final class QuoteViewModel: QuoteViewModelProtocol {
         self.selectedCategory = preferenceService.getSelectedCategory()
         self.selectedTemplate = .init(value: preferenceService.selectedTemplate())
         
+        trackingService.set(userProperty: .nbNotifPerDay, value: NSNumber(value: preferenceService.getNbTimesNotif()))
+        
         configureComposition()
     }
     

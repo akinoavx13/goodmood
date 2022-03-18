@@ -561,11 +561,11 @@
 		52F6442227E1EA2F00583201 /* Quote */ = {
 			isa = PBXGroup;
 			children = (
-				52F6442327E1EA2F00583201 /* QuoteViewModel.swift */,
-				52F6442427E1EA2F00583201 /* QuoteFlowCoordinator.swift */,
-				52F6442527E1EA2F00583201 /* QuoteViewController.storyboard */,
-				52F6442627E1EA2F00583201 /* QuoteViewController.swift */,
 				52F6442727E1EA2F00583201 /* QuoteDIContainer.swift */,
+				52F6442427E1EA2F00583201 /* QuoteFlowCoordinator.swift */,
+				52F6442327E1EA2F00583201 /* QuoteViewModel.swift */,
+				52F6442627E1EA2F00583201 /* QuoteViewController.swift */,
+				52F6442527E1EA2F00583201 /* QuoteViewController.storyboard */,
 			);
 			path = Quote;
 			sourceTree = "<group>";
