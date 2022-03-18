@@ -1,0 +1,41 @@
+# List of rules: https://github.com/realm/SwiftLint/blob/master/Rules.md
+
+# Paths to include during linting.
+included:
+  - GoodMood
+
+excluded:
+  - GoodMood/Resources/R.generated.swift
+
+# Disable some of them:
+disabled_rules:
+  - nesting
+  - function_parameter_count
+  - line_length
+  - trailing_whitespace
+  - large_tuple
+  - type_body_length
+
+# Enable rules
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
+  - redundant_nil_coalescing
+  - sorted_first_last
+  - contains_over_first_not_nil
+  - first_where
+  - implicit_return
+  - literal_expression_end_indentation
+  - private_action
+  - private_outlet
+
+# Customize:
+identifier_name:
+  excluded: # excluded via string array
+    - vY
+    - id
+    
+  allowed_symbols: "_"

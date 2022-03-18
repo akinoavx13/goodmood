@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="DXS-hK-R6T" customClass="SettingsTimePickerCell" customModule="Motivation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DXS-hK-R6T" id="qZN-ds-fmy">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPP-xD-s0I">
+                        <rect key="frame" x="16" y="8" width="41.5" height="54"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <datePicker contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="rf1-ni-5jX">
+                        <rect key="frame" x="73.5" y="19.5" width="324.5" height="31"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <connections>
+                            <action selector="timePickerValueDidChange:" destination="DXS-hK-R6T" eventType="valueChanged" id="lOv-xi-njM"/>
+                        </connections>
+                    </datePicker>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rf1-ni-5jX" firstAttribute="leading" secondItem="bPP-xD-s0I" secondAttribute="trailing" constant="16" id="GIl-8r-4N6"/>
+                    <constraint firstAttribute="bottom" secondItem="bPP-xD-s0I" secondAttribute="bottom" constant="8" id="IaZ-Hj-URE"/>
+                    <constraint firstItem="bPP-xD-s0I" firstAttribute="top" secondItem="qZN-ds-fmy" secondAttribute="top" constant="8" id="PbR-kz-fAB"/>
+                    <constraint firstAttribute="trailing" secondItem="rf1-ni-5jX" secondAttribute="trailing" constant="16" id="Ww2-WE-bjM"/>
+                    <constraint firstItem="bPP-xD-s0I" firstAttribute="leading" secondItem="qZN-ds-fmy" secondAttribute="leading" constant="16" id="YGx-0b-5Uf"/>
+                    <constraint firstItem="rf1-ni-5jX" firstAttribute="centerY" secondItem="bPP-xD-s0I" secondAttribute="centerY" id="swr-S0-ih4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="timePicker" destination="rf1-ni-5jX" id="kcc-IK-hPM"/>
+                <outlet property="titleLabel" destination="bPP-xD-s0I" id="cBX-Ay-EYV"/>
+            </connections>
+            <point key="canvasLocation" x="113.04347826086958" y="51.897321428571423"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

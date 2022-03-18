@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  Motivation
+
+  Created by Maxime Maheo on 21/02/2022.
+  
+*/
+"support" = "Support";
+"settings" = "Settings";
+"version_x_x" = "Version %@(%@)";
+"share_app_content" = "Hey! I use a great app for inspirational and motivational quotes and sayings!\nTry it now: %@";
+"help_translate_the_app" = "Help translate the app";
+"send_feedback" = "Send feedback";
+"write_a_review" = "Write a review";
+"share_x" = "Share %@";
+"categories" = "Categories";
+"general" = "General";
+"positivity" = "Positivity";
+"encouragement" = "Encouragement";
+"breakup" = "Breakup";
+"change_category" = "Change categories depending on your mood at the time!";
+"enjoying_the_app" = "Enjoying the app?";
+"yes" = "Yes";
+"no" = "No";
+"anxiety" = "Anxiety";
+"depression" = "Depression";
+"fallingInLove" = "Falling in love";
+"love" = "Love";
+"moveOn" = "Move on";
+"continue" = "Continue";
+"welcome" = "Welcome!";
+"welcome_description" = "<b>Inspirational</b> and <b>motivational</b> quotes, delivered daily to increase your inner strength and provide you with constant inspiration <b>throughout the day.</b>";
+"notification_title" = "Daily motivation reminders";
+"x_times" = "%i times";
+"number_of_reminders" = "Number of reminders";
+"start_at" = "Start at";
+"end_at" = "End at";
+"notifications" = "Notifications";
+"daily_reminders" = "Daily reminders";
+"motivations" = "Motivations";
+"next" = "Next";
+"templates" = "Templates";

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Bfz-Q2-M9N" customClass="QuoteCell" customModule="Motivation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AK6-ZQ-DOT">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PED-DV-asM">
+                        <rect key="frame" x="24" y="122" width="327" height="568"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="PED-DV-asM" secondAttribute="trailing" constant="24" id="IBB-zv-VgF"/>
+                    <constraint firstItem="PED-DV-asM" firstAttribute="height" secondItem="AK6-ZQ-DOT" secondAttribute="height" multiplier="0.7" id="dcs-jW-qay"/>
+                    <constraint firstItem="PED-DV-asM" firstAttribute="centerY" secondItem="AK6-ZQ-DOT" secondAttribute="centerY" id="kp0-SY-Beu"/>
+                    <constraint firstItem="PED-DV-asM" firstAttribute="leading" secondItem="AK6-ZQ-DOT" secondAttribute="leading" constant="24" id="wpp-cT-uwn"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="375" height="356"/>
+            <connections>
+                <outlet property="contentLabel" destination="PED-DV-asM" id="9FD-ea-Rnz"/>
+            </connections>
+            <point key="canvasLocation" x="129.71014492753625" y="158.70535714285714"/>
+        </collectionViewCell>
+    </objects>
+</document>
