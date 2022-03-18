@@ -13,6 +13,8 @@ final class CategoryDIContainer {
         let trackingService: TrackingServiceProtocol
         let preferenceService: PreferenceServiceProtocol
         let quoteService: QuoteServiceProtocol
+        let paywallContainer: PaywallDIContainer
+        let purchaseService: PurchaseServiceProtocol
     }
     
     // MARK: - Properties
@@ -40,13 +42,21 @@ final class CategoryDIContainer {
         CategoryViewModel(actions: actions,
                           trackingService: dependencies.trackingService,
                           preferenceService: dependencies.preferenceService,
-                          quoteService: dependencies.quoteService)
+                          quoteService: dependencies.quoteService,
+                          purchaseService: dependencies.purchaseService)
     }
 }
 
 // MARK: - CategoryFlowCoordinatorDependencies -
 
 extension CategoryDIContainer: CategoryFlowCoordinatorDependencies {
+    
+    // MARK: - Properties
+    
+    var paywallContainer: PaywallDIContainer { dependencies.paywallContainer }
+    
+    // MARK: - Methods
+    
     func makeCategoryViewController(actions: CategoryViewModelActions) -> CategoryViewController {
         CategoryViewController.create(with: makeCategoryViewModel(actions: actions))
     }

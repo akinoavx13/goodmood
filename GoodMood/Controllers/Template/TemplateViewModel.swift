@@ -18,7 +18,6 @@ protocol TemplateViewModelProtocol: AnyObject {
     // MARK: - Properties
     
     var composition: Driver<TemplateViewModel.Composition> { get }
-    var hasActiveSubscription: BehaviorRelay<Bool> { get }
 
     // MARK: - Methods
     
@@ -52,12 +51,12 @@ final class TemplateViewModel: TemplateViewModelProtocol {
     // MARK: - Properties
     
     lazy private(set) var composition: Driver<Composition> = compositionSubject.asDriver(onErrorDriveWith: .never())
-    let hasActiveSubscription: BehaviorRelay<Bool> = .init(value: false)
-
-    private var selectedTemplateId: String?
     
+    private var selectedTemplateId: String?
+    private let hasActiveSubscription: BehaviorRelay<Bool> = .init(value: false)
     private let compositionSubject = ReplaySubject<Composition>.create(bufferSize: 1)
     private let disposeBag = DisposeBag()
+    
     private let actions: TemplateViewModelActions
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
@@ -73,17 +72,17 @@ final class TemplateViewModel: TemplateViewModelProtocol {
         self.trackingService = trackingService
         self.preferenceService = preferenceService
         self.purchaseService = purchaseService
-        
-        trackingService.track(event: .showTemplate, eventProperties: nil)
-        
+                
         selectedTemplateId = preferenceService.selectedTemplate()
-        
-        configureComposition(selectedTemplate: selectedTemplateId)
+                
+        configure()
     }
     
     // MARK: - Setup Methods
     
     private func configure() {
+        configureComposition(selectedTemplate: selectedTemplateId)
+
         purchaseService
             .promotedIAPDidPurchase
             .withUnretained(self)
@@ -96,6 +95,8 @@ final class TemplateViewModel: TemplateViewModelProtocol {
     // MARK: - Methods
     
     func viewDidLoad() async {
+        trackingService.track(event: .showTemplate, eventProperties: nil)
+
         await updateSubscriptionStatus()
     }
     

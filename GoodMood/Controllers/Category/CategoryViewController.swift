@@ -56,18 +56,14 @@ final class CategoryViewController: UIViewController {
         bind(to: viewModel)
         
         viewModel.refreshCategories()
+        
+        Task { await viewModel.viewDidLoad() }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         impactGenerator.impactOccurred()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        viewModel.viewDidAppear()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

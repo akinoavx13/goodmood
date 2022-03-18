@@ -8,7 +8,9 @@
 import RxSwift
 import RxCocoa
 
-struct CategoryViewModelActions { }
+struct CategoryViewModelActions {
+    let presentPaywall: (PaywallFlowCoordinator.PaywallType, TrackingService.PaywallOrigin) -> Void
+}
 
 protocol CategoryViewModelProtocol: AnyObject {
     
@@ -18,7 +20,7 @@ protocol CategoryViewModelProtocol: AnyObject {
     
     // MARK: - Methods
     
-    func viewDidAppear()
+    func viewDidLoad() async
     func refreshCategories()
     func selectCategory(row: Int) async -> Bool
 }
@@ -31,30 +33,53 @@ final class CategoryViewModel: CategoryViewModelProtocol {
 
     private let compositionSubject = ReplaySubject<Composition>.create(bufferSize: 1)
     private let selectedCategory: RMQuote.RMCategory
-    
+    private let hasActiveSubscription: BehaviorRelay<Bool> = .init(value: false)
+    private let disposeBag = DisposeBag()
+
     private let actions: CategoryViewModelActions
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
     private let quoteService: QuoteServiceProtocol
+    private let purchaseService: PurchaseServiceProtocol
     
     // MARK: - Lifecycle
     
     init(actions: CategoryViewModelActions,
          trackingService: TrackingServiceProtocol,
          preferenceService: PreferenceServiceProtocol,
-         quoteService: QuoteServiceProtocol) {
+         quoteService: QuoteServiceProtocol,
+         purchaseService: PurchaseServiceProtocol) {
         self.actions = actions
         self.trackingService = trackingService
         self.preferenceService = preferenceService
         self.quoteService = quoteService
-        
+        self.purchaseService = purchaseService
+
         self.selectedCategory = preferenceService.getSelectedCategory()
+        
+        configure()
+    }
+    
+    // MARK: - Setup Methods
+
+    private func configure() {
+        configureComposition()
+        
+        purchaseService
+            .promotedIAPDidPurchase
+            .withUnretained(self)
+            .subscribe(onNext: { this, _ in
+                Task { await this.updateSubscriptionStatus() }
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Methods
     
-    func viewDidAppear() {
+    func viewDidLoad() async {
         trackingService.track(event: .showCategories, eventProperties: nil)
+        
+        await updateSubscriptionStatus()
     }
     
     func refreshCategories() {
@@ -62,6 +87,11 @@ final class CategoryViewModel: CategoryViewModelProtocol {
     }
     
     func selectCategory(row: Int) async -> Bool {
+        if !hasActiveSubscription.value {
+            actions.presentPaywall(.start, .category)
+            return false
+        }
+        
         guard RMQuote.RMCategory.allCases.count > row else { return false }
         
         let category = RMQuote.RMCategory.allCases[row]
@@ -75,6 +105,13 @@ final class CategoryViewModel: CategoryViewModelProtocol {
         await quoteService.triggerNotificationsIfNeeded()
         
         return true
+    }
+
+    // MARK: - Private methods
+
+    func updateSubscriptionStatus() async {
+        let hasActiveSubscription = await purchaseService.hasActiveSubscription()
+        self.hasActiveSubscription.accept(hasActiveSubscription)
     }
 }
 
