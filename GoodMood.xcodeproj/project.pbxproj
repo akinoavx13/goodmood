@@ -377,10 +377,10 @@
 		52F643E727E1EA2F00583201 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				52F643E827E1EA2F00583201 /* Settings */,
-				52F6440127E1EA2F00583201 /* Category */,
 				52F6440527E1EA2F00583201 /* Quote */,
+				52F6440127E1EA2F00583201 /* Category */,
 				52F6440927E1EA2F00583201 /* Template */,
+				52F643E827E1EA2F00583201 /* Settings */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -461,8 +461,8 @@
 		52F6440127E1EA2F00583201 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				52F6440227E1EA2F00583201 /* CategoryCell.swift */,
 				52F6440327E1EA2F00583201 /* CategoryCellViewModel.swift */,
+				52F6440227E1EA2F00583201 /* CategoryCell.swift */,
 				52F6440427E1EA2F00583201 /* CategoryCell.xib */,
 			);
 			path = Category;
@@ -471,9 +471,9 @@
 		52F6440527E1EA2F00583201 /* Quote */ = {
 			isa = PBXGroup;
 			children = (
-				52F6440627E1EA2F00583201 /* QuoteCell.xib */,
-				52F6440727E1EA2F00583201 /* QuoteCell.swift */,
 				52F6440827E1EA2F00583201 /* QuoteCellViewModel.swift */,
+				52F6440727E1EA2F00583201 /* QuoteCell.swift */,
+				52F6440627E1EA2F00583201 /* QuoteCell.xib */,
 			);
 			path = Quote;
 			sourceTree = "<group>";
@@ -481,9 +481,9 @@
 		52F6440927E1EA2F00583201 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				52F6440C27E1EA2F00583201 /* TemplateCellViewModel.swift */,
 				52F6440A27E1EA2F00583201 /* TemplateCell.swift */,
 				52F6440B27E1EA2F00583201 /* TemplateCell.xib */,
-				52F6440C27E1EA2F00583201 /* TemplateCellViewModel.swift */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -525,11 +525,11 @@
 		52F6441527E1EA2F00583201 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				52F6441627E1EA2F00583201 /* Settings */,
-				52F6441C27E1EA2F00583201 /* Category */,
-				52F6442227E1EA2F00583201 /* Quote */,
-				52F6442827E1EA2F00583201 /* Template */,
 				52F6442E27E1EA2F00583201 /* Onboarding */,
+				52F6442227E1EA2F00583201 /* Quote */,
+				52F6441C27E1EA2F00583201 /* Category */,
+				52F6442827E1EA2F00583201 /* Template */,
+				52F6441627E1EA2F00583201 /* Settings */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -537,11 +537,11 @@
 		52F6441627E1EA2F00583201 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				52F6441727E1EA2F00583201 /* SettingsFlowCoordinator.swift */,
-				52F6441827E1EA2F00583201 /* SettingsViewController.storyboard */,
-				52F6441927E1EA2F00583201 /* SettingsViewModel.swift */,
 				52F6441A27E1EA2F00583201 /* SettingsDIContainer.swift */,
+				52F6441727E1EA2F00583201 /* SettingsFlowCoordinator.swift */,
+				52F6441927E1EA2F00583201 /* SettingsViewModel.swift */,
 				52F6441B27E1EA2F00583201 /* SettingsViewController.swift */,
+				52F6441827E1EA2F00583201 /* SettingsViewController.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -549,11 +549,11 @@
 		52F6441C27E1EA2F00583201 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				52F6441D27E1EA2F00583201 /* CategoryViewModel.swift */,
 				52F6441E27E1EA2F00583201 /* CategoryDIContainer.swift */,
 				52F6441F27E1EA2F00583201 /* CategoryFlowCoordinator.swift */,
-				52F6442027E1EA2F00583201 /* CategoryViewController.storyboard */,
+				52F6441D27E1EA2F00583201 /* CategoryViewModel.swift */,
 				52F6442127E1EA2F00583201 /* CategoryViewController.swift */,
+				52F6442027E1EA2F00583201 /* CategoryViewController.storyboard */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -573,10 +573,10 @@
 		52F6442827E1EA2F00583201 /* Template */ = {
 			isa = PBXGroup;
 			children = (
-				52F6442927E1EA2F00583201 /* TemplateViewController.swift */,
+				52F6442C27E1EA2F00583201 /* TemplateDIContainer.swift */,
 				52F6442A27E1EA2F00583201 /* TemplateFlowCoordinator.swift */,
 				52F6442B27E1EA2F00583201 /* TemplateViewModel.swift */,
-				52F6442C27E1EA2F00583201 /* TemplateDIContainer.swift */,
+				52F6442927E1EA2F00583201 /* TemplateViewController.swift */,
 				52F6442D27E1EA2F00583201 /* TemplateViewController.storyboard */,
 			);
 			path = Template;
@@ -586,8 +586,8 @@
 			isa = PBXGroup;
 			children = (
 				52F6442F27E1EA2F00583201 /* OnboardingDIContainer.swift */,
-				52F6443027E1EA2F00583201 /* Notification */,
 				52F6443427E1EA2F00583201 /* OnboardingFlowCoordinator.swift */,
+				52F6443027E1EA2F00583201 /* Notification */,
 				52F6443527E1EA2F00583201 /* Welcome */,
 			);
 			path = Onboarding;
@@ -596,9 +596,9 @@
 		52F6443027E1EA2F00583201 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				52F6443127E1EA2F00583201 /* NotificationViewController.storyboard */,
 				52F6443227E1EA2F00583201 /* NotificationViewModel.swift */,
 				52F6443327E1EA2F00583201 /* NotificationViewController.swift */,
+				52F6443127E1EA2F00583201 /* NotificationViewController.storyboard */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -606,9 +606,9 @@
 		52F6443527E1EA2F00583201 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				52F6443627E1EA2F00583201 /* WelcomeViewController.storyboard */,
-				52F6443727E1EA2F00583201 /* WelcomeViewController.swift */,
 				52F6443827E1EA2F00583201 /* WelcomeViewModel.swift */,
+				52F6443727E1EA2F00583201 /* WelcomeViewController.swift */,
+				52F6443627E1EA2F00583201 /* WelcomeViewController.storyboard */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
