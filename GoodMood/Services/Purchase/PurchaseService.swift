@@ -27,7 +27,7 @@ protocol PurchaseServiceProtocol: AnyObject {
 final class PurchaseService: NSObject, PurchaseServiceProtocol {
     
     enum OfferingType: String, CaseIterable {
-        case `default`
+        case start
     }
     
     // MARK: - Properties

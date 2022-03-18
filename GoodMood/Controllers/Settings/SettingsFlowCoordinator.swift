@@ -9,6 +9,13 @@ import UIKit
 import StoreKit
 
 protocol SettingsFlowCoordinatorDependencies: AnyObject {
+    
+    // MARK: - Properties
+    
+    var paywallContainer: PaywallDIContainer { get }
+
+    // MARK: - Methods
+    
     func makeSettingsViewController(actions: SettingsViewModelActions) -> SettingsViewController
 }
 
@@ -17,7 +24,8 @@ final class SettingsFlowCoordinator {
     // MARK: - Properties
     
     private weak var navigationController: UINavigationController?
-    
+    private weak var paywallDelegate: PaywallViewControllerDelegate?
+
     private let dependencies: SettingsFlowCoordinatorDependencies
     private var viewController: UINavigationController!
     private let application: UIApplication
@@ -37,12 +45,15 @@ final class SettingsFlowCoordinator {
     func start() {
         let actions = SettingsViewModelActions(openUrl: openUrl(urlString:),
                                                presentActivityViewController: presentActivityViewController(text:sourceView:completion:),
-                                               requestReview: requestReview)
+                                               requestReview: requestReview,
+                                               presentPaywall: presentPaywall(type:origin:))
         
         DispatchQueue.main.async {
             let settingsViewController = self.dependencies.makeSettingsViewController(actions: actions)
             self.viewController = UINavigationController(rootViewController: settingsViewController)
             self.viewController.navigationBar.prefersLargeTitles = true
+            
+            self.paywallDelegate = settingsViewController
             
             self.navigationController?.present(self.viewController, animated: true)
         }
@@ -93,5 +104,19 @@ extension SettingsFlowCoordinator {
                 SKStoreReviewController.requestReview()
             }
         }
+    }
+    
+    private func paywallFlowCoordinator() -> PaywallFlowCoordinator {
+        dependencies
+            .paywallContainer
+            .makePaywallFlowCoordinator(navigationController: navigationController,
+                                        paywallDelegate: paywallDelegate)
+    }
+    
+    private func presentPaywall(type: PaywallFlowCoordinator.PaywallType,
+                                origin: TrackingService.PaywallOrigin) {
+        paywallFlowCoordinator()
+            .start(type: type,
+                   origin: origin)
     }
 }

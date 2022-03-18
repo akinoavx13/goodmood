@@ -289,3 +289,15 @@ extension SettingsViewController: SettingsStepperCellDelegate {
         }
     }
 }
+
+// MARK: - SettingsViewController -
+
+extension SettingsViewController: PaywallViewControllerDelegate {
+    func paywallViewController(_ sender: UIViewController, hasPurchaseSucceed: Bool) {
+        guard hasPurchaseSucceed else { return }
+
+        Task { await viewModel.refreshSubscriptionAndComposition() }
+    }
+    
+    func paywallViewController(_ sender: UIViewController, closeButtonDidTap button: UIButton) { }
+}

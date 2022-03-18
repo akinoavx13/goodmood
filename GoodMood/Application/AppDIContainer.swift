@@ -34,6 +34,9 @@ final class AppDIContainer {
         PurchaseService(trackingService: trackingService,
                         preferenceService: preferenceService)
     }()
+    private lazy var formatterService: FormatterServiceProtocol = {
+        FormatterService()
+    }()
     
     // MARK: - Containers
     
@@ -61,7 +64,8 @@ final class AppDIContainer {
                                                             preferenceService: preferenceService,
                                                             notificationService: notificationService,
                                                             quoteService: quoteService,
-                                                            purchaseService: purchaseService)
+                                                            purchaseService: purchaseService,
+                                                            paywallContainer: paywallDIContainer)
         
         return SettingsDIContainer(dependencies: dependencies)
     }()
@@ -77,5 +81,13 @@ final class AppDIContainer {
                                                             preferenceService: preferenceService)
         
         return TemplateDIContainer(dependencies: dependencies)
+    }()
+    private(set) lazy var paywallDIContainer: PaywallDIContainer = {
+        let dependencies = PaywallDIContainer.Dependencies(trackingService: trackingService,
+                                                           purchaseService: purchaseService,
+                                                           formatterService: formatterService,
+                                                           notificationService: notificationService)
+        
+        return PaywallDIContainer(dependencies: dependencies)
     }()
 }

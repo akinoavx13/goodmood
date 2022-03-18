@@ -15,6 +15,7 @@ final class SettingsDIContainer {
         let notificationService: NotificationServiceProtocol
         let quoteService: QuoteServiceProtocol
         let purchaseService: PurchaseServiceProtocol
+        let paywallContainer: PaywallDIContainer
     }
     
     // MARK: - Properties
@@ -50,6 +51,15 @@ final class SettingsDIContainer {
 // MARK: - SettingsFlowCoordinatorDependencies -
 
 extension SettingsDIContainer: SettingsFlowCoordinatorDependencies {
+    
+    // MARK: - Methods
+    
+    var paywallContainer: PaywallDIContainer {
+        dependencies.paywallContainer
+    }
+    
+    // MARK: - Methods
+    
     func makeSettingsViewController(actions: SettingsViewModelActions) -> SettingsViewController {
         SettingsViewController.create(with: makeSettingsViewModel(actions: actions))
     }

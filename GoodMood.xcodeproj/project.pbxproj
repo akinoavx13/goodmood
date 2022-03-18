@@ -23,6 +23,15 @@
 		52C05C5927E50EF00081D5C1 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 52C05C5827E50EF00081D5C1 /* PKHUD */; };
 		52C05C5B27E50FD50081D5C1 /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = 52C05C5A27E50FD50081D5C1 /* Purchases */; };
 		52C05C5D27E510380081D5C1 /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C5C27E510380081D5C1 /* Sequence+Extensions.swift */; };
+		52C05C6927E515A60081D5C1 /* PaywallFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C5F27E515A60081D5C1 /* PaywallFlowCoordinator.swift */; };
+		52C05C6A27E515A60081D5C1 /* PaywallDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C6027E515A60081D5C1 /* PaywallDIContainer.swift */; };
+		52C05C6B27E515A60081D5C1 /* PaywallStartViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C05C6227E515A60081D5C1 /* PaywallStartViewController.storyboard */; };
+		52C05C6C27E515A60081D5C1 /* PaywallStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C6327E515A60081D5C1 /* PaywallStartViewController.swift */; };
+		52C05C6D27E515A60081D5C1 /* PaywallStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C6427E515A60081D5C1 /* PaywallStartViewModel.swift */; };
+		52C05C7327E517480081D5C1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C7227E517480081D5C1 /* GradientView.swift */; };
+		52C05C7627E519340081D5C1 /* FormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C7527E519340081D5C1 /* FormatterService.swift */; };
+		52C05C7827E519E20081D5C1 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C7727E519E20081D5C1 /* UIColor+Extensions.swift */; };
+		52C05C7A27E51AD10081D5C1 /* SKProductSubscriptionPeriod+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C7927E51AD10081D5C1 /* SKProductSubscriptionPeriod+Extensions.swift */; };
 		52F6446927E1EA2F00583201 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F643D827E1EA2F00583201 /* DatabaseService.swift */; };
 		52F6446A27E1EA2F00583201 /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F643DA27E1EA2F00583201 /* QuoteService.swift */; };
 		52F6446B27E1EA2F00583201 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F643DC27E1EA2F00583201 /* NotificationService.swift */; };
@@ -120,7 +129,7 @@
 		52F644C827E1EA2F00583201 /* SnapCenterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6445F27E1EA2F00583201 /* SnapCenterLayout.swift */; };
 		52F644C927E1EA2F00583201 /* UserIdentifierManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6446027E1EA2F00583201 /* UserIdentifierManager.swift */; };
 		52F644CA27E1EA2F00583201 /* Locale+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6446127E1EA2F00583201 /* Locale+Language.swift */; };
-		52F644CB27E1EA2F00583201 /* CALayer+SmoothCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6446327E1EA2F00583201 /* CALayer+SmoothCorner.swift */; };
+		52F644CB27E1EA2F00583201 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6446327E1EA2F00583201 /* CALayer+Extensions.swift */; };
 		52F644CC27E1EA2F00583201 /* DD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6446427E1EA2F00583201 /* DD.swift */; };
 		52F644CD27E1EA2F00583201 /* CompositionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6446527E1EA2F00583201 /* CompositionSection.swift */; };
 		52F644CE27E1EA2F00583201 /* Date+GetComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6446627E1EA2F00583201 /* Date+GetComponent.swift */; };
@@ -133,6 +142,15 @@
 		52C05C5227E50D660081D5C1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		52C05C5527E50D970081D5C1 /* PurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
 		52C05C5C27E510380081D5C1 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
+		52C05C5F27E515A60081D5C1 /* PaywallFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallFlowCoordinator.swift; sourceTree = "<group>"; };
+		52C05C6027E515A60081D5C1 /* PaywallDIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallDIContainer.swift; sourceTree = "<group>"; };
+		52C05C6227E515A60081D5C1 /* PaywallStartViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PaywallStartViewController.storyboard; sourceTree = "<group>"; };
+		52C05C6327E515A60081D5C1 /* PaywallStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallStartViewController.swift; sourceTree = "<group>"; };
+		52C05C6427E515A60081D5C1 /* PaywallStartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallStartViewModel.swift; sourceTree = "<group>"; };
+		52C05C7227E517480081D5C1 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		52C05C7527E519340081D5C1 /* FormatterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterService.swift; sourceTree = "<group>"; };
+		52C05C7727E519E20081D5C1 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		52C05C7927E51AD10081D5C1 /* SKProductSubscriptionPeriod+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProductSubscriptionPeriod+Extensions.swift"; sourceTree = "<group>"; };
 		52F643BF27E1E9A000583201 /* GoodMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F643D827E1EA2F00583201 /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		52F643DA27E1EA2F00583201 /* QuoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
@@ -234,7 +252,7 @@
 		52F6445F27E1EA2F00583201 /* SnapCenterLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapCenterLayout.swift; sourceTree = "<group>"; };
 		52F6446027E1EA2F00583201 /* UserIdentifierManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIdentifierManager.swift; sourceTree = "<group>"; };
 		52F6446127E1EA2F00583201 /* Locale+Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Locale+Language.swift"; sourceTree = "<group>"; };
-		52F6446327E1EA2F00583201 /* CALayer+SmoothCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+SmoothCorner.swift"; sourceTree = "<group>"; };
+		52F6446327E1EA2F00583201 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
 		52F6446427E1EA2F00583201 /* DD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DD.swift; sourceTree = "<group>"; };
 		52F6446527E1EA2F00583201 /* CompositionSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionSection.swift; sourceTree = "<group>"; };
 		52F6446627E1EA2F00583201 /* Date+GetComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+GetComponent.swift"; sourceTree = "<group>"; };
@@ -284,6 +302,42 @@
 			path = Purchase;
 			sourceTree = "<group>";
 		};
+		52C05C5E27E515A60081D5C1 /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				52C05C6027E515A60081D5C1 /* PaywallDIContainer.swift */,
+				52C05C5F27E515A60081D5C1 /* PaywallFlowCoordinator.swift */,
+				52C05C6127E515A60081D5C1 /* Start */,
+			);
+			path = Paywall;
+			sourceTree = "<group>";
+		};
+		52C05C6127E515A60081D5C1 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				52C05C6427E515A60081D5C1 /* PaywallStartViewModel.swift */,
+				52C05C6327E515A60081D5C1 /* PaywallStartViewController.swift */,
+				52C05C6227E515A60081D5C1 /* PaywallStartViewController.storyboard */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		52C05C7127E517480081D5C1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				52C05C7227E517480081D5C1 /* GradientView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		52C05C7427E519340081D5C1 /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				52C05C7527E519340081D5C1 /* FormatterService.swift */,
+			);
+			path = Formatter;
+			sourceTree = "<group>";
+		};
 		52F643B627E1E9A000583201 = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +378,7 @@
 				52F643DB27E1EA2F00583201 /* Notification */,
 				52F643DD27E1EA2F00583201 /* Preference */,
 				52F643DF27E1EA2F00583201 /* Tracking */,
+				52C05C7427E519340081D5C1 /* Formatter */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -551,6 +606,7 @@
 				52F6441C27E1EA2F00583201 /* Category */,
 				52F6442827E1EA2F00583201 /* Template */,
 				52F6441627E1EA2F00583201 /* Settings */,
+				52C05C5E27E515A60081D5C1 /* Paywall */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -687,6 +743,7 @@
 		52F6445D27E1EA2F00583201 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				52C05C7127E517480081D5C1 /* Components */,
 				52F6446227E1EA2F00583201 /* Extensions */,
 				52F6445E27E1EA2F00583201 /* Constants.swift */,
 				52F6445F27E1EA2F00583201 /* SnapCenterLayout.swift */,
@@ -704,8 +761,10 @@
 		52F6446227E1EA2F00583201 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				52F6446327E1EA2F00583201 /* CALayer+SmoothCorner.swift */,
+				52F6446327E1EA2F00583201 /* CALayer+Extensions.swift */,
 				52C05C5C27E510380081D5C1 /* Sequence+Extensions.swift */,
+				52C05C7727E519E20081D5C1 /* UIColor+Extensions.swift */,
+				52C05C7927E51AD10081D5C1 /* SKProductSubscriptionPeriod+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -825,6 +884,7 @@
 				52F6448127E1EA2F00583201 /* SettingsLinkCell.xib in Resources */,
 				52F644C127E1EA2F00583201 /* background9.jpg in Resources */,
 				52F644B727E1EA2F00583201 /* background10.jpg in Resources */,
+				52C05C6B27E515A60081D5C1 /* PaywallStartViewController.storyboard in Resources */,
 				52F6449727E1EA2F00583201 /* CategoryViewController.storyboard in Resources */,
 				52F644AE27E1EA2F00583201 /* Assets.xcassets in Resources */,
 				52F644B627E1EA2F00583201 /* background1.jpg in Resources */,
@@ -891,11 +951,14 @@
 				52F644A627E1EA2F00583201 /* NotificationViewController.swift in Sources */,
 				52F644AA27E1EA2F00583201 /* WelcomeViewModel.swift in Sources */,
 				52F6449C27E1EA2F00583201 /* QuoteViewController.swift in Sources */,
+				52C05C7827E519E20081D5C1 /* UIColor+Extensions.swift in Sources */,
 				52F6448B27E1EA2F00583201 /* AnimationButton.swift in Sources */,
 				52F6448D27E1EA2F00583201 /* SectionHeaderReusableView.swift in Sources */,
 				52F644D027E1EA2F00583201 /* App.swift in Sources */,
+				52C05C7627E519340081D5C1 /* FormatterService.swift in Sources */,
 				52F6447C27E1EA2F00583201 /* SettingsButtonCell.swift in Sources */,
 				52F644A127E1EA2F00583201 /* TemplateDIContainer.swift in Sources */,
+				52C05C6C27E515A60081D5C1 /* PaywallStartViewController.swift in Sources */,
 				52F6448827E1EA2F00583201 /* TemplateCell.swift in Sources */,
 				52F644C227E1EA2F00583201 /* R.generated.swift in Sources */,
 				52F6446A27E1EA2F00583201 /* QuoteService.swift in Sources */,
@@ -905,6 +968,8 @@
 				52F6446E27E1EA2F00583201 /* RMQuote.swift in Sources */,
 				52F6449327E1EA2F00583201 /* SettingsViewController.swift in Sources */,
 				52F6449527E1EA2F00583201 /* CategoryDIContainer.swift in Sources */,
+				52C05C6A27E515A60081D5C1 /* PaywallDIContainer.swift in Sources */,
+				52C05C7A27E51AD10081D5C1 /* SKProductSubscriptionPeriod+Extensions.swift in Sources */,
 				52F644A527E1EA2F00583201 /* NotificationViewModel.swift in Sources */,
 				52C05C5D27E510380081D5C1 /* Sequence+Extensions.swift in Sources */,
 				52F6447D27E1EA2F00583201 /* SettingsButtonCellViewModel.swift in Sources */,
@@ -914,6 +979,7 @@
 				52F6448627E1EA2F00583201 /* QuoteCell.swift in Sources */,
 				52F6447327E1EA2F00583201 /* SettingsValueCellViewModel.swift in Sources */,
 				52F644A027E1EA2F00583201 /* TemplateViewModel.swift in Sources */,
+				52C05C6D27E515A60081D5C1 /* PaywallStartViewModel.swift in Sources */,
 				52F6449E27E1EA2F00583201 /* TemplateViewController.swift in Sources */,
 				52F644CC27E1EA2F00583201 /* DD.swift in Sources */,
 				52F6448027E1EA2F00583201 /* SettingsLinkCell.swift in Sources */,
@@ -923,6 +989,7 @@
 				52F6448F27E1EA2F00583201 /* SettingsFlowCoordinator.swift in Sources */,
 				52F6449827E1EA2F00583201 /* CategoryViewController.swift in Sources */,
 				52F644CD27E1EA2F00583201 /* CompositionSection.swift in Sources */,
+				52C05C6927E515A60081D5C1 /* PaywallFlowCoordinator.swift in Sources */,
 				52F644A727E1EA2F00583201 /* OnboardingFlowCoordinator.swift in Sources */,
 				52F6448E27E1EA2F00583201 /* SectionHeaderReusableViewModel.swift in Sources */,
 				52F644A327E1EA2F00583201 /* OnboardingDIContainer.swift in Sources */,
@@ -935,6 +1002,7 @@
 				52F6446C27E1EA2F00583201 /* PreferenceService.swift in Sources */,
 				52F6448327E1EA2F00583201 /* CategoryCellViewModel.swift in Sources */,
 				52F6447927E1EA2F00583201 /* SettingsToggleCell.swift in Sources */,
+				52C05C7327E517480081D5C1 /* GradientView.swift in Sources */,
 				52F6446D27E1EA2F00583201 /* TrackingService.swift in Sources */,
 				52F6446F27E1EA2F00583201 /* Quote.swift in Sources */,
 				52C05C5627E50D970081D5C1 /* PurchaseService.swift in Sources */,
@@ -948,7 +1016,7 @@
 				52F6447127E1EA2F00583201 /* SettingsTimePickerCell.swift in Sources */,
 				52F6448A27E1EA2F00583201 /* TemplateCellViewModel.swift in Sources */,
 				52F644C627E1EA2F00583201 /* AppDelegate.swift in Sources */,
-				52F644CB27E1EA2F00583201 /* CALayer+SmoothCorner.swift in Sources */,
+				52F644CB27E1EA2F00583201 /* CALayer+Extensions.swift in Sources */,
 				52F6449F27E1EA2F00583201 /* TemplateFlowCoordinator.swift in Sources */,
 				52F6447F27E1EA2F00583201 /* SettingsLinkCellViewModel.swift in Sources */,
 				52F6448227E1EA2F00583201 /* CategoryCell.swift in Sources */,

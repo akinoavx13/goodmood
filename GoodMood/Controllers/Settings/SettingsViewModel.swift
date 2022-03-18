@@ -15,6 +15,7 @@ struct SettingsViewModelActions {
     let openUrl: (String) -> Void
     let presentActivityViewController: (String, UIView?, @escaping (String?, Bool) -> Void) -> Void
     let requestReview: () -> Void
+    let presentPaywall: (PaywallFlowCoordinator.PaywallType, TrackingService.PaywallOrigin) -> Void
 }
 
 protocol SettingsViewModelProtocol: AnyObject {
@@ -39,6 +40,7 @@ protocol SettingsViewModelProtocol: AnyObject {
     func updateDebug(isPremium: Bool) async
     func restore() async -> Bool
     func showPremiumPlans()
+    func refreshSubscriptionAndComposition() async
 }
 
 final class SettingsViewModel: SettingsViewModelProtocol {
@@ -209,7 +211,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
     
     func showPremiumPlans() {
-//        actions.presentPaywall(.default, .settings)
+        actions.presentPaywall(.start, .settings)
     }
     
     func refreshSubscriptionAndComposition() async {
