@@ -14,6 +14,8 @@ final class OnboardingDIContainer {
         let preferenceService: PreferenceServiceProtocol
         let notificationService: NotificationServiceProtocol
         let quoteService: QuoteServiceProtocol
+        let purchaseService: PurchaseServiceProtocol
+        let paywallContainer: PaywallDIContainer
     }
     
     // MARK: - Properties
@@ -52,6 +54,13 @@ final class OnboardingDIContainer {
 // MARK: - OnboardingFlowCoordinatorDependencies -
 
 extension OnboardingDIContainer: OnboardingFlowCoordinatorDependencies {
+    
+    // MARK: - Properties
+    
+    var paywallDIContainer: PaywallDIContainer { dependencies.paywallContainer }
+    
+    // MARK: - Methods
+    
     func makeWelcomeViewController(actions: WelcomeViewModelActions) -> WelcomeViewController {
         WelcomeViewController.create(with: makeWelcomeViewModel(actions: actions))
     }

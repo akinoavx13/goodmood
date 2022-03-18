@@ -51,7 +51,7 @@
 "auto_renewed_subscription" = "This subscription will be renewed automatically until you cancel it. Please see our privacy policy and terms of use below.";
 "terms_of_use" = "Terms of use";
 "privacy_policy" = "Privacy policy";
-"renewed_subscription_x" = "Subscription <b>renewed for %@.</b> Can be cancelled at any time.";
+"renewed_subscription_x" = "3 days free, then subscription <b>renewed for %@.</b> Can be cancelled at any time.";
 "renewed_subscription_default_price" = "$18.49 / year";
 "amout_x_charged_every_x" = "%@/%@";
 "days" = "days";

@@ -12,6 +12,13 @@ protocol OnboardingFlowCoordinatorDelegate: AnyObject {
 }
 
 protocol OnboardingFlowCoordinatorDependencies: AnyObject {
+    
+    // MARK: - Properties
+    
+    var paywallDIContainer: PaywallDIContainer { get }
+    
+    // MARK: - Methods
+    
     func makeWelcomeViewController(actions: WelcomeViewModelActions) -> WelcomeViewController
     func makeNotificationViewController(actions: NotificationViewModelActions) -> NotificationViewController
 }
@@ -58,7 +65,7 @@ extension OnboardingFlowCoordinator {
     // MARK: - Private methods
     
     private func presentNotification() {
-        let actions = NotificationViewModelActions(dismiss: dismiss)
+        let actions = NotificationViewModelActions(presentPaywall: presentPaywall(type:origin:))
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -69,11 +76,32 @@ extension OnboardingFlowCoordinator {
         }
     }
     
-    private func dismiss() {
+    private func paywallFlowCoordinator() -> PaywallFlowCoordinator {
+        let flow = dependencies
+            .paywallDIContainer
+            .makePaywallFlowCoordinator(navigationController: navigationController,
+                                        paywallDelegate: nil)
+        flow.delegate = self
+        
+        return flow
+    }
+    
+    private func presentPaywall(type: PaywallFlowCoordinator.PaywallType,
+                                origin: TrackingService.PaywallOrigin) {
+        paywallFlowCoordinator()
+            .start(type: type,
+                   origin: origin)
+    }
+}
+
+// MARK: - PaywallFlowCoordinatorDelegate -
+
+extension OnboardingFlowCoordinator: PaywallFlowCoordinatorDelegate {
+    func paywallFlowCoordinatorWillDismiss(_ sender: PaywallFlowCoordinator) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-
-            self.navigationController.dismiss(animated: true)
+            
+            self.navigationController.dismiss(animated: false)
         }
     }
 }

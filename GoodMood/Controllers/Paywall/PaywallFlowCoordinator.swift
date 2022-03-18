@@ -75,7 +75,7 @@ final class PaywallFlowCoordinator {
             }
             self.viewController.modalPresentationStyle = .fullScreen
             
-            self.navigationController?.present(self.viewController, animated: origin != .appLaunch)
+            self.navigationController?.present(self.viewController, animated: origin != .onboarding)
         }
     }
 }
@@ -83,13 +83,12 @@ final class PaywallFlowCoordinator {
 // MARK: - PaywallViewModelActions -
 
 extension PaywallFlowCoordinator {
-
     private func dismiss() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
             self.delegate?.paywallFlowCoordinatorWillDismiss(self)
-            self.viewController.dismiss(animated: self.origin != .appLaunch)
+            self.viewController.dismiss(animated: self.origin != .onboarding)
         }
     }
     
@@ -100,5 +99,4 @@ extension PaywallFlowCoordinator {
             self?.viewController.present(SFSafariViewController(url: url), animated: true)
         }
     }
-    
 }

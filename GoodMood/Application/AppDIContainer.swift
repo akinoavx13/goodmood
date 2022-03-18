@@ -54,7 +54,9 @@ final class AppDIContainer {
         let dependencies = OnboardingDIContainer.Dependencies(trackingService: trackingService,
                                                               preferenceService: preferenceService,
                                                               notificationService: notificationService,
-                                                              quoteService: quoteService)
+                                                              quoteService: quoteService,
+                                                              purchaseService: purchaseService,
+                                                              paywallContainer: paywallDIContainer)
         
         return OnboardingDIContainer(dependencies: dependencies)
     }()

@@ -112,7 +112,7 @@ final class PaywallStartViewController: UIViewController {
         
         presentationController?.delegate = self
         
-        if viewModel.origin != .appLaunch {
+        if viewModel.origin != .onboarding {
             showCloseButtonContainerView()
         }
         bind(to: viewModel)

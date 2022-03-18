@@ -10,7 +10,7 @@ import RxCocoa
 import Foundation
 
 struct NotificationViewModelActions {
-    let dismiss: () -> Void
+    let presentPaywall: (PaywallFlowCoordinator.PaywallType, TrackingService.PaywallOrigin) -> Void
 }
 
 protocol NotificationViewModelProtocol: AnyObject {
@@ -81,7 +81,7 @@ final class NotificationViewModel: NotificationViewModelProtocol {
         preferenceService.save(isNotificationEnabled: isGranted)
         preferenceService.onboardingSeen()
         
-        actions.dismiss()
+        actions.presentPaywall(.start, .onboarding)
     }
     
     func update(nbTimes: Double) {
