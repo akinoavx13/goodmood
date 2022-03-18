@@ -9,16 +9,20 @@ import RxSwift
 import RxCocoa
 import UIKit.UIImage
 
-struct TemplateViewModelActions { }
+struct TemplateViewModelActions {
+    let presentPaywall: (PaywallFlowCoordinator.PaywallType, TrackingService.PaywallOrigin) -> Void
+}
 
 protocol TemplateViewModelProtocol: AnyObject {
     
     // MARK: - Properties
     
     var composition: Driver<TemplateViewModel.Composition> { get }
-    
+    var hasActiveSubscription: BehaviorRelay<Bool> { get }
+
     // MARK: - Methods
     
+    func viewDidLoad() async
     func selectTemplate(row: Int) -> String?
 }
 
@@ -48,22 +52,27 @@ final class TemplateViewModel: TemplateViewModelProtocol {
     // MARK: - Properties
     
     lazy private(set) var composition: Driver<Composition> = compositionSubject.asDriver(onErrorDriveWith: .never())
+    let hasActiveSubscription: BehaviorRelay<Bool> = .init(value: false)
 
     private var selectedTemplateId: String?
     
     private let compositionSubject = ReplaySubject<Composition>.create(bufferSize: 1)
+    private let disposeBag = DisposeBag()
     private let actions: TemplateViewModelActions
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
+    private let purchaseService: PurchaseServiceProtocol
     
     // MARK: - Lifecycle
     
     init(actions: TemplateViewModelActions,
          trackingService: TrackingServiceProtocol,
-         preferenceService: PreferenceServiceProtocol) {
+         preferenceService: PreferenceServiceProtocol,
+         purchaseService: PurchaseServiceProtocol) {
         self.actions = actions
         self.trackingService = trackingService
         self.preferenceService = preferenceService
+        self.purchaseService = purchaseService
         
         trackingService.track(event: .showTemplate, eventProperties: nil)
         
@@ -72,9 +81,30 @@ final class TemplateViewModel: TemplateViewModelProtocol {
         configureComposition(selectedTemplate: selectedTemplateId)
     }
     
+    // MARK: - Setup Methods
+    
+    private func configure() {
+        purchaseService
+            .promotedIAPDidPurchase
+            .withUnretained(self)
+            .subscribe(onNext: { this, _ in
+                Task { await this.updateSubscriptionStatus() }
+            })
+            .disposed(by: disposeBag)
+    }
+    
     // MARK: - Methods
     
+    func viewDidLoad() async {
+        await updateSubscriptionStatus()
+    }
+    
     func selectTemplate(row: Int) -> String? {
+        if !hasActiveSubscription.value {
+            actions.presentPaywall(.start, .template)
+            return nil
+        }
+        
         guard TemplateImage.allCases.count > row else { return nil }
         
         let template = TemplateImage.allCases[row]
@@ -104,6 +134,11 @@ final class TemplateViewModel: TemplateViewModelProtocol {
         else { return nil }
         
         return UIImage(cgImage: image)
+    }
+    
+    func updateSubscriptionStatus() async {
+        let hasActiveSubscription = await purchaseService.hasActiveSubscription()
+        self.hasActiveSubscription.accept(hasActiveSubscription)
     }
 }
 

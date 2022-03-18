@@ -24,7 +24,6 @@ final class SettingsFlowCoordinator {
     // MARK: - Properties
     
     private weak var navigationController: UINavigationController?
-    private weak var paywallDelegate: PaywallViewControllerDelegate?
 
     private let dependencies: SettingsFlowCoordinatorDependencies
     private var viewController: UINavigationController!
@@ -52,8 +51,6 @@ final class SettingsFlowCoordinator {
             let settingsViewController = self.dependencies.makeSettingsViewController(actions: actions)
             self.viewController = UINavigationController(rootViewController: settingsViewController)
             self.viewController.navigationBar.prefersLargeTitles = true
-            
-            self.paywallDelegate = settingsViewController
             
             self.navigationController?.present(self.viewController, animated: true)
         }
@@ -110,7 +107,7 @@ extension SettingsFlowCoordinator {
         dependencies
             .paywallContainer
             .makePaywallFlowCoordinator(navigationController: navigationController,
-                                        paywallDelegate: paywallDelegate)
+                                        paywallDelegate: nil)
     }
     
     private func presentPaywall(type: PaywallFlowCoordinator.PaywallType,

@@ -64,7 +64,7 @@ final class TrackingService: TrackingServiceProtocol {
     }
 
     enum PaywallOrigin: String, RawRepresentable {
-        case settings, appLaunch
+        case settings, appLaunch, template
     }
 
     enum UserProperty: String, RawRepresentable {

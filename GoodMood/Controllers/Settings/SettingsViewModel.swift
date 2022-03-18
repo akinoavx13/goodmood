@@ -40,7 +40,6 @@ protocol SettingsViewModelProtocol: AnyObject {
     func updateDebug(isPremium: Bool) async
     func restore() async -> Bool
     func showPremiumPlans()
-    func refreshSubscriptionAndComposition() async
 }
 
 final class SettingsViewModel: SettingsViewModelProtocol {
@@ -214,7 +213,9 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         actions.presentPaywall(.start, .settings)
     }
     
-    func refreshSubscriptionAndComposition() async {
+    // MARK: - Private methods
+    
+    private func refreshSubscriptionAndComposition() async {
         hasActiveSubscription = await purchaseService.hasActiveSubscription()
         
         configureComposition(hasActiveSubscription: hasActiveSubscription)

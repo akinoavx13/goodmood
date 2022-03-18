@@ -8,6 +8,13 @@
 import UIKit
 
 protocol TemplateFlowCoordinatorDependencies: AnyObject {
+    
+    // MARK: - Properties
+    
+    var paywallContainer: PaywallDIContainer { get }
+
+    // MARK: - Methods
+    
     func makeTemplateViewController(actions: TemplateViewModelActions) -> TemplateViewController
 }
 
@@ -34,7 +41,7 @@ final class TemplateFlowCoordinator {
     // MARK: - Methods
     
     func start() {
-        let actions = TemplateViewModelActions()
+        let actions = TemplateViewModelActions(presentPaywall: presentPaywall(type:origin:))
         
         DispatchQueue.main.async {
             let settingsViewController = self.dependencies.makeTemplateViewController(actions: actions)
@@ -44,6 +51,24 @@ final class TemplateFlowCoordinator {
             self.viewController.navigationBar.prefersLargeTitles = true
             
             self.navigationController?.present(self.viewController, animated: true)
+        }
+    }
+    
+    private func paywallFlowCoordinator() -> PaywallFlowCoordinator {
+        dependencies
+            .paywallContainer
+            .makePaywallFlowCoordinator(navigationController: navigationController,
+                                        paywallDelegate: nil)
+    }
+    
+    private func presentPaywall(type: PaywallFlowCoordinator.PaywallType,
+                                origin: TrackingService.PaywallOrigin) {
+        viewController.dismiss(animated: true) { [weak self] in
+            guard let self = self else { return }
+            
+            self.paywallFlowCoordinator()
+                .start(type: type,
+                       origin: origin)
         }
     }
 }

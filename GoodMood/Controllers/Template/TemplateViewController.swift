@@ -50,6 +50,8 @@ final class TemplateViewController: UIViewController {
         configure()
         
         bind(to: viewModel)
+        
+        Task { await viewModel.viewDidLoad() }
     }
     
     override func viewWillAppear(_ animated: Bool) {
