@@ -40,3 +40,9 @@
 "motivations" = "Motivations";
 "next" = "Suivante";
 "templates" = "Templates";
+"current_plan" = "Plan actuel :";
+"premium" = "Pro";
+"free" = "Gratuit";
+"show_premium_plans" = "Afficher les forfaits pro";
+"restore" = "Restaurer";
+"subscription" = "Abonnement";

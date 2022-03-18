@@ -14,6 +14,7 @@ final class SettingsDIContainer {
         let preferenceService: PreferenceServiceProtocol
         let notificationService: NotificationServiceProtocol
         let quoteService: QuoteServiceProtocol
+        let purchaseService: PurchaseServiceProtocol
     }
     
     // MARK: - Properties
@@ -40,7 +41,8 @@ final class SettingsDIContainer {
                           trackingService: dependencies.trackingService,
                           preferenceService: dependencies.preferenceService,
                           notificationService: dependencies.notificationService,
-                          quoteService: dependencies.quoteService)
+                          quoteService: dependencies.quoteService,
+                          purchaseService: dependencies.purchaseService)
     }
     
 }

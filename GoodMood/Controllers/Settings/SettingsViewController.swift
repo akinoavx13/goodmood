@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import PKHUD
 
 final class SettingsViewController: UIViewController {
 
@@ -51,7 +52,9 @@ final class SettingsViewController: UIViewController {
         
         bind(to: viewModel)
         
-        viewModel.viewDidLoad()
+        Task {
+            await viewModel.viewDidLoad()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,6 +108,24 @@ final class SettingsViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    private func restore() async {
+        DispatchQueue.main.async {
+            HUD.show(.progress)
+        }
+        
+        let hasSucceed = await viewModel.restore()
+        
+        DispatchQueue.main.async {
+            if hasSucceed {
+                HUD.flash(.success, delay: Constants.animationDuration)
+            } else {
+                HUD.flash(.error, delay: Constants.animationDuration)
+            }
+        }
+    }
+    
+    // MARK: - Actions
+    
     private func linkDidTap(id: String, sourceView: UIView?) {
         guard let rowId = SettingsViewModel.RowId(rawValue: id) else { return }
         
@@ -119,6 +140,16 @@ final class SettingsViewController: UIViewController {
     
     @objc private func rightBarButtonItemDidTap() {
         dismiss(animated: true)
+    }
+    
+    private func buttonDidTap(id: String) {
+        guard let rowId = SettingsViewModel.RowId(rawValue: id) else { return }
+        
+        switch rowId {
+        case .restore: Task { await restore() }
+        case .showPremiumPlans: viewModel.showPremiumPlans()
+        default: fatalError("Can't handle \(id)")
+        }
     }
 }
 
@@ -204,6 +235,7 @@ extension SettingsViewController: UITableViewDelegate {
         switch type {
         case let .link(viewModel): linkDidTap(id: viewModel.id,
                                               sourceView: tableView.cellForRow(at: indexPath))
+        case let .button(viewModel): buttonDidTap(id: viewModel.id)
         default: break
         }
     }
@@ -219,6 +251,7 @@ extension SettingsViewController: SettingsToggleCellDelegate {
         
         switch rowId {
         case .hasNotificationEnabled: viewModel.toggleHasNotificationEnabled()
+        case .debugPremium: Task { await viewModel.updateDebug(isPremium: isOn) }
         default: fatalError("Can't handle \(id)")
         }
     }

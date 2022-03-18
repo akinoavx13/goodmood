@@ -16,6 +16,9 @@ struct Constants {
     // Amplitude
     static let amplitudeApiKey = "d84cd4074dfe5b96a9b170d6d4ba3d69"
     
+    static let revenueCatApiKey = "appl_SCvUlFSQVMdujTtjJaPFVKYiMaO"
+
     static let appId = "1610882835"
     static let email = "motivation.ios.app@gmail.com"
+    static let animationDuration: TimeInterval = 0.25
 }

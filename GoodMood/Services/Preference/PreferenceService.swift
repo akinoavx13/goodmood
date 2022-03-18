@@ -31,6 +31,8 @@ protocol PreferenceServiceProtocol: AnyObject {
     func save(isNotificationEnabled: Bool)
     func selectedTemplate() -> String?
     func save(selectedTemplate: String)
+    func debugGetIsPremium() -> Bool
+    func debugSet(isPremium: Bool)
 }
 
 final class PreferenceService: PreferenceServiceProtocol {
@@ -50,6 +52,7 @@ final class PreferenceService: PreferenceServiceProtocol {
     private let nbTimesNotifKey = "nbTimesNotifKey"
     private let isNotificationEnabledKey = "isNotificationEnabledKey"
     private let selectedTemplateKey = "selectedTemplateKey"
+    private let debugIsPremiumKey = "debugIsPremiumKey"
 
     // MARK: - Lifecycle
     
@@ -173,6 +176,18 @@ final class PreferenceService: PreferenceServiceProtocol {
         }
         
         userDefaults.set(selectedTemplate, forKey: selectedTemplateKey)
+    }
+    
+    func debugGetIsPremium() -> Bool {
+        guard App.env == .debug || App.env == .testFlight else { return false }
+        
+        return userDefaults.bool(forKey: debugIsPremiumKey)
+    }
+    
+    func debugSet(isPremium: Bool) {
+        guard App.env == .debug || App.env == .testFlight else { return }
+        
+        userDefaults.set(isPremium, forKey: debugIsPremiumKey)
     }
     
     // MARK: - Private methods

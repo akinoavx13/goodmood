@@ -25,7 +25,7 @@ protocol SettingsViewModelProtocol: AnyObject {
     
     // MARK: - Methods
     
-    func viewDidLoad()
+    func viewDidLoad() async
     func viewDidAppear()
     func viewDidDisappear()
     func sendFeedback()
@@ -36,6 +36,9 @@ protocol SettingsViewModelProtocol: AnyObject {
     func update(startAt: Date)
     func update(endAt: Date)
     func update(nbNotifPerDay: Double)
+    func updateDebug(isPremium: Bool) async
+    func restore() async -> Bool
+    func showPremiumPlans()
 }
 
 final class SettingsViewModel: SettingsViewModelProtocol {
@@ -48,7 +51,11 @@ final class SettingsViewModel: SettingsViewModelProtocol {
              hasNotificationEnabled,
              startAt,
              endAt,
-             nbNotifPerDay
+             nbNotifPerDay,
+             debugPremium,
+             subscriptionStatus,
+             showPremiumPlans,
+             restore
     }
     
     // MARK: - Properties
@@ -59,11 +66,13 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     
     private let actions: SettingsViewModelActions
     private let device: UIDevice
-    
+    private var hasActiveSubscription: Bool = false
+
     private let trackingService: TrackingServiceProtocol
     private let preferenceService: PreferenceServiceProtocol
     private let notificationService: NotificationServiceProtocol
     private let quoteService: QuoteServiceProtocol
+    private let purchaseService: PurchaseServiceProtocol
     
     // MARK: - Lifecycle
     
@@ -72,19 +81,21 @@ final class SettingsViewModel: SettingsViewModelProtocol {
          trackingService: TrackingServiceProtocol,
          preferenceService: PreferenceServiceProtocol,
          notificationService: NotificationServiceProtocol,
-         quoteService: QuoteServiceProtocol) {
+         quoteService: QuoteServiceProtocol,
+         purchaseService: PurchaseServiceProtocol) {
         self.actions = actions
         self.device = device
         self.trackingService = trackingService
         self.preferenceService = preferenceService
         self.notificationService = notificationService
         self.quoteService = quoteService
+        self.purchaseService = purchaseService
     }
     
     // MARK: - Methods
     
-    func viewDidLoad() {
-        configureComposition()
+    func viewDidLoad() async {
+        await refreshSubscriptionAndComposition()
     }
     
     func viewDidAppear() {
@@ -181,6 +192,31 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         
         configureComposition()
     }
+    
+    func updateDebug(isPremium: Bool) async {
+        preferenceService.debugSet(isPremium: isPremium)
+        
+        await refreshSubscriptionAndComposition()
+    }
+    
+    func restore() async -> Bool {
+        let hasSucceed = await purchaseService.restore()
+        
+        trackingService.track(event: .restore, eventProperties: [.hasSucceed: hasSucceed,
+                                                                 .origin: TrackingService.PaywallOrigin.settings.rawValue])
+        
+        return hasSucceed
+    }
+    
+    func showPremiumPlans() {
+//        actions.presentPaywall(.default, .settings)
+    }
+    
+    func refreshSubscriptionAndComposition() async {
+        hasActiveSubscription = await purchaseService.hasActiveSubscription()
+        
+        configureComposition(hasActiveSubscription: hasActiveSubscription)
+    }
 }
 
 // MARK: - Composition
@@ -194,7 +230,9 @@ extension SettingsViewModel {
     
     enum SectionType {
         case support,
-             notifications
+             notifications,
+             debug,
+             subscription
     }
     
     enum Cell {
@@ -206,13 +244,44 @@ extension SettingsViewModel {
              stepper(_ for: SettingsStepperCellViewModel)
     }
     
-    private func configureComposition() {
+    private func configureComposition(hasActiveSubscription: Bool = false) {
         var sections = [Section]()
         
+        if let debugSection = configureDebugSection(hasActiveSubscription: hasActiveSubscription) {
+            sections.append(debugSection)
+        }
+        
+        sections.append(configureSubscriptionSection())
         sections.append(configureNotificationSection())
         sections.append(configureSupportSection())
         
         compositionSubject.onNext(Composition(sections: sections))
+    }
+    
+    private func configureDebugSection(hasActiveSubscription: Bool) -> Section? {
+        guard App.env == .debug || App.env == .testFlight else { return nil }
+        
+        let cells: [Cell] = [.toggle(SettingsToggleCellViewModel(id: RowId.debugPremium.rawValue,
+                                                                 title: "Premium",
+                                                                 subtitle: "Only available on Debug or Testflight",
+                                                                 isOn: hasActiveSubscription,
+                                                                 isDisabled: false))]
+        
+        return .section(.debug,
+                        title: "Debug",
+                        cells: cells)
+    }
+    
+    private func configureSubscriptionSection() -> Section {
+        .section(.subscription,
+                 title: R.string.localizable.subscription(),
+                 cells: [.value(SettingsValueCellViewModel(id: RowId.subscriptionStatus.rawValue,
+                                                           title: R.string.localizable.current_plan(),
+                                                           value: hasActiveSubscription ? R.string.localizable.premium() : R.string.localizable.free())),
+                         .button(SettingsButtonCellViewModel(id: RowId.showPremiumPlans.rawValue,
+                                                             title: R.string.localizable.show_premium_plans())),
+                         .button(SettingsButtonCellViewModel(id: RowId.restore.rawValue,
+                                                             title: R.string.localizable.restore()))])
     }
     
     private func configureNotificationSection() -> Section {
@@ -229,7 +298,7 @@ extension SettingsViewModel {
                                                                subtitle: R.string.localizable.x_times(Int(preferenceService.getNbTimesNotif())),
                                                                value: Double(preferenceService.getNbTimesNotif()),
                                                                min: 1,
-                                                               max: 48,
+                                                               max: 24,
                                                                step: 1,
                                                                isDisabled: false)))
             cells.append(.timePicker(SettingsTimePickerCellViewModel(id: RowId.startAt.rawValue,

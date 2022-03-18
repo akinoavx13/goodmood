@@ -18,6 +18,11 @@
 		5275E80927E1EBD600DBB219 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 5275E80827E1EBD600DBB219 /* Amplitude */; };
 		5275E80C27E1EBF300DBB219 /* Bugsnag in Frameworks */ = {isa = PBXBuildFile; productRef = 5275E80B27E1EBF300DBB219 /* Bugsnag */; };
 		5275E80F27E1EC0800DBB219 /* SwiftRichString in Frameworks */ = {isa = PBXBuildFile; productRef = 5275E80E27E1EC0800DBB219 /* SwiftRichString */; };
+		52C05C5327E50D660081D5C1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C05C5227E50D660081D5C1 /* StoreKit.framework */; };
+		52C05C5627E50D970081D5C1 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C5527E50D970081D5C1 /* PurchaseService.swift */; };
+		52C05C5927E50EF00081D5C1 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 52C05C5827E50EF00081D5C1 /* PKHUD */; };
+		52C05C5B27E50FD50081D5C1 /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = 52C05C5A27E50FD50081D5C1 /* Purchases */; };
+		52C05C5D27E510380081D5C1 /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C05C5C27E510380081D5C1 /* Sequence+Extensions.swift */; };
 		52F6446927E1EA2F00583201 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F643D827E1EA2F00583201 /* DatabaseService.swift */; };
 		52F6446A27E1EA2F00583201 /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F643DA27E1EA2F00583201 /* QuoteService.swift */; };
 		52F6446B27E1EA2F00583201 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F643DC27E1EA2F00583201 /* NotificationService.swift */; };
@@ -125,6 +130,9 @@
 
 /* Begin PBXFileReference section */
 		5255605727E1EF5700BC6E6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52C05C5227E50D660081D5C1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		52C05C5527E50D970081D5C1 /* PurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
+		52C05C5C27E510380081D5C1 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
 		52F643BF27E1E9A000583201 /* GoodMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F643D827E1EA2F00583201 /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		52F643DA27E1EA2F00583201 /* QuoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
@@ -244,12 +252,15 @@
 				5275E80127E1EB8000DBB219 /* Realm in Frameworks */,
 				5275E80C27E1EBF300DBB219 /* Bugsnag in Frameworks */,
 				5275E7FE27E1EB3F00DBB219 /* Rswift in Frameworks */,
+				52C05C5B27E50FD50081D5C1 /* Purchases in Frameworks */,
 				5275E80327E1EB8000DBB219 /* RealmSwift in Frameworks */,
 				5275E7F827E1EB0800DBB219 /* RxSwift in Frameworks */,
 				5275E7F627E1EB0800DBB219 /* RxRelay in Frameworks */,
 				5275E7F427E1EB0800DBB219 /* RxCocoa in Frameworks */,
 				5275E80627E1EBB800DBB219 /* KeychainSwift in Frameworks */,
+				52C05C5327E50D660081D5C1 /* StoreKit.framework in Frameworks */,
 				5275E7FB27E1EB2100DBB219 /* Reusable in Frameworks */,
+				52C05C5927E50EF00081D5C1 /* PKHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +270,18 @@
 		5255605627E1EF5700BC6E6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52C05C5227E50D660081D5C1 /* StoreKit.framework */,
 				5255605727E1EF5700BC6E6B /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52C05C5427E50D870081D5C1 /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				52C05C5527E50D970081D5C1 /* PurchaseService.swift */,
+			);
+			path = Purchase;
 			sourceTree = "<group>";
 		};
 		52F643B627E1E9A000583201 = {
@@ -298,6 +318,7 @@
 		52F643D627E1EA2F00583201 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				52C05C5427E50D870081D5C1 /* Purchase */,
 				52F643D727E1EA2F00583201 /* Database */,
 				52F643D927E1EA2F00583201 /* Quote */,
 				52F643DB27E1EA2F00583201 /* Notification */,
@@ -656,9 +677,9 @@
 		52F6445927E1EA2F00583201 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				52F6445A27E1EA2F00583201 /* AppFlowCoordinator.swift */,
-				52F6445B27E1EA2F00583201 /* AppDIContainer.swift */,
 				52F6445C27E1EA2F00583201 /* AppDelegate.swift */,
+				52F6445B27E1EA2F00583201 /* AppDIContainer.swift */,
+				52F6445A27E1EA2F00583201 /* AppFlowCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -666,11 +687,11 @@
 		52F6445D27E1EA2F00583201 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				52F6446227E1EA2F00583201 /* Extensions */,
 				52F6445E27E1EA2F00583201 /* Constants.swift */,
 				52F6445F27E1EA2F00583201 /* SnapCenterLayout.swift */,
 				52F6446027E1EA2F00583201 /* UserIdentifierManager.swift */,
 				52F6446127E1EA2F00583201 /* Locale+Language.swift */,
-				52F6446227E1EA2F00583201 /* Extensions */,
 				52F6446427E1EA2F00583201 /* DD.swift */,
 				52F6446527E1EA2F00583201 /* CompositionSection.swift */,
 				52F6446627E1EA2F00583201 /* Date+GetComponent.swift */,
@@ -684,6 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				52F6446327E1EA2F00583201 /* CALayer+SmoothCorner.swift */,
+				52C05C5C27E510380081D5C1 /* Sequence+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -718,6 +740,8 @@
 				5275E80827E1EBD600DBB219 /* Amplitude */,
 				5275E80B27E1EBF300DBB219 /* Bugsnag */,
 				5275E80E27E1EC0800DBB219 /* SwiftRichString */,
+				52C05C5827E50EF00081D5C1 /* PKHUD */,
+				52C05C5A27E50FD50081D5C1 /* Purchases */,
 			);
 			productName = GoodMood;
 			productReference = 52F643BF27E1E9A000583201 /* GoodMood.app */;
@@ -757,6 +781,8 @@
 				5275E80727E1EBD600DBB219 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */,
 				5275E80A27E1EBF200DBB219 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 				5275E80D27E1EC0800DBB219 /* XCRemoteSwiftPackageReference "SwiftRichString" */,
+				52C05C4F27E50CDB0081D5C1 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				52C05C5727E50EF00081D5C1 /* XCRemoteSwiftPackageReference "PKHUD" */,
 			);
 			productRefGroup = 52F643C027E1E9A000583201 /* Products */;
 			projectDirPath = "";
@@ -880,6 +906,7 @@
 				52F6449327E1EA2F00583201 /* SettingsViewController.swift in Sources */,
 				52F6449527E1EA2F00583201 /* CategoryDIContainer.swift in Sources */,
 				52F644A527E1EA2F00583201 /* NotificationViewModel.swift in Sources */,
+				52C05C5D27E510380081D5C1 /* Sequence+Extensions.swift in Sources */,
 				52F6447D27E1EA2F00583201 /* SettingsButtonCellViewModel.swift in Sources */,
 				52F644CA27E1EA2F00583201 /* Locale+Language.swift in Sources */,
 				52F644CE27E1EA2F00583201 /* Date+GetComponent.swift in Sources */,
@@ -910,6 +937,7 @@
 				52F6447927E1EA2F00583201 /* SettingsToggleCell.swift in Sources */,
 				52F6446D27E1EA2F00583201 /* TrackingService.swift in Sources */,
 				52F6446F27E1EA2F00583201 /* Quote.swift in Sources */,
+				52C05C5627E50D970081D5C1 /* PurchaseService.swift in Sources */,
 				52F6447A27E1EA2F00583201 /* SettingsToggleCellViewModel.swift in Sources */,
 				52F644C427E1EA2F00583201 /* AppFlowCoordinator.swift in Sources */,
 				52F6449427E1EA2F00583201 /* CategoryViewModel.swift in Sources */,
@@ -1223,6 +1251,22 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		52C05C4F27E50CDB0081D5C1 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.12.6;
+			};
+		};
+		52C05C5727E50EF00081D5C1 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1280,6 +1324,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5275E80D27E1EC0800DBB219 /* XCRemoteSwiftPackageReference "SwiftRichString" */;
 			productName = SwiftRichString;
+		};
+		52C05C5827E50EF00081D5C1 /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52C05C5727E50EF00081D5C1 /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
+		52C05C5A27E50FD50081D5C1 /* Purchases */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52C05C4F27E50CDB0081D5C1 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = Purchases;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -22,7 +22,9 @@ final class TrackingService: TrackingServiceProtocol {
              appLaunch,
              rateApp,
              declineRateApp,
-             showRatePopup
+             showRatePopup,
+             purchasePromotedIAP,
+             restore
         
         case showWelcome,
              showNotification,
@@ -51,18 +53,20 @@ final class TrackingService: TrackingServiceProtocol {
         case name,
              hasSucceed,
              category,
-             templateId
+             templateId,
+             origin
     }
 
     enum PaywallOrigin: String, RawRepresentable {
-        case todo
+        case settings
     }
 
     enum UserProperty: String, RawRepresentable {
         case nbTimesShowLikeApp,
              nbNotifPerDay,
              hasNotificationEnabled,
-             nbQuotesShown
+             nbQuotesShown,
+             hasActiveSubscription
     }
     
     // MARK: - Properties

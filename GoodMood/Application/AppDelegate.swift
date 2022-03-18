@@ -7,6 +7,7 @@
 
 import UIKit
 import Bugsnag
+import Purchases
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,6 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Bugsnag.setUser(UserIdentifierManager.shared.userId,
                             withEmail: nil,
                             andName: nil)
+        }
+        
+        Purchases.configure(withAPIKey: Constants.revenueCatApiKey,
+                            appUserID: UserIdentifierManager.shared.userId)
+        
+        if App.env == .debug {
+            Purchases.logLevel = .error
         }
         
         window = UIWindow(frame: UIScreen.main.bounds)

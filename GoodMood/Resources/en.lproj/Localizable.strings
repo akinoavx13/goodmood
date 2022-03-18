@@ -40,3 +40,9 @@
 "motivations" = "Motivations";
 "next" = "Next";
 "templates" = "Templates";
+"current_plan" = "Current plan:";
+"premium" = "Premium";
+"free" = "Free";
+"show_premium_plans" = "Show premium plans";
+"restore" = "Restore";
+"subscription" = "Subscription";
