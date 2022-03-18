@@ -51,7 +51,7 @@
 "auto_renewed_subscription" = "Cet abonnement se renouvellera de façon automatique jusqu'à résiliation de votre part. Veuillez consulter notre politique de confidentialité et nos conditions d'utilisation si dessous.";
 "terms_of_use" = "Conditions d'utilisation";
 "privacy_policy" = "Politique de confidentialité";
-"renewed_subscription_x" = "3 jours graduit, puis abonnement <b>reconduit pour %@.</b> Annulable à tout moment.";
+"renewed_subscription_x" = "<b>3 jours gratuits</b>, puis abonnement <b>reconduit pour %@.</b> Annulable à tout moment.";
 "renewed_subscription_default_price" = "19,99 € / an";
 "amout_x_charged_every_x" = "%@ / %@";
 "days" = "jours";
