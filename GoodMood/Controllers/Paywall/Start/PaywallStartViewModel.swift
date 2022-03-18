@@ -146,6 +146,8 @@ final class PaywallStartViewModel: PaywallStartViewModelProtocol {
                                                                  locale: package.product.priceLocale)
         else { return dismiss() }
         
+        // TODO: Handle intro price
+        
         price.accept(R.string.localizable.renewed_subscription_x(R.string.localizable.amout_x_charged_every_x(localizedPriceString, subscriptionPeriod.periodTitle)))
     }
 }

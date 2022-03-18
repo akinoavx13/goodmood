@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sM0-eb-dCq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sM0-eb-dCq">
                                 <rect key="frame" x="0.0" y="-8" width="375" height="446.66666666666669"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TW0-bI-0td" customClass="GradientView" customModule="GoodMood" customModuleProvider="target">
@@ -122,14 +122,14 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfd-fa-GKi">
                                                                 <rect key="frame" x="0.0" y="16" width="319" height="56"/>
-                                                                <color key="backgroundColor" name="AccentColor"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="56" id="Xqb-It-TYz"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Button">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="ctaButtonDidTap:" destination="TGU-UT-WH4" eventType="touchUpInside" id="TfD-Qo-2by"/>
@@ -137,12 +137,12 @@
                                                             </button>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="acT-Jx-Qev">
                                                                 <rect key="frame" x="283.33333333333331" y="36.999999999999972" width="19.666666666666686" height="14.666666666666664"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <imageReference key="image" image="arrow.right" catalog="system" symbolScale="default"/>
                                                             </imageView>
                                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-zQ-eWM">
                                                                 <rect key="frame" x="149.66666666666666" y="33.999999999999972" width="20" height="20"/>
-                                                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </activityIndicatorView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -243,7 +243,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M2z-oN-gHG"/>
-                        <color key="backgroundColor" name="paywall-background"/>
+                        <color key="backgroundColor" name="dark"/>
                         <constraints>
                             <constraint firstItem="sM0-eb-dCq" firstAttribute="top" secondItem="aps-kA-6wE" secondAttribute="top" constant="-8" id="0Xw-AK-mlk"/>
                             <constraint firstItem="MT5-XY-23H" firstAttribute="trailing" secondItem="aps-kA-6wE" secondAttribute="trailing" id="25M-aQ-CIF"/>
@@ -283,13 +283,10 @@
     </scenes>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
-        <image name="background1.jpg" width="3950" height="5925"/>
+        <image name="background2.jpg" width="2848" height="4272"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
-        <namedColor name="AccentColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </namedColor>
-        <namedColor name="paywall-background">
-            <color red="0.062745098039215685" green="0.078431372549019607" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="dark">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

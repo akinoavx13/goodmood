@@ -75,7 +75,7 @@ final class PaywallStartViewController: UIViewController {
     
     // MARK: - Properties
         
-    override var preferredStatusBarStyle: UIStatusBarStyle { .darkContent }
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     override var shouldAutorotate: Bool { false }
     
     weak var delegate: PaywallViewControllerDelegate?

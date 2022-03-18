@@ -115,8 +115,12 @@ extension SettingsFlowCoordinator {
     
     private func presentPaywall(type: PaywallFlowCoordinator.PaywallType,
                                 origin: TrackingService.PaywallOrigin) {
-        paywallFlowCoordinator()
-            .start(type: type,
-                   origin: origin)
+        viewController.dismiss(animated: true) { [weak self] in
+            guard let self = self else { return }
+            
+            self.paywallFlowCoordinator()
+                .start(type: type,
+                       origin: origin)
+        }
     }
 }
